@@ -27,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F7BB86252AD0C80A004BD57D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F7BFA7F32ACE090C00B729AD /* Krates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Krates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7BFA7F62ACE090C00B729AD /* KratesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KratesApp.swift; sourceTree = "<group>"; };
 		F7BFA7FA2ACE090E00B729AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -62,6 +63,7 @@
 		F7BFA7EA2ACE090C00B729AD = {
 			isa = PBXGroup;
 			children = (
+				F7BB86252AD0C80A004BD57D /* README.md */,
 				F7BFA7F52ACE090C00B729AD /* Krates */,
 				F7BFA7F42ACE090C00B729AD /* Products */,
 			);
