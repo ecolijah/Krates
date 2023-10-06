@@ -1,0 +1,492 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F7BFA7F72ACE090C00B729AD /* KratesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFA7F62ACE090C00B729AD /* KratesApp.swift */; };
+		F7BFA7FB2ACE090E00B729AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7BFA7FA2ACE090E00B729AD /* Assets.xcassets */; };
+		F7BFA7FF2ACE090E00B729AD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7BFA7FE2ACE090E00B729AD /* Preview Assets.xcassets */; };
+		F7BFA80B2ACE09F700B729AD /* HomeAlbumsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFA80A2ACE09F700B729AD /* HomeAlbumsView.swift */; };
+		F7BFA80D2ACE0A0500B729AD /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFA80C2ACE0A0500B729AD /* SearchView.swift */; };
+		F7BFA80F2ACE0A0F00B729AD /* SocialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFA80E2ACE0A0F00B729AD /* SocialView.swift */; };
+		F7BFA8112ACE0A1900B729AD /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFA8102ACE0A1900B729AD /* ProfileView.swift */; };
+		F7BFA8192ACE0A9200B729AD /* TabControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFA8182ACE0A9200B729AD /* TabControllerView.swift */; };
+		F7BFA81B2ACFB26100B729AD /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFA81A2ACFB26100B729AD /* Colors.swift */; };
+		F7BFA81D2ACFBE4400B729AD /* MenuPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFA81C2ACFBE4400B729AD /* MenuPicker.swift */; };
+		F7BFA81F2ACFE69A00B729AD /* AlbumObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFA81E2ACFE69A00B729AD /* AlbumObjectView.swift */; };
+		F7BFA8212ACFE86900B729AD /* AlbumObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFA8202ACFE86900B729AD /* AlbumObject.swift */; };
+		F7BFA8232ACFE92700B729AD /* KrateObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFA8222ACFE92700B729AD /* KrateObject.swift */; };
+		F7BFA8262ACFEB9300B729AD /* ReviewObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFA8252ACFEB9300B729AD /* ReviewObject.swift */; };
+		F7BFA8282ACFECAC00B729AD /* UserObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFA8272ACFECAC00B729AD /* UserObject.swift */; };
+		F7BFA82A2AD0054400B729AD /* HomeKratesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFA8292AD0054400B729AD /* HomeKratesView.swift */; };
+		F7BFA82C2AD0056000B729AD /* HomeReviewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFA82B2AD0056000B729AD /* HomeReviewsView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F7BFA7F32ACE090C00B729AD /* Krates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Krates.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7BFA7F62ACE090C00B729AD /* KratesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KratesApp.swift; sourceTree = "<group>"; };
+		F7BFA7FA2ACE090E00B729AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F7BFA7FC2ACE090E00B729AD /* Krates.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Krates.entitlements; sourceTree = "<group>"; };
+		F7BFA7FE2ACE090E00B729AD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F7BFA80A2ACE09F700B729AD /* HomeAlbumsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAlbumsView.swift; sourceTree = "<group>"; };
+		F7BFA80C2ACE0A0500B729AD /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		F7BFA80E2ACE0A0F00B729AD /* SocialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialView.swift; sourceTree = "<group>"; };
+		F7BFA8102ACE0A1900B729AD /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		F7BFA8182ACE0A9200B729AD /* TabControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabControllerView.swift; sourceTree = "<group>"; };
+		F7BFA81A2ACFB26100B729AD /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		F7BFA81C2ACFBE4400B729AD /* MenuPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPicker.swift; sourceTree = "<group>"; };
+		F7BFA81E2ACFE69A00B729AD /* AlbumObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumObjectView.swift; sourceTree = "<group>"; };
+		F7BFA8202ACFE86900B729AD /* AlbumObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumObject.swift; sourceTree = "<group>"; };
+		F7BFA8222ACFE92700B729AD /* KrateObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KrateObject.swift; sourceTree = "<group>"; };
+		F7BFA8252ACFEB9300B729AD /* ReviewObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewObject.swift; sourceTree = "<group>"; };
+		F7BFA8272ACFECAC00B729AD /* UserObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserObject.swift; sourceTree = "<group>"; };
+		F7BFA8292AD0054400B729AD /* HomeKratesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeKratesView.swift; sourceTree = "<group>"; };
+		F7BFA82B2AD0056000B729AD /* HomeReviewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeReviewsView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F7BFA7F02ACE090C00B729AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F7BFA7EA2ACE090C00B729AD = {
+			isa = PBXGroup;
+			children = (
+				F7BFA7F52ACE090C00B729AD /* Krates */,
+				F7BFA7F42ACE090C00B729AD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F7BFA7F42ACE090C00B729AD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F7BFA7F32ACE090C00B729AD /* Krates.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F7BFA7F52ACE090C00B729AD /* Krates */ = {
+			isa = PBXGroup;
+			children = (
+				F7BFA7F62ACE090C00B729AD /* KratesApp.swift */,
+				F7BFA8182ACE0A9200B729AD /* TabControllerView.swift */,
+				F7BFA8052ACE098B00B729AD /* Core */,
+				F7BFA7FA2ACE090E00B729AD /* Assets.xcassets */,
+				F7BFA7FC2ACE090E00B729AD /* Krates.entitlements */,
+				F7BFA7FD2ACE090E00B729AD /* Preview Content */,
+			);
+			path = Krates;
+			sourceTree = "<group>";
+		};
+		F7BFA7FD2ACE090E00B729AD /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F7BFA7FE2ACE090E00B729AD /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F7BFA8052ACE098B00B729AD /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				F7BFA8122ACE0A2E00B729AD /* Components */,
+				F7BFA8092ACE09B300B729AD /* Profile */,
+				F7BFA8082ACE09B000B729AD /* Social */,
+				F7BFA8072ACE09AC00B729AD /* Search */,
+				F7BFA8062ACE09A800B729AD /* Home */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		F7BFA8062ACE09A800B729AD /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F7BFA80A2ACE09F700B729AD /* HomeAlbumsView.swift */,
+				F7BFA8292AD0054400B729AD /* HomeKratesView.swift */,
+				F7BFA82B2AD0056000B729AD /* HomeReviewsView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F7BFA8072ACE09AC00B729AD /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				F7BFA80C2ACE0A0500B729AD /* SearchView.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		F7BFA8082ACE09B000B729AD /* Social */ = {
+			isa = PBXGroup;
+			children = (
+				F7BFA80E2ACE0A0F00B729AD /* SocialView.swift */,
+			);
+			path = Social;
+			sourceTree = "<group>";
+		};
+		F7BFA8092ACE09B300B729AD /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				F7BFA8102ACE0A1900B729AD /* ProfileView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		F7BFA8122ACE0A2E00B729AD /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F7BFA8242ACFEB6A00B729AD /* Reviews */,
+				F7BFA8152ACE0A6800B729AD /* Artists */,
+				F7BFA8142ACE0A5F00B729AD /* Lists */,
+				F7BFA8132ACE0A5000B729AD /* Albums */,
+				F7BFA81A2ACFB26100B729AD /* Colors.swift */,
+				F7BFA81C2ACFBE4400B729AD /* MenuPicker.swift */,
+				F7BFA8272ACFECAC00B729AD /* UserObject.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F7BFA8132ACE0A5000B729AD /* Albums */ = {
+			isa = PBXGroup;
+			children = (
+				F7BFA81E2ACFE69A00B729AD /* AlbumObjectView.swift */,
+				F7BFA8202ACFE86900B729AD /* AlbumObject.swift */,
+			);
+			path = Albums;
+			sourceTree = "<group>";
+		};
+		F7BFA8142ACE0A5F00B729AD /* Lists */ = {
+			isa = PBXGroup;
+			children = (
+				F7BFA8222ACFE92700B729AD /* KrateObject.swift */,
+			);
+			path = Lists;
+			sourceTree = "<group>";
+		};
+		F7BFA8152ACE0A6800B729AD /* Artists */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Artists;
+			sourceTree = "<group>";
+		};
+		F7BFA8242ACFEB6A00B729AD /* Reviews */ = {
+			isa = PBXGroup;
+			children = (
+				F7BFA8252ACFEB9300B729AD /* ReviewObject.swift */,
+			);
+			path = Reviews;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F7BFA7F22ACE090C00B729AD /* Krates */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F7BFA8022ACE090E00B729AD /* Build configuration list for PBXNativeTarget "Krates" */;
+			buildPhases = (
+				F7BFA7EF2ACE090C00B729AD /* Sources */,
+				F7BFA7F02ACE090C00B729AD /* Frameworks */,
+				F7BFA7F12ACE090C00B729AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Krates;
+			productName = Krates;
+			productReference = F7BFA7F32ACE090C00B729AD /* Krates.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F7BFA7EB2ACE090C00B729AD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					F7BFA7F22ACE090C00B729AD = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = F7BFA7EE2ACE090C00B729AD /* Build configuration list for PBXProject "Krates" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F7BFA7EA2ACE090C00B729AD;
+			productRefGroup = F7BFA7F42ACE090C00B729AD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F7BFA7F22ACE090C00B729AD /* Krates */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F7BFA7F12ACE090C00B729AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7BFA7FF2ACE090E00B729AD /* Preview Assets.xcassets in Resources */,
+				F7BFA7FB2ACE090E00B729AD /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F7BFA7EF2ACE090C00B729AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7BFA8192ACE0A9200B729AD /* TabControllerView.swift in Sources */,
+				F7BFA81B2ACFB26100B729AD /* Colors.swift in Sources */,
+				F7BFA80D2ACE0A0500B729AD /* SearchView.swift in Sources */,
+				F7BFA8282ACFECAC00B729AD /* UserObject.swift in Sources */,
+				F7BFA80F2ACE0A0F00B729AD /* SocialView.swift in Sources */,
+				F7BFA80B2ACE09F700B729AD /* HomeAlbumsView.swift in Sources */,
+				F7BFA82C2AD0056000B729AD /* HomeReviewsView.swift in Sources */,
+				F7BFA8112ACE0A1900B729AD /* ProfileView.swift in Sources */,
+				F7BFA82A2AD0054400B729AD /* HomeKratesView.swift in Sources */,
+				F7BFA81D2ACFBE4400B729AD /* MenuPicker.swift in Sources */,
+				F7BFA8232ACFE92700B729AD /* KrateObject.swift in Sources */,
+				F7BFA7F72ACE090C00B729AD /* KratesApp.swift in Sources */,
+				F7BFA8212ACFE86900B729AD /* AlbumObject.swift in Sources */,
+				F7BFA8262ACFEB9300B729AD /* ReviewObject.swift in Sources */,
+				F7BFA81F2ACFE69A00B729AD /* AlbumObjectView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F7BFA8002ACE090E00B729AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F7BFA8012ACE090E00B729AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		F7BFA8032ACE090E00B729AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Krates/Krates.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Krates/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.elijahlopez.Krates;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F7BFA8042ACE090E00B729AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Krates/Krates.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Krates/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.elijahlopez.Krates;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F7BFA7EE2ACE090C00B729AD /* Build configuration list for PBXProject "Krates" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7BFA8002ACE090E00B729AD /* Debug */,
+				F7BFA8012ACE090E00B729AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F7BFA8022ACE090E00B729AD /* Build configuration list for PBXNativeTarget "Krates" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7BFA8032ACE090E00B729AD /* Debug */,
+				F7BFA8042ACE090E00B729AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F7BFA7EB2ACE090C00B729AD /* Project object */;
+}
