@@ -26,7 +26,7 @@ struct MenuPicker: View {
                     .cornerRadius(20)
                     .shadow(
                         color: isExpanded ? Color.black.opacity(0.4) : Color.black.opacity(0.4),
-                        radius: isExpanded ? 3 : 1,
+                        radius: isExpanded ? 3 : 2,
                         x: isExpanded ? 10 : 0,
                         y: isExpanded ? 3 : 2
                     )
