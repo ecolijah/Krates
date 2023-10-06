@@ -50,7 +50,7 @@ struct TabControllerView: View {
                 }
                 .tabItem {
                     Image(systemName: "house")
-                    Text("Profile")
+                    Text("Profile ")
                 }
                 
 
