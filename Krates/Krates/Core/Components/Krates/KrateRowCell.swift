@@ -21,16 +21,17 @@ struct KrateRowCell: View {
                 Spacer()
                 
                 Text("dreadpirate")
-                    .padding(.horizontal, 8)
+                    .padding(.horizontal, -12)
                     .foregroundColor(.accentLightGray)
                     .bold()
                 
                 Circle()
                     .frame(width: 40, height: 40)
                     .foregroundColor(.blue)
+                    .padding(.horizontal, 16)
             }
-            ScrollView(.horizontal, showsIndicators: true) {
-                HStack(spacing: 0) {
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 4) {
                     ForEach(0..<8) { index in
                         Image("dummy")
                             .resizable()
@@ -38,7 +39,7 @@ struct KrateRowCell: View {
                     }
                 }
             }
-            .padding(.horizontal, 16)
+            .padding(.leading, 16)
             .edgesIgnoringSafeArea(.all)
             
 

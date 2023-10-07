@@ -15,7 +15,7 @@ struct HomeKratesView: View {
             
             ScrollView() {
                 LazyVStack(spacing: 0) {
-                    ForEach(0..<5) { index in
+                    ForEach(0..<5) { _ in
                         KrateRowCell()
                     }
                 }

@@ -32,7 +32,7 @@ extension Color {
     static let brightOrange = Color(hex: "FD7014")
     static let background = Color(hex: "111111")
     static let whiteFont = Color(hex: "FFFFFF")
-
+    static let divider = Color(hex: "353535")
 
     
 
