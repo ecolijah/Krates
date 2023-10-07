@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F7BB86282AD13A9B004BD57D /* KrateRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB86272AD13A9B004BD57D /* KrateRowCell.swift */; };
 		F7BFA7F72ACE090C00B729AD /* KratesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFA7F62ACE090C00B729AD /* KratesApp.swift */; };
 		F7BFA7FB2ACE090E00B729AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7BFA7FA2ACE090E00B729AD /* Assets.xcassets */; };
 		F7BFA7FF2ACE090E00B729AD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7BFA7FE2ACE090E00B729AD /* Preview Assets.xcassets */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F7BB86272AD13A9B004BD57D /* KrateRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KrateRowCell.swift; sourceTree = "<group>"; };
 		F7BFA7F32ACE090C00B729AD /* Krates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Krates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7BFA7F62ACE090C00B729AD /* KratesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KratesApp.swift; sourceTree = "<group>"; };
 		F7BFA7FA2ACE090E00B729AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -147,7 +149,7 @@
 			children = (
 				F7BFA8242ACFEB6A00B729AD /* Reviews */,
 				F7BFA8152ACE0A6800B729AD /* Artists */,
-				F7BFA8142ACE0A5F00B729AD /* Lists */,
+				F7BFA8142ACE0A5F00B729AD /* Krates */,
 				F7BFA8132ACE0A5000B729AD /* Albums */,
 				F7BFA81A2ACFB26100B729AD /* Colors.swift */,
 				F7BFA81C2ACFBE4400B729AD /* MenuPicker.swift */,
@@ -165,12 +167,13 @@
 			path = Albums;
 			sourceTree = "<group>";
 		};
-		F7BFA8142ACE0A5F00B729AD /* Lists */ = {
+		F7BFA8142ACE0A5F00B729AD /* Krates */ = {
 			isa = PBXGroup;
 			children = (
 				F7BFA8222ACFE92700B729AD /* KrateObject.swift */,
+				F7BB86272AD13A9B004BD57D /* KrateRowCell.swift */,
 			);
-			path = Lists;
+			path = Krates;
 			sourceTree = "<group>";
 		};
 		F7BFA8152ACE0A6800B729AD /* Artists */ = {
@@ -270,6 +273,7 @@
 				F7BFA81D2ACFBE4400B729AD /* MenuPicker.swift in Sources */,
 				F7BFA8232ACFE92700B729AD /* KrateObject.swift in Sources */,
 				F7BFA7F72ACE090C00B729AD /* KratesApp.swift in Sources */,
+				F7BB86282AD13A9B004BD57D /* KrateRowCell.swift in Sources */,
 				F7BFA8212ACFE86900B729AD /* AlbumObject.swift in Sources */,
 				F7BFA8262ACFEB9300B729AD /* ReviewObject.swift in Sources */,
 				F7BFA81F2ACFE69A00B729AD /* AlbumObjectView.swift in Sources */,

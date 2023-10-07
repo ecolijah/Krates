@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeAlbumsView: View {
+
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             
