@@ -9,64 +9,86 @@ import SwiftUI
 
 struct SocialView: View {
     @State private var selectedIndex = 0
-    let buttons: [String] = ["Friends" , "You", "Incoming"]
-    
+    let buttons: [String] = ["Friends", "You", "Incoming"]
+
     var body: some View {
-        
         VStack {
+            
+            // Header View
             HStack {
+                
+                Rectangle()
+                    .frame(width: 30, height: 30)
+                    .foregroundColor(Color.background)
+                
                 Spacer()
-                Spacer()
+                
                 Text("Social")
                     .font(.title)
-                    .foregroundColor(.whiteFont)
+                    .foregroundColor(.whiteFont)  // Assuming a custom color
                     .bold()
-                    .padding()
+                    .shadow(color: Color.black.opacity(0.8), radius: 20, x: 10, y: 10)
+                
                 Spacer()
+                
+                //filter settings
                 Button(action: {
-                    //filterbutton?
+                    // Filter button action
                 }) {
                     Image("icons8-filter-50")
                         .resizable()
-                        .frame(width: 40, height: 40)
-                        .padding()
+                        .frame(width: 30, height: 30)
                 }
                 
-                
             }
-            
+            .padding(.horizontal)
+
+            // Notifications Menu
             HStack(spacing: 16) {
-                ForEach(0..<3){ index in
+                
+                Spacer()
+                
+                ForEach(0..<3) { index in
+                    
+                    Spacer()
+                    
                     Button(action: {
-                        //something
                         selectedIndex = index
                     }) {
                         Text(buttons[index])
-                            .frame(width: 100)
-                            .font(.title3)
-                            .foregroundColor(selectedIndex == index ? Color.brightOrange : Color.accentLightGray)                            .bold()
+                            .font(.system(size: 12))
+                            .foregroundColor(selectedIndex == index ? Color.brightOrange : Color.accentLightGray)
+                            .fontWeight(.heavy)
                     }
-                    if index < 2 {
+                    
+                    Spacer()
+                    
+                    // Add a divider unless it's the last button
+                    if index < buttons.count - 1 {
                         Divider()
-                            .background(Color.accentLightGray)
+                            .background(Color.accentLightGray)  // Assuming a custom color
                             .frame(height: 30)
                             .padding(.vertical, 4)
                     }
                     
                 }
                 
+                Spacer()
             }
-            .padding(.horizontal, 6)
-            .background(Color.accentDarkGray)
+            .background(Color.accentDarkGray)  // Assuming a custom color
             .cornerRadius(10)
+            .padding(.horizontal, 4)
 
+            //for spacing purposes
+            Rectangle()
+                .frame(height: 2)
+                .foregroundColor(Color.background)
+
+            // Notifications View
             NotificationsView(notifIndex: $selectedIndex)
-
-            
         }
-        .background(Color.background)
+        .background(Color.background)  // Assuming a custom color
     }
-    
 }
 
 struct NotificationsView: View {
@@ -78,13 +100,13 @@ struct NotificationsView: View {
 //            .foregroundColor(.whiteFont)
         ScrollView {
             VStack(spacing: 0) {
-                ForEach(0..<20) { index in
+                ForEach(0..<4) { index in
                     HorizontalNotificationsCell()
                     
                 }
             }
         }
-        .background(Color.accentDarkGray)
+        .background(Color.background)
     }
 }
 
@@ -93,26 +115,31 @@ struct HorizontalNotificationsCell: View {
         VStack(spacing: 0) {
             HStack {
                 Circle()
-                    .frame(width: 30, height: 34)
+                    .frame(width: 30, height: 30)
                     .foregroundColor(.accentLightGray)
                     .padding(.horizontal, 4)
-                Text("Notifcation message")
+                Text("Opticoccasions liked your list: 'PS2 DnB'")
                     .foregroundColor(.accentLightGray)
+                    .font(.caption)
                 Spacer()
                 Text("2h")
                     .foregroundColor(.accentLightGray)
+                    .font(.caption)
        
             }
             .padding(.horizontal, 12)
             .padding(.vertical, 8)
+            .background(Color.accentDarkGray)
 //            .background(Color.background)
             
             Rectangle()
-                .fill(Color.divider) // Choose your desired color
+                .fill(Color.background) // Choose your desired color
                 .frame(height: 2)
                 .cornerRadius(1)
          
         }
+        .cornerRadius(10)
+        .padding(.horizontal, 4)
         
     }
 }
