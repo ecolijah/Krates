@@ -14,34 +14,45 @@ struct SocialView: View {
     var body: some View {
         VStack {
             
-            // Header View
-            HStack {
-                
-                Rectangle()
-                    .frame(width: 30, height: 30)
-                    .foregroundColor(Color.background)
-                
-                Spacer()
-                
-                Text("Social")
-                    .font(.title)
-                    .foregroundColor(.whiteFont)  // Assuming a custom color
-                    .bold()
-                    .shadow(color: Color.black.opacity(0.8), radius: 20, x: 10, y: 10)
-                
-                Spacer()
-                
-                //filter settings
-                Button(action: {
-                    // Filter button action
-                }) {
-                    Image("icons8-filter-50")
-                        .resizable()
-                        .frame(width: 30, height: 30)
+            VStack {
+                ZStack {
+                    LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.7), Color.background]), startPoint: .top, endPoint: .bottom)
+                        .ignoresSafeArea(.all, edges: .top)
+                    
+                    HStack {
+                        Rectangle()
+                            .frame(width: 30, height: 30)
+                            .foregroundColor(.clear)
+                        Spacer()
+                        
+                        Text("Social")
+                            .font(.title3)
+                            .fontWeight(.heavy)
+                            .foregroundColor(.white) // Modify as per your color scheme
+                            .bold()
+                            .shadow(color: Color.black.opacity(0.8), radius: 20, x: 10, y: 10)
+                        
+                        Spacer()
+                        
+                        // Filter settings
+                        Button(action: {
+                            // Filter button action
+                        }) {
+                            Image("icons8-three-dots-50")
+                                .resizable()
+                                .frame(width: 30, height: 30)
+                                .foregroundColor(.accentLightGray) // Modify as per your color scheme
+                        }
+                    }
+                    .padding(.horizontal)
                 }
-                
+                .frame(height: 50)
+    
             }
-            .padding(.horizontal)
+                
+            
+            // Header View
+            
 
             // Notifications Menu
             HStack(spacing: 16) {
@@ -67,7 +78,7 @@ struct SocialView: View {
                     if index < buttons.count - 1 {
                         Divider()
                             .background(Color.accentLightGray)  // Assuming a custom color
-                            .frame(height: 30)
+                            .frame(height: 25)
                             .padding(.vertical, 4)
                     }
                     

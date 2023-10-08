@@ -10,33 +10,28 @@ import SwiftUI
 struct HomeAlbumsView: View {
 
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            
-            VStack(alignment: .leading) {
-                HStack {
-                    
+        VStack {
+            LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.7), Color.background]), startPoint: .top, endPoint: .bottom)
+                .ignoresSafeArea(.all, edges: .top)
+                .frame(height: 20)
+            ScrollView(.vertical, showsIndicators: false) {
+                
+                VStack(alignment: .leading) {
                     MenuPicker()
                         .padding(.horizontal, 12)
-                    Spacer()
-//                    Image(systemName: "figure.walk.circle.fill")
-//                        .resizable()
-//                        .foregroundColor(Color.brightOrange)
-//                        .padding(16)
-//                        .frame(width: 70, height: 70)
-                    
-                }
- 
-                VStack(spacing: 16) {
-                    ForEach(0..<6) { _ in  // Vertical rows
-                        HorizontalScrollView()
-                            .padding(.horizontal, -16)
+     
+                    VStack(spacing: 16) {
+                        ForEach(0..<6) { _ in  // Vertical rows
+                            HorizontalScrollView()
+                                .padding(.horizontal, -16)
+                        }
                     }
+                    .padding()
                 }
-                .padding()
             }
-
-        }
-        .background(Color.background)
+            .background(Color.background)
+        }.background(Color.background)
+        
     }
 }
 
@@ -76,7 +71,7 @@ struct ScrollViewCell: View {
                     .frame(width: 143, height: 143)
                     .background(Color.blue)
                     .foregroundColor(.white)
-                    .cornerRadius(2)
+                    .cornerRadius(5)
                     .padding(1)
                 Text("Album - Artist")
                     .font(.caption)

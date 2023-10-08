@@ -14,12 +14,18 @@ struct TabControllerView: View {
     let tabBarText = ["Home", "Search", "Social", "Profile"]
     
     var body: some View {
+        
         VStack(spacing: 0) {
             // Content
-            Rectangle()
-                .frame(height: 60)
-                .foregroundColor(Color.background)
+//            VStack {
+//                LinearGradient(gradient: Gradient(colors: [Color.black, Color.background]), startPoint: .top, endPoint: .bottom)
+//                    .ignoresSafeArea(.all, edges: .top)
+//            }.frame(height: 60)
+
+            
+            
             ZStack {
+                
                 HomeAlbumsView().opacity(selectedIndex == 0 ? 1 : 0)
                 SearchView().opacity(selectedIndex == 1 ? 1 : 0)
                 SocialView().opacity(selectedIndex == 2 ? 1 : 0)
@@ -41,9 +47,9 @@ struct TabControllerView: View {
                 }
             }
             .background(Color.accentDarkGray)  // Assuming a custom color
+            .frame(height: 30)
             
         }
-        .edgesIgnoringSafeArea(.all)
     }
 }
 
@@ -63,10 +69,9 @@ struct CustomTabButton: View {
             Text(text)
                 .font(.caption2)
                 .foregroundColor(isSelected ? Color.brightOrange : Color.accentLightGray)
-                .padding(.bottom, 20)
                 .bold()
         }
-        .padding(.vertical, 10)
+        .padding(.vertical, 8)
     }
 }
 
