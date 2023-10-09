@@ -17,8 +17,8 @@ struct MenuPicker: View {
                         }
                     }) {
                         Text(buttonTitles[index])
-                            .bold()
-                            .font(.title2)
+                            .fontWeight(.heavy)
+                            .font(.title3)
                     }
                     .frame(width: 120, height: 40)
                     .background(selectedHomeIndex == index ? Color.accentDarkGray : Color.accentDarkGray)

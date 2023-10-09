@@ -41,10 +41,11 @@ struct HorizontalScrollView: View {
             
             Text("Album Category")
                 .padding(.horizontal, 16)
-                .font(.title)
+                .font(.title2)
                 .padding(.top, 0)
                 .padding(.bottom, -4)
                 .foregroundColor(Color.whiteFont)
+                .fontWeight(.heavy)
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 16) {

@@ -31,6 +31,7 @@ struct ProfileView: View {
                 
             }
             ZStack(alignment: .leading)  {
+                
                 Rectangle()
                     .frame(height: 300)
                     .foregroundColor(.blue)
@@ -74,8 +75,11 @@ struct ProfileView: View {
 
                             }
                             
+                            
                         }
+                        
                     }.background(.red)
+                    
                 }
                 .background(.gray)
                 .frame(height: 300)
