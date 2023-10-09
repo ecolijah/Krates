@@ -12,26 +12,25 @@ struct HomeViewController: View {
     var body: some View {
         VStack(spacing: 0){
             //binding uodates in menu picker
-            ZStack {
+            ZStack { //header
                 
-                LinearGradient(gradient: Gradient(colors: [Color.black.opacity(1), Color.background]), startPoint: .top, endPoint: .bottom)
+                LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.7), Color.background]), startPoint: .top, endPoint: .bottom)
                     .ignoresSafeArea(.all, edges: .top)
-                    .frame(height: 80)
-                    
                 
                 HStack(alignment: .center) {
                     
                     MenuPicker(selectedHomeIndex: $selectedIndex)
                         .padding(.horizontal, 12)
+                        .shadow(radius: 4, x: 0, y: 4)
                     Spacer()
-                        
                 }
-                
+                .padding(.bottom, 10)
                 
             }
             .frame(height: 50)
-            .padding(.vertical, 0)
+            .background(Color.background)
             
+            //menu logic
             if selectedIndex == 0 {
                 HomeAlbumsView()
             } 

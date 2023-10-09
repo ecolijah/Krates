@@ -11,9 +11,7 @@ struct HomeAlbumsView: View {
 
     var body: some View {
         VStack {
-            LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.7), Color.background]), startPoint: .top, endPoint: .bottom)
-                .ignoresSafeArea(.all, edges: .top)
-                .frame(height: 20)
+           
             ScrollView(.vertical, showsIndicators: false) {
                 
                 VStack(alignment: .leading) {
