@@ -17,8 +17,8 @@ struct HomeAlbumsView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 
                 VStack(alignment: .leading) {
-                    MenuPicker()
-                        .padding(.horizontal, 12)
+//                    MenuPicker()
+//                        .padding(.horizontal, 12)
      
                     VStack(spacing: 16) {
                         ForEach(0..<6) { _ in  // Vertical rows

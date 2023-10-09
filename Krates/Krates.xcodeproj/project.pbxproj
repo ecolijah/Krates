@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F7BB86282AD13A9B004BD57D /* KrateRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB86272AD13A9B004BD57D /* KrateRowCell.swift */; };
+		F7BB862C2AD4BA06004BD57D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB862B2AD4BA06004BD57D /* HomeViewController.swift */; };
 		F7BFA7F72ACE090C00B729AD /* KratesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFA7F62ACE090C00B729AD /* KratesApp.swift */; };
 		F7BFA7FB2ACE090E00B729AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7BFA7FA2ACE090E00B729AD /* Assets.xcassets */; };
 		F7BFA7FF2ACE090E00B729AD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7BFA7FE2ACE090E00B729AD /* Preview Assets.xcassets */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		F7BB86272AD13A9B004BD57D /* KrateRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KrateRowCell.swift; sourceTree = "<group>"; };
+		F7BB862B2AD4BA06004BD57D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F7BFA7F32ACE090C00B729AD /* Krates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Krates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7BFA7F62ACE090C00B729AD /* KratesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KratesApp.swift; sourceTree = "<group>"; };
 		F7BFA7FA2ACE090E00B729AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				F7BFA80A2ACE09F700B729AD /* HomeAlbumsView.swift */,
 				F7BFA8292AD0054400B729AD /* HomeKratesView.swift */,
 				F7BFA82B2AD0056000B729AD /* HomeReviewsView.swift */,
+				F7BB862B2AD4BA06004BD57D /* HomeViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				F7BFA8192ACE0A9200B729AD /* TabControllerView.swift in Sources */,
 				F7BFA81B2ACFB26100B729AD /* Colors.swift in Sources */,
 				F7BFA80D2ACE0A0500B729AD /* SearchView.swift in Sources */,
+				F7BB862C2AD4BA06004BD57D /* HomeViewController.swift in Sources */,
 				F7BFA8282ACFECAC00B729AD /* UserObject.swift in Sources */,
 				F7BFA80F2ACE0A0F00B729AD /* SocialView.swift in Sources */,
 				F7BFA80B2ACE09F700B729AD /* HomeAlbumsView.swift in Sources */,

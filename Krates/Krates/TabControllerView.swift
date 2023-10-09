@@ -26,7 +26,7 @@ struct TabControllerView: View {
             
             ZStack {
                 
-                HomeAlbumsView().opacity(selectedIndex == 0 ? 1 : 0)
+                HomeViewController().opacity(selectedIndex == 0 ? 1 : 0)
                 SearchView().opacity(selectedIndex == 1 ? 1 : 0)
                 SocialView().opacity(selectedIndex == 2 ? 1 : 0)
                 ProfileView().opacity(selectedIndex == 3 ? 1 : 0)

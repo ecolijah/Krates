@@ -15,7 +15,7 @@ struct HomeKratesView: View {
                 .ignoresSafeArea(.all, edges: .top)
                 .frame(height: 20)
 
-            MenuPicker()
+//            MenuPicker()
             
             ScrollView() {
                 LazyVStack(spacing: 0) {

@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct MenuPicker: View {
-    @State private var selectedHomeIndex = 0
+    @Binding var selectedHomeIndex: Int
     @State private var isExpanded = false
     
     let buttonTitles = ["Albums", "Krates", "Reviews"]
@@ -35,6 +35,7 @@ struct MenuPicker: View {
                     .offset(x: isExpanded ? CGFloat(index) * 125 : 0)
                 }
             }
+            .background(.clear)
             // Conditionally displaying the related view
 //            if selectedHomeIndex == 0 {
 //                HomeAlbumsView()
@@ -48,6 +49,24 @@ struct MenuPicker: View {
     }
 }
 
-#Preview {
-    MenuPicker()
+
+
+//#Preview {
+//    @State var tmp = 0
+//    MenuPicker(selectedHomeIndex: $tmp)
+//}
+struct MenuPicker_Previews: PreviewProvider {
+    static var previews: some View {
+        MenuPickerWrapper()
+    }
+    
+    struct MenuPickerWrapper: View {
+        @State private var selectedHomeIndex = 0
+        
+        var body: some View {
+            MenuPicker(selectedHomeIndex: $selectedHomeIndex)
+        }
+    }
 }
+
+
