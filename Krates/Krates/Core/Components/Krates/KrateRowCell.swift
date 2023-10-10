@@ -8,20 +8,16 @@ struct KrateRowCell: View {
             HStack(alignment: .center) {
                 NavigationLink(
                     destination: KrateObjectView()
-                        .navigationBarBackButtonHidden(true)
-                        .toolbar {
-                            ToolbarItem(placement: .navigationBarLeading) {
-                                Button("Back") {
-                                    menuShowing.toggle()
-                                }
-                            }
-                        }
+                        .navigationBarBackButtonHidden(false)
                         .onAppear { // This will toggle menuShowing when KrateObjectView appears
+                            menuShowing.toggle()
+                        }
+                        .onDisappear(){
                             menuShowing.toggle()
                         }
                 ) {
                     Text("feeling lost in your 20's")
-                        .foregroundColor(.white)
+                        .foregroundColor(.whiteFont)
                         .font(.title3)
                         .fontWeight(.heavy)
                         .padding(.horizontal, 16)
@@ -32,7 +28,7 @@ struct KrateRowCell: View {
                     HStack {
                         Text("dreadpirate")
                             .padding(.horizontal, -12)
-                            .foregroundColor(.gray) // Replace with your custom color
+                            .foregroundColor(.accentLightGray) // Replace with your custom color
                             .fontWeight(.heavy)
                             .font(.callout)
                             .padding()
@@ -59,7 +55,7 @@ struct KrateRowCell: View {
             
             NavigationLink(destination: KrateObjectView()) {
                 Text("this is a list of “coming of age” type albums but for  those in their mid 20s something not knowing where their lives going. feeling lost, no hope that  things will change, feeling so so many things.")
-                    .foregroundColor(.gray) // Replace with your custom color
+                    .foregroundColor(.accentLightGray) // Replace with your custom color
                     .padding(.vertical, 8)
                     .padding(.horizontal, 16)
                     .font(.caption)
@@ -69,12 +65,12 @@ struct KrateRowCell: View {
             
             Rectangle()
                 .frame(height: 2)
-                .foregroundColor(.gray) // Replace with your custom color
+                .foregroundColor(.divider) // Replace with your custom color
                 .padding(.horizontal, 16)
                 .cornerRadius(2)
         }
         .padding(.vertical, 8)
-        .background(Color.black) // Replace with your custom color
+        .background(Color.background) // Replace with your custom color
         .edgesIgnoringSafeArea(.all)
     }
 }

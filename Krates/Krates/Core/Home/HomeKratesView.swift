@@ -28,6 +28,6 @@ struct HomeKratesView: View {
     }
 }
 
-//#Preview {
-//    HomeKratesView()
-//}
+#Preview {
+    HomeKratesView(menuShowing: .constant(false))
+}
