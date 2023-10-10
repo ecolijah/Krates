@@ -14,6 +14,9 @@ struct ProfileView: View {
             ScrollView {
                 VStack(spacing: 0) {
                     ProfileInfo()
+                    Rectangle()
+                        .foregroundColor(Color.background)
+                        .frame(height: 800)
                 }
             }
             .ignoresSafeArea(.all)

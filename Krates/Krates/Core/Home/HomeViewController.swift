@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeViewController: View {
     @State private var selectedIndex = 0
+    @State private var menuShowing = true
     var body: some View {
         VStack(spacing: 0){
             //binding uodates in menu picker
@@ -18,10 +19,12 @@ struct HomeViewController: View {
                     .ignoresSafeArea(.all, edges: .top)
                 
                 HStack(alignment: .center) {
+                    if menuShowing {
+                        MenuPicker(selectedHomeIndex: $selectedIndex)
+                            .padding(.horizontal, 12)
+                            .shadow(radius: 4, x: 0, y: 4)
+                    }
                     
-                    MenuPicker(selectedHomeIndex: $selectedIndex)
-                        .padding(.horizontal, 12)
-                        .shadow(radius: 4, x: 0, y: 4)
                     Spacer()
                 }
                 .padding(.bottom, 10)
@@ -35,7 +38,7 @@ struct HomeViewController: View {
                 HomeAlbumsView()
             } 
             if selectedIndex == 1 {
-                HomeKratesView()
+                HomeKratesView(menuShowing: $menuShowing)
             } 
             if selectedIndex == 2 {
                 HomeReviewsView()

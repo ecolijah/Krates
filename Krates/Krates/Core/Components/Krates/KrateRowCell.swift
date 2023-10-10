@@ -1,21 +1,27 @@
-//
-//  KrateRowCell.swift
-//  Krates
-//
-//  Created by Eli Lopez on 10/7/23.
-//
-
 import SwiftUI
 
 struct KrateRowCell: View {
+    @Binding var menuShowing: Bool
+    
     var body: some View {
-      
         VStack(alignment: .leading) {
             HStack(alignment: .center) {
-                
-                NavigationLink(destination: KrateObjectView() ){
+                NavigationLink(
+                    destination: KrateObjectView()
+                        .navigationBarBackButtonHidden(true)
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarLeading) {
+                                Button("Back") {
+                                    menuShowing.toggle()
+                                }
+                            }
+                        }
+                        .onAppear { // This will toggle menuShowing when KrateObjectView appears
+                            menuShowing.toggle()
+                        }
+                ) {
                     Text("feeling lost in your 20's")
-                        .foregroundColor(.whiteFont)
+                        .foregroundColor(.white)
                         .font(.title3)
                         .fontWeight(.heavy)
                         .padding(.horizontal, 16)
@@ -23,19 +29,21 @@ struct KrateRowCell: View {
                 }
                 
                 NavigationLink(destination: ProfileVisitingView()) {
-                    Text("dreadpirate")
-                        .padding(.horizontal, -12)
-                        .foregroundColor(.accentLightGray)
-                        .fontWeight(.heavy)
-                        .font(.callout)
-                    
-                    Circle()
-                        .frame(width: 40, height: 40)
-                        .foregroundColor(.blue)
-                        .padding(.horizontal, 16)
+                    HStack {
+                        Text("dreadpirate")
+                            .padding(.horizontal, -12)
+                            .foregroundColor(.gray) // Replace with your custom color
+                            .fontWeight(.heavy)
+                            .font(.callout)
+                            .padding()
+                        
+                        Circle()
+                            .frame(width: 40, height: 40)
+                            .foregroundColor(.blue)
+                    }
                 }
-                
             }
+            
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 4) {
                     ForEach(0..<8) { index in
@@ -48,10 +56,10 @@ struct KrateRowCell: View {
             }
             .padding(.leading, 16)
             .edgesIgnoringSafeArea(.all)
-
+            
             NavigationLink(destination: KrateObjectView()) {
                 Text("this is a list of “coming of age” type albums but for  those in their mid 20s something not knowing where their lives going. feeling lost, no hope that  things will change, feeling so so many things.")
-                    .foregroundColor(.accentLightGray)
+                    .foregroundColor(.gray) // Replace with your custom color
                     .padding(.vertical, 8)
                     .padding(.horizontal, 16)
                     .font(.caption)
@@ -59,21 +67,21 @@ struct KrateRowCell: View {
                     .multilineTextAlignment(.leading)
             }
             
-      
             Rectangle()
                 .frame(height: 2)
-                .foregroundColor(.divider)
+                .foregroundColor(.gray) // Replace with your custom color
                 .padding(.horizontal, 16)
                 .cornerRadius(2)
         }
         .padding(.vertical, 8)
-        .background(Color.background)
+        .background(Color.black) // Replace with your custom color
         .edgesIgnoringSafeArea(.all)
-       
     }
-
 }
 
-#Preview {
-    KrateRowCell()
+struct KrateRowCell_Previews: PreviewProvider {
+    static var previews: some View {
+        KrateRowCell(menuShowing: .constant(false))
+    }
 }
+

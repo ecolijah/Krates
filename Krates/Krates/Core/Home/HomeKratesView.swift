@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeKratesView: View {
-
+    @Binding var menuShowing: Bool
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
@@ -16,7 +16,7 @@ struct HomeKratesView: View {
                 ScrollView() {
                     LazyVStack(spacing: 0) {
                         ForEach(0..<5) { _ in
-                            KrateRowCell()
+                            KrateRowCell(menuShowing: $menuShowing)
                         }
                     }
                 }
@@ -28,6 +28,6 @@ struct HomeKratesView: View {
     }
 }
 
-#Preview {
-    HomeKratesView()
-}
+//#Preview {
+//    HomeKratesView()
+//}
