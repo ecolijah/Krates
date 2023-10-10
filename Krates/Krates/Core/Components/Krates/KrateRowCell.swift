@@ -9,27 +9,32 @@ import SwiftUI
 
 struct KrateRowCell: View {
     var body: some View {
+      
         VStack(alignment: .leading) {
             HStack(alignment: .center) {
-                Text("feeling lost in your 20's")
-                    .foregroundColor(.whiteFont)
-                    .font(.title3)
-                    .fontWeight(.heavy)
-                    .padding(.horizontal, 16)
+                
+                NavigationLink(destination: KrateObjectView() ){
+                    Text("feeling lost in your 20's")
+                        .foregroundColor(.whiteFont)
+                        .font(.title3)
+                        .fontWeight(.heavy)
+                        .padding(.horizontal, 16)
+                        .multilineTextAlignment(.leading)
+                }
+                
+                NavigationLink(destination: ProfileVisitingView()) {
+                    Text("dreadpirate")
+                        .padding(.horizontal, -12)
+                        .foregroundColor(.accentLightGray)
+                        .fontWeight(.heavy)
+                        .font(.callout)
                     
+                    Circle()
+                        .frame(width: 40, height: 40)
+                        .foregroundColor(.blue)
+                        .padding(.horizontal, 16)
+                }
                 
-                Spacer()
-                
-                Text("dreadpirate")
-                    .padding(.horizontal, -12)
-                    .foregroundColor(.accentLightGray)
-                    .fontWeight(.heavy)
-                    .font(.callout)
-                
-                Circle()
-                    .frame(width: 40, height: 40)
-                    .foregroundColor(.blue)
-                    .padding(.horizontal, 16)
             }
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 4) {
@@ -43,14 +48,17 @@ struct KrateRowCell: View {
             }
             .padding(.leading, 16)
             .edgesIgnoringSafeArea(.all)
-            
 
-            Text("this is a list of “coming of age” type albums but for  those in their mid 20s something not knowing where their lives going. feeling lost, no hope that  things will change, feeling so so many things.")
-                .foregroundColor(.accentLightGray)
-                .padding(.vertical, 8)
-                .padding(.horizontal, 16)
-                .font(.caption)
-                .fontWeight(.heavy)
+            NavigationLink(destination: KrateObjectView()) {
+                Text("this is a list of “coming of age” type albums but for  those in their mid 20s something not knowing where their lives going. feeling lost, no hope that  things will change, feeling so so many things.")
+                    .foregroundColor(.accentLightGray)
+                    .padding(.vertical, 8)
+                    .padding(.horizontal, 16)
+                    .font(.caption)
+                    .fontWeight(.heavy)
+                    .multilineTextAlignment(.leading)
+            }
+            
       
             Rectangle()
                 .frame(height: 2)
@@ -60,6 +68,8 @@ struct KrateRowCell: View {
         }
         .padding(.vertical, 8)
         .background(Color.background)
+        .edgesIgnoringSafeArea(.all)
+       
     }
 
 }

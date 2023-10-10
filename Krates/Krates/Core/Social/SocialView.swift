@@ -28,8 +28,7 @@ struct SocialView: View {
                         Text("Social")
                             .font(.title3)
                             .fontWeight(.heavy)
-                            .foregroundColor(.white) // Modify as per your color scheme
-                            .bold()
+                            .foregroundColor(.whiteFont) // Modify as per your color scheme
                             .shadow(color: Color.black.opacity(0.8), radius: 20, x: 10, y: 10)
                         
                         Spacer()
