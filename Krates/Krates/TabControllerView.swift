@@ -16,14 +16,7 @@ struct TabControllerView: View {
     var body: some View {
         
         VStack(spacing: 0) {
-            // Content
-//            VStack {
-//                LinearGradient(gradient: Gradient(colors: [Color.black, Color.background]), startPoint: .top, endPoint: .bottom)
-//                    .ignoresSafeArea(.all, edges: .top)
-//            }.frame(height: 60)
 
-            
-            
             ZStack {
                 
                 HomeViewController().opacity(selectedIndex == 0 ? 1 : 0)
@@ -33,21 +26,28 @@ struct TabControllerView: View {
             }
             
             // Custom Tab Bar
-            HStack {
-                ForEach(0..<4) { index in
-                    Button(action: {
-                        selectedIndex = index
-                    }) {
-                        CustomTabButton(imageName: tabBarImageNames[index],
-                                        selectedImageName: selectedTabBarImageNames[index],
-                                        text: tabBarText[index],
-                                        isSelected: selectedIndex == index)
+            ZStack() {
+                LinearGradient(gradient: Gradient(colors: [Color.accentDarkGray.opacity(1), Color.background.opacity(1)]), startPoint: .top, endPoint: .bottom)
+                    .ignoresSafeArea(.all, edges: .bottom)
+                
+                HStack() {
+                    
+                    ForEach(0..<4) { index in
+                        Button(action: {
+                            selectedIndex = index
+                        }) {
+                            CustomTabButton(imageName: tabBarImageNames[index],
+                                            selectedImageName: selectedTabBarImageNames[index],
+                                            text: tabBarText[index],
+                                            isSelected: selectedIndex == index)
+                        }
+                        .frame(maxWidth: .infinity)
                     }
-                    .frame(maxWidth: .infinity)
                 }
+                
             }
-            .background(Color.accentDarkGray)  // Assuming a custom color
             .frame(height: 30)
+            
             
         }
     }

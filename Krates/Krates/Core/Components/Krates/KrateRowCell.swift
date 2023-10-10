@@ -14,7 +14,7 @@ struct KrateRowCell: View {
                 Text("feeling lost in your 20's")
                     .foregroundColor(.whiteFont)
                     .font(.title3)
-                    .bold()
+                    .fontWeight(.heavy)
                     .padding(.horizontal, 16)
                     
                 
@@ -23,7 +23,8 @@ struct KrateRowCell: View {
                 Text("dreadpirate")
                     .padding(.horizontal, -12)
                     .foregroundColor(.accentLightGray)
-                    .bold()
+                    .fontWeight(.heavy)
+                    .font(.callout)
                 
                 Circle()
                     .frame(width: 40, height: 40)
@@ -36,6 +37,7 @@ struct KrateRowCell: View {
                         Image("dummy")
                             .resizable()
                             .frame(width: 64, height: 64)
+                            .cornerRadius(2)
                     }
                 }
             }
@@ -47,9 +49,14 @@ struct KrateRowCell: View {
                 .foregroundColor(.accentLightGray)
                 .padding(.vertical, 8)
                 .padding(.horizontal, 16)
-            Divider()
-                .background(Color.accentLightGray)
+                .font(.caption)
+                .fontWeight(.heavy)
+      
+            Rectangle()
+                .frame(height: 2)
+                .foregroundColor(.divider)
                 .padding(.horizontal, 16)
+                .cornerRadius(2)
         }
         .padding(.vertical, 8)
         .background(Color.background)
