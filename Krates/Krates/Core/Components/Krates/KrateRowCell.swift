@@ -24,7 +24,17 @@ struct KrateRowCell: View {
                         .multilineTextAlignment(.leading)
                 }
                 
-                NavigationLink(destination: ProfileVisitingView()) {
+                
+                NavigationLink(
+                    destination: ProfileVisitingView()
+                        .navigationBarBackButtonHidden(false)
+                        .onAppear { // This will toggle menuShowing when KrateObjectView appears
+                            menuShowing.toggle()
+                        }
+                        .onDisappear(){
+                            menuShowing.toggle()
+                        }
+                ) {
                     HStack {
                         Text("dreadpirate")
                             .padding(.horizontal, -12)
@@ -38,6 +48,8 @@ struct KrateRowCell: View {
                             .foregroundColor(.blue)
                     }
                 }
+                
+                
             }
             
             ScrollView(.horizontal, showsIndicators: false) {

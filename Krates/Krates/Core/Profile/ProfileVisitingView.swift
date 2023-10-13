@@ -9,10 +9,13 @@ import SwiftUI
 
 struct ProfileVisitingView: View {
     var body: some View {
-        NavigationView {
-            Text("Visiting Profile")
-
-        }
+        VStack {
+            HStack { Spacer() }
+            Spacer()
+            Text("Visiting profile View")
+                .foregroundColor(.white)
+            Spacer()
+        }.background(Color.background)
     }
 }
 

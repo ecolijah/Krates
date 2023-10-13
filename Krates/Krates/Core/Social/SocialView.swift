@@ -110,7 +110,7 @@ struct NotificationsView: View {
 //            .foregroundColor(.whiteFont)
         ScrollView {
             VStack(spacing: 0) {
-                ForEach(0..<4) { index in
+                ForEach(0..<34) { index in
                     HorizontalNotificationsCell()
                     
                 }

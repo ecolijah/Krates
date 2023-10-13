@@ -71,27 +71,8 @@ struct ScrollViewCell: View {
     
     var body: some View {
         
-//        Button(action: {
-//            
-//        }) {
-//            VStack(alignment: .leading) {
-//                Image("dummy")
-//                    .frame(width: 143, height: 143)
-//                    .background(Color.blue)
-//                    .foregroundColor(.white)
-//                    .cornerRadius(5)
-//                    .padding(1)
-//                Text("Album - Artist")
-//                    .font(.caption)
-//                    .bold()
-//                    .foregroundColor(.whiteFont)
-//            }
-//        }
-//        .background(Color.background)
-        
-        
         NavigationLink(
-            destination: KrateObjectView()
+            destination: AlbumObjectView()
                 .navigationBarBackButtonHidden(false)
                 .onAppear { // This will toggle menuShowing when KrateObjectView appears
                     menuShowing.toggle()
