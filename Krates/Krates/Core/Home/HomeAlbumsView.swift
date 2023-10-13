@@ -8,32 +8,38 @@
 import SwiftUI
 
 struct HomeAlbumsView: View {
-
+    @Binding var menuShowing: Bool
     var body: some View {
-        VStack {
-           
-            ScrollView(.vertical, showsIndicators: false) {
-                
-                VStack(alignment: .leading) {
-//                    MenuPicker()
-//                        .padding(.horizontal, 12)
-     
-                    VStack(spacing: 16) {
-                        ForEach(0..<6) { _ in  // Vertical rows
-                            HorizontalScrollView()
-                                .padding(.horizontal, -16)
+        
+        NavigationView {
+            VStack {
+               
+                ScrollView(.vertical, showsIndicators: false) {
+                    
+                    VStack(alignment: .leading) {
+    //                    MenuPicker()
+    //                        .padding(.horizontal, 12)
+         
+                        VStack(spacing: 16) {
+                            ForEach(0..<6) { _ in  // Vertical rows
+                                HorizontalScrollView(menuShowing: $menuShowing)
+                                    .padding(.horizontal, -16)
+                            }
                         }
+                        .padding()
                     }
-                    .padding()
                 }
-            }
-            .background(Color.background)
-        }.background(Color.background)
+                .background(Color.background)
+            }.background(Color.background)
+        }
+        
         
     }
 }
 
 struct HorizontalScrollView: View {
+    @Binding var menuShowing: Bool
+
     var body: some View {
         VStack(alignment: .leading) {
             
@@ -48,7 +54,7 @@ struct HorizontalScrollView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 16) {
                     ForEach(0..<6) { _ in  // Horizontal items
-                        ScrollViewCell()
+                        ScrollViewCell(menuShowing: $menuShowing)
                     }
                     SeeMoreCell()
                 }
@@ -60,11 +66,40 @@ struct HorizontalScrollView: View {
 }
 
 struct ScrollViewCell: View {
+    @Binding var menuShowing: Bool
+
+    
     var body: some View {
         
-        Button(action: {
-            
-        }) {
+//        Button(action: {
+//            
+//        }) {
+//            VStack(alignment: .leading) {
+//                Image("dummy")
+//                    .frame(width: 143, height: 143)
+//                    .background(Color.blue)
+//                    .foregroundColor(.white)
+//                    .cornerRadius(5)
+//                    .padding(1)
+//                Text("Album - Artist")
+//                    .font(.caption)
+//                    .bold()
+//                    .foregroundColor(.whiteFont)
+//            }
+//        }
+//        .background(Color.background)
+        
+        
+        NavigationLink(
+            destination: KrateObjectView()
+                .navigationBarBackButtonHidden(false)
+                .onAppear { // This will toggle menuShowing when KrateObjectView appears
+                    menuShowing.toggle()
+                }
+                .onDisappear(){
+                    menuShowing.toggle()
+                }
+        ) {
             VStack(alignment: .leading) {
                 Image("dummy")
                     .frame(width: 143, height: 143)
@@ -78,7 +113,6 @@ struct ScrollViewCell: View {
                     .foregroundColor(.whiteFont)
             }
         }
-        .background(Color.background)
     }
 }
 
@@ -99,6 +133,6 @@ struct SeeMoreCell:  View {
 }
 
 #Preview {
-    HomeAlbumsView()
+    HomeAlbumsView(menuShowing: .constant(false))
     
 }

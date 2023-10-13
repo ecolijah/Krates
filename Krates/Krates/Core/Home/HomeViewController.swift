@@ -15,7 +15,7 @@ struct HomeViewController: View {
             //binding uodates in menu picker
             ZStack { //header
                 
-                LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.7), Color.background]), startPoint: .top, endPoint: .bottom)
+                LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.4), Color.background]), startPoint: .top, endPoint: .bottom)
                     .ignoresSafeArea(.all, edges: .top)
                 
                 HStack(alignment: .center) {
@@ -35,7 +35,7 @@ struct HomeViewController: View {
             
             //menu logic
             if selectedIndex == 0 {
-                HomeAlbumsView()
+                HomeAlbumsView(menuShowing: $menuShowing)
             } 
             if selectedIndex == 1 {
                 HomeKratesView(menuShowing: $menuShowing)

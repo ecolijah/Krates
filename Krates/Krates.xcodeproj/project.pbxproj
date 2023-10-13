@@ -11,6 +11,7 @@
 		F7BB862C2AD4BA06004BD57D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB862B2AD4BA06004BD57D /* HomeViewController.swift */; };
 		F7BB862E2AD4F164004BD57D /* KrateObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB862D2AD4F164004BD57D /* KrateObjectView.swift */; };
 		F7BB86302AD4F1D6004BD57D /* ProfileVisitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB862F2AD4F1D6004BD57D /* ProfileVisitingView.swift */; };
+		F7BB86322AD8FE85004BD57D /* ReviewObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB86312AD8FE85004BD57D /* ReviewObjectView.swift */; };
 		F7BFA7F72ACE090C00B729AD /* KratesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFA7F62ACE090C00B729AD /* KratesApp.swift */; };
 		F7BFA7FB2ACE090E00B729AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7BFA7FA2ACE090E00B729AD /* Assets.xcassets */; };
 		F7BFA7FF2ACE090E00B729AD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7BFA7FE2ACE090E00B729AD /* Preview Assets.xcassets */; };
@@ -35,6 +36,7 @@
 		F7BB862B2AD4BA06004BD57D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F7BB862D2AD4F164004BD57D /* KrateObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KrateObjectView.swift; sourceTree = "<group>"; };
 		F7BB862F2AD4F1D6004BD57D /* ProfileVisitingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVisitingView.swift; sourceTree = "<group>"; };
+		F7BB86312AD8FE85004BD57D /* ReviewObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewObjectView.swift; sourceTree = "<group>"; };
 		F7BFA7F32ACE090C00B729AD /* Krates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Krates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7BFA7F62ACE090C00B729AD /* KratesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KratesApp.swift; sourceTree = "<group>"; };
 		F7BFA7FA2ACE090E00B729AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				F7BFA8252ACFEB9300B729AD /* ReviewObject.swift */,
+				F7BB86312AD8FE85004BD57D /* ReviewObjectView.swift */,
 			);
 			path = Reviews;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7BFA8192ACE0A9200B729AD /* TabControllerView.swift in Sources */,
+				F7BB86322AD8FE85004BD57D /* ReviewObjectView.swift in Sources */,
 				F7BFA81B2ACFB26100B729AD /* Colors.swift in Sources */,
 				F7BFA80D2ACE0A0500B729AD /* SearchView.swift in Sources */,
 				F7BB862C2AD4BA06004BD57D /* HomeViewController.swift in Sources */,

@@ -9,10 +9,15 @@ import SwiftUI
 
 struct KrateObjectView: View {
     var body: some View {
-        NavigationView {
-            Text("Krate object view")
+        VStack {
+            HStack { Spacer() }
+            Spacer()
+            Text("Krate Object View")
+                .foregroundColor(.white)
+            Spacer()
+        }.background(Color.background)
 
-        }
+        
     }
 }
 

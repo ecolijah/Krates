@@ -27,8 +27,8 @@ struct TabControllerView: View {
             
             // Custom Tab Bar
             ZStack() {
-                LinearGradient(gradient: Gradient(colors: [Color.accentDarkGray.opacity(1), Color.background.opacity(1)]), startPoint: .top, endPoint: .bottom)
-                    .ignoresSafeArea(.all, edges: .bottom)
+//                LinearGradient(gradient: Gradient(colors: [Color.accentDarkGray.opacity(1), Color.black.opacity(1)]), startPoint: .top, endPoint: .bottom)
+//                    .ignoresSafeArea(.all, edges: .bottom)
                 
                 HStack() {
                     
@@ -43,7 +43,7 @@ struct TabControllerView: View {
                         }
                         .frame(maxWidth: .infinity)
                     }
-                }
+                }.background(Color.accentDarkGray)
                 
             }
             .frame(height: 30)
