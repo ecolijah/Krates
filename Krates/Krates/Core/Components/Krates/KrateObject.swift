@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Krate: Identifiable, Decodable {
+struct Krate: Identifiable{
     var id: UUID
     var name: String
     var author: String
@@ -19,7 +19,7 @@ struct Krate: Identifiable, Decodable {
     
 }
 
-struct krateComment: Identifiable, Codable {
+struct krateComment: Identifiable{
     var id: UUID
     var author: String
     var text: String

@@ -9,6 +9,10 @@ import SwiftUI
 
 struct HomeAlbumsView: View {
     @Binding var menuShowing: Bool
+    @State private var newReleaseAlbums: [Album] = []
+
+    var categories = ["New releases","Popular this week"]
+    
     var body: some View {
         
         NavigationView {
@@ -21,8 +25,8 @@ struct HomeAlbumsView: View {
     //                        .padding(.horizontal, 12)
          
                         VStack(spacing: 16) {
-                            ForEach(0..<6) { _ in  // Vertical rows
-                                HorizontalScrollView(menuShowing: $menuShowing)
+                            ForEach(categories.indices, id: \.self) { index in  // Use indices to get the index
+                                HorizontalScrollView(menuShowing: $menuShowing, category: categories[index], albums: index == 0 ? newReleaseAlbums : [])
                                     .padding(.horizontal, -16)
                             }
                         }
@@ -32,6 +36,17 @@ struct HomeAlbumsView: View {
                 .background(Color.background)
             }.background(Color.background)
         }
+        .onAppear {
+            SpotifyAPIManager().fetchNewReleases { albums, error in
+                if let albums = albums {
+                    self.newReleaseAlbums = albums
+                } else {
+                    // Handle the error, maybe show an error message to the user
+                    print("Error fetching new releases:", error?.localizedDescription ?? "Unknown error")
+                }
+            }
+        }
+
         
         
     }
@@ -39,11 +54,14 @@ struct HomeAlbumsView: View {
 
 struct HorizontalScrollView: View {
     @Binding var menuShowing: Bool
+    var category: String
+    var albums: [Album] = []  // New property to accept albums
 
+    
     var body: some View {
         VStack(alignment: .leading) {
             
-            Text("Album Category")
+            Text(category)
                 .padding(.horizontal, 16)
                 .font(.title2)
                 .padding(.top, 0)
@@ -53,8 +71,8 @@ struct HorizontalScrollView: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 16) {
-                    ForEach(0..<6) { _ in  // Horizontal items
-                        ScrollViewCell(menuShowing: $menuShowing)
+                    ForEach(albums) { album in  // Horizontal items
+                        ScrollViewCell(menuShowing: $menuShowing, album: album)
                     }
                     SeeMoreCell()
                 }
@@ -66,7 +84,9 @@ struct HorizontalScrollView: View {
 }
 
 struct ScrollViewCell: View {
+    
     @Binding var menuShowing: Bool
+    var album: Album
 
     
     var body: some View {
@@ -88,7 +108,7 @@ struct ScrollViewCell: View {
                     .foregroundColor(.white)
                     .cornerRadius(5)
                     .padding(1)
-                Text("Album - Artist")
+                Text("\(album.name) - \(album.primaryArtistName ?? "Unknown Artist")")
                     .font(.caption)
                     .bold()
                     .foregroundColor(.whiteFont)

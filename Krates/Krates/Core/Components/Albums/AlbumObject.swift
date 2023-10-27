@@ -7,25 +7,44 @@
 
 import Foundation
 
-// Main struct representing an album
-struct Album: Identifiable, Decodable {
+struct SpotifyAlbumsResponse: Codable {
+    let albums: AlbumsData
+}
+
+struct AlbumsData: Codable {
+    let items: [Album]
+}
+
+struct Album: Codable, Identifiable {
     let id: String
     let name: String
-    let releaseDate: String
-    let images: [Image]
     let artists: [Artist]
-
-    // Struct for images within an album
-    struct Image: Decodable {
-        let url: String
-        let height: Int
-        let width: Int
+    let images: [AlbumImage]
+    let release_date: String
+    let total_tracks: Int
+    let external_urls: [String: String]
+    
+    // We can add a computed property to get the first artist name if needed
+    var primaryArtistName: String? {
+        return artists.first?.name
     }
 
-    // Struct for artists within an album
-    struct Artist: Identifiable, Decodable {
-        let id: String
-        let name: String
-        let monthlyListeners: String
+    // And similarly, a computed property to get the main image URL (based on your provided JSON, it seems the first image is the largest)
+    var primaryImageURL: URL? {
+        if let urlString = images.first?.url {
+            return URL(string: urlString)
+        }
+        return nil
     }
+}
+
+struct Artist: Codable {
+    let name: String
+    let external_urls: [String: String]
+}
+
+struct AlbumImage: Codable {
+    let url: String
+    let width: Int
+    let height: Int
 }

@@ -1,10 +1,3 @@
-//
-//  SpotifyAuthService.swift
-//  Krates
-//
-//  Created by Eli Lopez on 10/26/23.
-//
-
 import Foundation
 
 class SpotifyAuthService {
@@ -12,6 +5,7 @@ class SpotifyAuthService {
     private let clientID: String
     private let clientSecret: String
     private let tokenURL = "https://accounts.spotify.com/api/token"
+    private var accessToken: String?
     
     // Private initializer to prevent multiple instances
     private init(clientID: String, clientSecret: String) {
@@ -21,6 +15,10 @@ class SpotifyAuthService {
     
     // Singleton instance
     static let shared = SpotifyAuthService(clientID: "17e5496772f04404bfe69e6507344ccc", clientSecret: "70179e6e81a247258408d4ace9855570")
+    
+    var currentToken: String? {
+        return accessToken
+    }
     
     func requestAccessToken(completion: @escaping (String?, Error?) -> Void) {
         guard let url = URL(string: tokenURL) else { return }
@@ -40,6 +38,7 @@ class SpotifyAuthService {
             do {
                 let result = try JSONSerialization.jsonObject(with: data, options: []) as? [String: AnyObject]
                 if let token = result?["access_token"] as? String {
+                    self.accessToken = token
                     completion(token, nil)
                 } else {
                     completion(nil, error)
@@ -55,8 +54,4 @@ class SpotifyAuthService {
         let credentials = "\(clientID):\(clientSecret)"
         return Data(credentials.utf8).base64EncodedString()
     }
-    
-    
-
-    
 }
