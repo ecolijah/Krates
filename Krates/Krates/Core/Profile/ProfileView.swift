@@ -73,6 +73,8 @@ struct ProfileInfo: View {
             Rectangle()
                 .frame(height: 280)
                 .foregroundColor(Color.brightOrange)
+            Image("profilebackgroundtusks")
+                .frame(width: 340, height: 200)
             LinearGradient(gradient: Gradient(colors: [Color.clear, Color.background]), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea(.all, edges: .top)
                 .frame(height: 280)
