@@ -1,32 +1,21 @@
-//
-//  HomeView.swift
-//  Krates
-//
-//  Created by Eli Lopez on 10/4/23.
-//
-
 import SwiftUI
 
 struct HomeAlbumsView: View {
     @Binding var menuShowing: Bool
-    @State private var newReleaseAlbums: [Album] = []
+    @State private var recommendedAlbums: [Album] = []
 
-    var categories = ["New releases","Popular this week"]
+    var categories = ["Recommended"]
+    
+    var spotifyAPIManager = SpotifyAPIManager()
     
     var body: some View {
-        
         NavigationView {
             VStack {
-               
                 ScrollView(.vertical, showsIndicators: false) {
-                    
                     VStack(alignment: .leading) {
-    //                    MenuPicker()
-    //                        .padding(.horizontal, 12)
-         
                         VStack(spacing: 16) {
-                            ForEach(categories.indices, id: \.self) { index in  // Use indices to get the index
-                                HorizontalScrollView(menuShowing: $menuShowing, category: categories[index], albums: index == 0 ? newReleaseAlbums : [])
+                            ForEach(categories.indices, id: \.self) { index in
+                                HorizontalScrollView(menuShowing: $menuShowing, category: categories[index], albums: index == 0 ? recommendedAlbums : [])
                                     .padding(.horizontal, -16)
                             }
                         }
@@ -37,30 +26,24 @@ struct HomeAlbumsView: View {
             }.background(Color.background)
         }
         .onAppear {
-            SpotifyAPIManager().fetchNewReleases { albums, error in
+            spotifyAPIManager.fetchRecommended { albums, error in
                 if let albums = albums {
-                    self.newReleaseAlbums = albums
+                    self.recommendedAlbums = albums
                 } else {
-                    // Handle the error, maybe show an error message to the user
-                    print("Error fetching new releases:", error?.localizedDescription ?? "Unknown error")
+                    print("Error fetching recommended albums:", error?.localizedDescription ?? "Unknown error")
                 }
             }
         }
-
-        
-        
     }
 }
 
 struct HorizontalScrollView: View {
     @Binding var menuShowing: Bool
     var category: String
-    var albums: [Album] = []  // New property to accept albums
+    var albums: [Album] = []
 
-    
     var body: some View {
         VStack(alignment: .leading) {
-            
             Text(category)
                 .padding(.horizontal, 16)
                 .font(.title2)
@@ -71,44 +54,63 @@ struct HorizontalScrollView: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 16) {
-                    ForEach(albums) { album in  // Horizontal items
+                    ForEach(albums, id: \.id) { album in
                         ScrollViewCell(menuShowing: $menuShowing, album: album)
                     }
                     SeeMoreCell()
                 }
                 .padding(.horizontal)
             }
-            
         }
     }
 }
 
 struct ScrollViewCell: View {
-    
     @Binding var menuShowing: Bool
     var album: Album
 
-    
     var body: some View {
-        
         NavigationLink(
             destination: AlbumObjectView()
                 .navigationBarBackButtonHidden(false)
-                .onAppear { // This will toggle menuShowing when KrateObjectView appears
+                .onAppear {
                     menuShowing.toggle()
                 }
-                .onDisappear(){
+                .onDisappear() {
                     menuShowing.toggle()
                 }
         ) {
             VStack(alignment: .leading) {
-                Image("dummy")
+                // Display album image
+                if let imageURL = album.images.first?.url, let url = URL(string: imageURL) {
+                    AsyncImage(url: url) { phase in
+                        switch phase {
+                        case .success(let image):
+                            image
+                                .resizable()
+                                .scaledToFit()
+                        default:
+//                            Image("dummy")
+//                                .resizable()
+//                                .scaledToFit()
+                            EmptyView()
+                        }
+                    }
                     .frame(width: 143, height: 143)
-                    .background(Color.blue)
-                    .foregroundColor(.white)
                     .cornerRadius(5)
                     .padding(1)
-                Text("\(album.name) - \(album.primaryArtistName ?? "Unknown Artist")")
+                } else {
+//                    Image("dummy")
+//                        .frame(width: 143, height: 143)
+//                        .background(Color.blue)
+//                        .foregroundColor(.white)
+//                        .cornerRadius(5)
+//                        .padding(1)
+                    EmptyView()
+                }
+
+                // Display album name and artist name
+                Text("\(album.name) - \(album.artists[0].name )")
                     .font(.caption)
                     .bold()
                     .foregroundColor(.whiteFont)
@@ -117,9 +119,11 @@ struct ScrollViewCell: View {
     }
 }
 
-struct SeeMoreCell:  View {
+
+
+
+struct SeeMoreCell: View {
     var body: some View {
-        
         Button(action: {
             //something
         }) {
@@ -129,11 +133,13 @@ struct SeeMoreCell:  View {
         }
         .frame(width: 143, height: 166)
         .background(Color.accentLightGray)
-        
     }
 }
 
-#Preview {
-    HomeAlbumsView(menuShowing: .constant(false))
-    
+// For Preview purposes
+struct HomeAlbumsView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeAlbumsView(menuShowing: .constant(false))
+    }
 }
+

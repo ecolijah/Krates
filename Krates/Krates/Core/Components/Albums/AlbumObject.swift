@@ -1,50 +1,137 @@
-//
-//  AlbumObject.swift
-//  Krates
-//
-//  Created by Eli Lopez on 10/6/23.
-//
-
 import Foundation
 
-struct SpotifyAlbumsResponse: Codable {
-    let albums: AlbumsData
-}
-
-struct AlbumsData: Codable {
-    let items: [Album]
-}
-
-struct Album: Codable, Identifiable {
+struct Album: Codable {
+    let albumType: String
+    let totalTracks: Int
+    let availableMarkets: [String]
+    let externalUrls: ExternalUrls
+    let href: String
     let id: String
-    let name: String
-    let artists: [Artist]
     let images: [AlbumImage]
-    let release_date: String
-    let total_tracks: Int
-    let external_urls: [String: String]
+    let name: String
+    let releaseDate: String
+    let releaseDatePrecision: String
+    let restrictions: Restriction?
+    let type: String
+    let uri: String
+    let artists: [Artist]
+    let tracks: TrackCollection?
+    let copyrights: [Copyright]
+    let externalIds: ExternalIds
+    let genres: [String]
+    let label: String
+    let popularity: Int
     
-    // We can add a computed property to get the first artist name if needed
-    var primaryArtistName: String? {
-        return artists.first?.name
-    }
-
-    // And similarly, a computed property to get the main image URL (based on your provided JSON, it seems the first image is the largest)
-    var primaryImageURL: URL? {
-        if let urlString = images.first?.url {
-            return URL(string: urlString)
-        }
-        return nil
+    enum CodingKeys: String, CodingKey {
+        case albumType = "album_type"
+        case totalTracks = "total_tracks"
+        case availableMarkets = "available_markets"
+        case externalUrls = "external_urls"
+        case href, id, images, name
+        case releaseDate = "release_date"
+        case releaseDatePrecision = "release_date_precision"
+        case restrictions, type, uri, artists, tracks, copyrights
+        case externalIds = "external_ids"
+        case genres, label, popularity
     }
 }
 
-struct Artist: Codable {
-    let name: String
-    let external_urls: [String: String]
+struct ExternalUrls: Codable {
+    let spotify: String
 }
 
 struct AlbumImage: Codable {
     let url: String
-    let width: Int
     let height: Int
+    let width: Int
 }
+
+struct Artist: Codable {
+    let externalUrls: ExternalUrls
+    let href: String
+    let id: String
+    let name: String
+    let type: String
+    let uri: String
+    
+    enum CodingKeys: String, CodingKey {
+        case externalUrls = "external_urls"
+        case href, id, name, type, uri
+    }
+}
+
+struct Restriction: Codable {
+    let reason: String
+}
+
+struct TrackCollection: Codable {
+    let href: String
+    let limit: Int
+    let next: String?
+    let offset: Int
+    let previous: String?
+    let total: Int
+    let items: [Track]
+}
+
+struct Track: Codable {
+    let artists: [Artist]
+    let availableMarkets: [String]
+    let discNumber: Int
+    let durationMs: Int
+    let explicit: Bool
+    let externalUrls: ExternalUrls
+    let href: String
+    let id: String
+    let isPlayable: Bool?
+    let linkedFrom: LinkedFrom?
+    let restrictions: Restriction?
+    let name: String
+    let previewUrl: String
+    let trackNumber: Int
+    let type: String
+    let uri: String
+    let isLocal: Bool
+    
+    enum CodingKeys: String, CodingKey {
+        case artists
+        case availableMarkets = "available_markets"
+        case discNumber = "disc_number"
+        case durationMs = "duration_ms"
+        case explicit
+        case externalUrls = "external_urls"
+        case href, id
+        case isPlayable = "is_playable"
+        case linkedFrom = "linked_from"
+        case restrictions, name
+        case previewUrl = "preview_url"
+        case trackNumber = "track_number"
+        case type, uri
+        case isLocal = "is_local"
+    }
+}
+
+struct LinkedFrom: Codable {
+    let externalUrls: ExternalUrls
+    let href: String
+    let id: String
+    let type: String
+    let uri: String
+    
+    enum CodingKeys: String, CodingKey {
+        case externalUrls = "external_urls"
+        case href, id, type, uri
+    }
+}
+
+struct Copyright: Codable {
+    let text: String
+    let type: String
+}
+
+struct ExternalIds: Codable {
+    let isrc: String?
+    let ean: String?
+    let upc: String?
+}
+
