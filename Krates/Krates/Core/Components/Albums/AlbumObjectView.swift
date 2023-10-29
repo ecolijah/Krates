@@ -26,7 +26,6 @@ struct AlbumObjectView: View {
                 AsyncImage(url: url)
                     .frame(height: 280)
                     .cornerRadius(5)
-                    .padding(1)
                     .aspectRatio(contentMode: .fit)
                     .edgesIgnoringSafeArea(.all)
                     
@@ -40,6 +39,7 @@ struct AlbumObjectView: View {
                     endPoint: .top
                 )
                 .frame(height: 280)
+                .edgesIgnoringSafeArea(.all)
                 
                 AlbumInfoView(album: album)
                 
@@ -106,7 +106,7 @@ struct AlbumInfoView: View {
                         .font(.caption2)
                         .padding(0.5)
                         .bold()
-                    HStack {
+                    HStack (alignment: .bottom) {
                         Button (action: {
                             //actionn here
                         }) {
@@ -143,8 +143,8 @@ struct AlbumInfoView: View {
 
                 }
                 .padding()
-                frame(width: 150)
-                
+                .frame(width: 210)
+                Spacer()
                 //album image
                 if let imageURL = album.images.first?.url, let url = URL(string: imageURL) {
                     AsyncImage(url: url) { phase in
@@ -163,7 +163,7 @@ struct AlbumInfoView: View {
                 } else {
                     EmptyView()
                 }
-            }
+            }.frame(width: 350)
         }
     }
 }
