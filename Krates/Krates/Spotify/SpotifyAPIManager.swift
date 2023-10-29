@@ -27,6 +27,8 @@ class SpotifyAPIManager {
                                    "spotify:album:2tAFOhqz3DxxVI2s5YNsrD",
                                    "spotify:album:0agALBMd2a8cnpbpukTg03"]
     
+    
+    //these 2 are trivial and used for decoding json easier
     struct SpotifyAlbumsResponse: Codable {
         let albums: SpotifyAlbumPage
     }
@@ -99,6 +101,8 @@ class SpotifyAPIManager {
         }
     }
     
+    
+    //private base helper functions for getting album json data and populating album objects
     private func fetchAlbum(for uri: String, completion: @escaping (Album?, Error?) -> Void) {
         print("Fetching album for URI:", uri)
         let albumID = uri.replacingOccurrences(of: "spotify:album:", with: "")
