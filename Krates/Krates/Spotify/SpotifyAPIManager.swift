@@ -5,12 +5,27 @@ class SpotifyAPIManager {
     private let baseURL = "https://api.spotify.com/v1"
     private let authService = SpotifyAuthService.shared
     
-    private let newReleasesList = [""]
-    private let popularList = [""]
+    //main home view album lists
+    private let newReleasesList = ["spotify:album:4CIaS88EQ6j26qOigblqSH",
+                                   "spotify:album:4CIaS88EQ6j26qOigblqSH",
+                                   "spotify:album:4CIaS88EQ6j26qOigblqSH",
+                                   "spotify:album:4CIaS88EQ6j26qOigblqSH",
+                                   "spotify:album:4CIaS88EQ6j26qOigblqSH",
+                                   "spotify:album:4CIaS88EQ6j26qOigblqSH"]
+    
+    private let popularList = ["spotify:album:4FftCsAcXXD1nFO9RFUNFO",
+                               "spotify:album:4czdORdCWP9umpbhFXK2fW",
+                               "spotify:album:63fWdGyeBj8VDjvHSUROx3",
+                               "spotify:album:6PbnGueEO6LGodPfvNldYf",
+                               "spotify:album:1D1hLipjrdB6pnxurMtC3E",
+                               "spotify:album:6i7mF7whyRJuLJ4ogbH2wh"]
     
     private let recommendedList = ["spotify:album:4CIaS88EQ6j26qOigblqSH",
                                    "spotify:album:4p73PcjJvWer7WDYXcGetn",
-                                   "spotify:album:5YrOTxB5pmtK6uD4qcpAw5"]
+                                   "spotify:album:5YrOTxB5pmtK6uD4qcpAw5",
+                                   "spotify:album:7EV6GsiM2nvt38n2FnnpEj",
+                                   "spotify:album:2tAFOhqz3DxxVI2s5YNsrD",
+                                   "spotify:album:0agALBMd2a8cnpbpukTg03"]
     
     struct SpotifyAlbumsResponse: Codable {
         let albums: SpotifyAlbumPage
@@ -22,23 +37,25 @@ class SpotifyAPIManager {
 
     
     func fetchNewReleases(completion: @escaping ([Album]?, Error?) -> Void) {
-            print("Fetching new releases...")
-            makeRequest(endpoint: "albums/new-releases?limit=10") { data, error in
-                guard let data = data, error == nil else {
-                    print("Error fetching new releases:", error?.localizedDescription ?? "Unknown error")
-                    completion(nil, error)
-                    return
+        print("Fetching recommended albums...")
+        var albums: [Album] = []
+        let group = DispatchGroup()
+        
+        for uri in newReleasesList {
+            group.enter()
+            fetchAlbum(for: uri) { album, error in
+                if let album = album {
+                    albums.append(album)
                 }
-                do {
-                    let decodedResponse = try JSONDecoder().decode(SpotifyAlbumsResponse.self, from: data)
-                    print("Fetched new releases successfully!")
-                    completion(decodedResponse.albums.items, nil)
-                } catch {
-                    print("Failed to parse JSON for new releases:", error)
-                    completion(nil, error)
-                }
+                group.leave()
             }
         }
+        
+        group.notify(queue: .main) {
+            print("Completed fetching new release albums!")
+            completion(albums, nil)
+        }
+    }
         
     func fetchRecommended(completion: @escaping ([Album]?, Error?) -> Void) {
         print("Fetching recommended albums...")
@@ -57,6 +74,27 @@ class SpotifyAPIManager {
         
         group.notify(queue: .main) {
             print("Completed fetching recommended albums!")
+            completion(albums, nil)
+        }
+    }
+    
+    func fetchPopular(completion: @escaping ([Album]?, Error?) -> Void) {
+        print("Fetching recommended albums...")
+        var albums: [Album] = []
+        let group = DispatchGroup()
+        
+        for uri in popularList {
+            group.enter()
+            fetchAlbum(for: uri) { album, error in
+                if let album = album {
+                    albums.append(album)
+                }
+                group.leave()
+            }
+        }
+        
+        group.notify(queue: .main) {
+            print("Completed fetching popular albums!")
             completion(albums, nil)
         }
     }

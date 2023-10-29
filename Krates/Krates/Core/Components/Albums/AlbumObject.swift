@@ -87,7 +87,7 @@ struct Track: Codable {
     let linkedFrom: LinkedFrom?
     let restrictions: Restriction?
     let name: String
-    let previewUrl: String
+    let previewUrl: String?
     let trackNumber: Int
     let type: String
     let uri: String

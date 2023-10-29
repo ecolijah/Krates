@@ -3,8 +3,11 @@ import SwiftUI
 struct HomeAlbumsView: View {
     @Binding var menuShowing: Bool
     @State private var recommendedAlbums: [Album] = []
+    @State private var popularAlbums: [Album] = []
+    @State private var newReleaseAlbums: [Album] = []
 
-    var categories = ["Recommended"]
+
+    var categories = ["Recommended", "Popular", "New releases"]
     
     var spotifyAPIManager = SpotifyAPIManager()
     
@@ -15,7 +18,7 @@ struct HomeAlbumsView: View {
                     VStack(alignment: .leading) {
                         VStack(spacing: 16) {
                             ForEach(categories.indices, id: \.self) { index in
-                                HorizontalScrollView(menuShowing: $menuShowing, category: categories[index], albums: index == 0 ? recommendedAlbums : [])
+                                HorizontalScrollView(menuShowing: $menuShowing, category: categories[index], albums: index == 0 ? recommendedAlbums : index == 1 ? popularAlbums : index == 2 ? newReleaseAlbums: [])
                                     .padding(.horizontal, -16)
                             }
                         }
@@ -26,9 +29,28 @@ struct HomeAlbumsView: View {
             }.background(Color.background)
         }
         .onAppear {
+            // load the categories, could def refactor this
+            
+            // recommended category
             spotifyAPIManager.fetchRecommended { albums, error in
                 if let albums = albums {
                     self.recommendedAlbums = albums
+                } else {
+                    print("Error fetching recommended albums:", error?.localizedDescription ?? "Unknown error")
+                }
+            }
+            //popular category
+            spotifyAPIManager.fetchPopular { albums, error in
+                if let albums = albums {
+                    self.popularAlbums = albums
+                } else {
+                    print("Error fetching recommended albums:", error?.localizedDescription ?? "Unknown error")
+                }
+            }
+            // new release category
+            spotifyAPIManager.fetchNewReleases { albums, error in
+                if let albums = albums {
+                    self.newReleaseAlbums = albums
                 } else {
                     print("Error fetching recommended albums:", error?.localizedDescription ?? "Unknown error")
                 }
@@ -90,9 +112,6 @@ struct ScrollViewCell: View {
                                 .resizable()
                                 .scaledToFit()
                         default:
-//                            Image("dummy")
-//                                .resizable()
-//                                .scaledToFit()
                             EmptyView()
                         }
                     }
@@ -100,12 +119,6 @@ struct ScrollViewCell: View {
                     .cornerRadius(5)
                     .padding(1)
                 } else {
-//                    Image("dummy")
-//                        .frame(width: 143, height: 143)
-//                        .background(Color.blue)
-//                        .foregroundColor(.white)
-//                        .cornerRadius(5)
-//                        .padding(1)
                     EmptyView()
                 }
 
@@ -114,10 +127,17 @@ struct ScrollViewCell: View {
                     .font(.caption)
                     .bold()
                     .foregroundColor(.whiteFont)
+                    .lineLimit(1) // Limit to 1 line
+                    .truncationMode(.tail)
+                    .frame(width: 143, alignment: .leading)
                 Text("\(album.artists[0].name )")
                     .font(.caption2)
                     .bold()
                     .foregroundColor(.accentLightGray)
+                    .lineLimit(1) // Limit to 1 line
+                    .truncationMode(.tail)
+                    .frame(width: 143, alignment: .leading)
+
             }
         }
     }
@@ -146,4 +166,7 @@ struct HomeAlbumsView_Previews: PreviewProvider {
         HomeAlbumsView(menuShowing: .constant(false))
     }
 }
+//#Preview {
+//    HomeAlbumsView(menuShowing: .constant(false))
+//}
 
