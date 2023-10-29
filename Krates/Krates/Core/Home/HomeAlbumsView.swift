@@ -110,10 +110,14 @@ struct ScrollViewCell: View {
                 }
 
                 // Display album name and artist name
-                Text("\(album.name) - \(album.artists[0].name )")
+                Text("\(album.name)")
                     .font(.caption)
                     .bold()
                     .foregroundColor(.whiteFont)
+                Text("\(album.artists[0].name )")
+                    .font(.caption2)
+                    .bold()
+                    .foregroundColor(.accentLightGray)
             }
         }
     }

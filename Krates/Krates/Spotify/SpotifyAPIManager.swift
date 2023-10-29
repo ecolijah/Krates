@@ -71,7 +71,8 @@ class SpotifyAPIManager {
                 return
             }
             do {
-                print(String(data: data, encoding: .utf8) ?? "Invalid data")
+                // prints album json for testing
+//                print(String(data: data, encoding: .utf8) ?? "Invalid data")
 
                 let decodedAlbum = try JSONDecoder().decode(Album.self, from: data)
                 print("Fetched album for URI \(uri) successfully!")
