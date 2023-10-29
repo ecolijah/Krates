@@ -93,7 +93,7 @@ struct ScrollViewCell: View {
 
     var body: some View {
         NavigationLink(
-            destination: AlbumObjectView()
+            destination: AlbumObjectView(album: album)
                 .navigationBarBackButtonHidden(false)
                 .onAppear {
                     menuShowing.toggle()

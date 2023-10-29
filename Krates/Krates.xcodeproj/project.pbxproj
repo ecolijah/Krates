@@ -25,7 +25,7 @@
 		F7BFA81B2ACFB26100B729AD /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFA81A2ACFB26100B729AD /* Colors.swift */; };
 		F7BFA81D2ACFBE4400B729AD /* MenuPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFA81C2ACFBE4400B729AD /* MenuPicker.swift */; };
 		F7BFA81F2ACFE69A00B729AD /* AlbumObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFA81E2ACFE69A00B729AD /* AlbumObjectView.swift */; };
-		F7BFA8212ACFE86900B729AD /* AlbumObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFA8202ACFE86900B729AD /* AlbumObject.swift */; };
+		F7BFA8212ACFE86900B729AD /* SpotifyObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFA8202ACFE86900B729AD /* SpotifyObjects.swift */; };
 		F7BFA8232ACFE92700B729AD /* KrateObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFA8222ACFE92700B729AD /* KrateObject.swift */; };
 		F7BFA8262ACFEB9300B729AD /* ReviewObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFA8252ACFEB9300B729AD /* ReviewObject.swift */; };
 		F7BFA8282ACFECAC00B729AD /* UserObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BFA8272ACFECAC00B729AD /* UserObject.swift */; };
@@ -54,7 +54,7 @@
 		F7BFA81A2ACFB26100B729AD /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		F7BFA81C2ACFBE4400B729AD /* MenuPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPicker.swift; sourceTree = "<group>"; };
 		F7BFA81E2ACFE69A00B729AD /* AlbumObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumObjectView.swift; sourceTree = "<group>"; };
-		F7BFA8202ACFE86900B729AD /* AlbumObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumObject.swift; sourceTree = "<group>"; };
+		F7BFA8202ACFE86900B729AD /* SpotifyObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyObjects.swift; sourceTree = "<group>"; };
 		F7BFA8222ACFE92700B729AD /* KrateObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KrateObject.swift; sourceTree = "<group>"; };
 		F7BFA8252ACFEB9300B729AD /* ReviewObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewObject.swift; sourceTree = "<group>"; };
 		F7BFA8272ACFECAC00B729AD /* UserObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserObject.swift; sourceTree = "<group>"; };
@@ -186,7 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				F7BFA81E2ACFE69A00B729AD /* AlbumObjectView.swift */,
-				F7BFA8202ACFE86900B729AD /* AlbumObject.swift */,
+				F7BFA8202ACFE86900B729AD /* SpotifyObjects.swift */,
 			);
 			path = Albums;
 			sourceTree = "<group>";
@@ -305,7 +305,7 @@
 				F7BFA8232ACFE92700B729AD /* KrateObject.swift in Sources */,
 				F7BFA7F72ACE090C00B729AD /* KratesApp.swift in Sources */,
 				F7BB86282AD13A9B004BD57D /* KrateRowCell.swift in Sources */,
-				F7BFA8212ACFE86900B729AD /* AlbumObject.swift in Sources */,
+				F7BFA8212ACFE86900B729AD /* SpotifyObjects.swift in Sources */,
 				F7BB862E2AD4F164004BD57D /* KrateObjectView.swift in Sources */,
 				F7BFA8262ACFEB9300B729AD /* ReviewObject.swift in Sources */,
 				F7BFA81F2ACFE69A00B729AD /* AlbumObjectView.swift in Sources */,

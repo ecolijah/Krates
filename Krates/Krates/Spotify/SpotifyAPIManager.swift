@@ -101,6 +101,26 @@ class SpotifyAPIManager {
         }
     }
     
+    func fetchArtistInfo(for artistId: String, completion: @escaping (ArtistObject?, Error?) -> Void) {
+        print("Fetching artist info for ID:", artistId)
+        makeRequest(endpoint: "artists/\(artistId)") { data, error in
+            guard let data = data, error == nil else {
+                print("Error fetching artist for ID \(artistId):", error?.localizedDescription ?? "Unknown error")
+                completion(nil, error)
+                return
+            }
+            do {
+                let decodedArtist = try JSONDecoder().decode(ArtistObject.self, from: data)
+                print("Fetched artist for ID \(artistId) successfully!")
+                completion(decodedArtist, nil)
+            } catch {
+                print("Failed to parse artist JSON for ID \(artistId):", error)
+                completion(nil, error)
+            }
+        }
+    }
+
+    
     
     //private base helper functions for getting album json data and populating album objects
     private func fetchAlbum(for uri: String, completion: @escaping (Album?, Error?) -> Void) {
@@ -164,5 +184,7 @@ class SpotifyAPIManager {
             }
             task.resume()
     }
+    
+    
 }
 

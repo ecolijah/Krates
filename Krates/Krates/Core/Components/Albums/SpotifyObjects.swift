@@ -135,3 +135,31 @@ struct ExternalIds: Codable {
     let upc: String?
 }
 
+struct ArtistObject: Codable {
+    let externalUrls: ExternalUrls?
+    let followers: Followers
+    let genres: [String]
+    let href: String
+    let id: String
+    let images: [ArtistImage]
+    let name: String
+    let popularity: Int
+    let type: String
+    let uri: String
+
+    struct ExternalUrls: Codable {
+        let spotify: String
+    }
+
+    struct Followers: Codable {
+        let href: String?
+        let total: Int
+    }
+
+    struct ArtistImage: Codable {
+        let url: String
+        let height: Int
+        let width: Int
+    }
+}
+
