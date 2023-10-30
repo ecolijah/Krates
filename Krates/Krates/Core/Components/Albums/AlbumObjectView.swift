@@ -48,7 +48,8 @@ struct AlbumObjectView: View {
             
             Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu non odio euismod lacinia at quis risus sed. Hac habitasse platea dictumst vestibulum rhoncus. Pellentesque diam volutpat commodo sed egestas. Urna porttitor rhoncus dolor purus non enim praesent elementum. Proin fermentum leo vel orci. Ultrices sagittis orci a scelerisque. Viverra nam libero justo laoreet sit amet cursus sit. Amet nulla facilisi morbi tempus.")
                 .foregroundColor(.whiteFont)
-                .padding(5)
+                .padding(.horizontal, 10)
+                .padding(.vertical, 6)
                 .bold()
                 .font(.caption)
             
@@ -81,32 +82,41 @@ struct AlbumInfoView: View {
     var body: some View {
         VStack {
             Spacer()
-            HStack {
+            HStack (alignment: .bottom) {
                 VStack(alignment: .leading) {
                     //album info
                     Text("\(album.name)")
                         .bold()
                         .foregroundColor(.white)
                         .font(.title3)
-                        .padding(0.5)
-                        .bold()
+                        .fontWeight(.heavy)
                         .lineLimit(2) // Limit to 1 line
                         .truncationMode(.tail)
-                    Text("\(album.artists[0].name) - \(album.releaseDate)")
+                        .lineSpacing(-12)
+                        .padding(.leading, 10)
+                        .padding(.bottom, 1)
+
+                    Text("\(album.artists[0].name) - \(String(album.releaseDate.split(separator: "-").first ?? ""))")
                         .bold()
                         .foregroundColor(.accentLightGray)
-                        .padding(0.5)
-                        .bold()
-                        .lineLimit(2) // Limit to 1 line
+                        .font(.system(size: 14))
+                        .lineLimit(2)
                         .truncationMode(.tail)
+                        .padding(.bottom, 1)
+                        .padding(.leading, 10)
+
+
 
                     Text("\(album.totalTracks) songs - ")
                         .bold()
                         .foregroundColor(.accentLightGray)
                         .font(.caption2)
-                        .padding(0.5)
                         .bold()
-                    HStack (alignment: .bottom) {
+                        .padding(.vertical, 1)
+                        .padding(.leading, 10)
+
+
+                    HStack {
                         Button (action: {
                             //actionn here
                         }) {
@@ -121,7 +131,8 @@ struct AlbumInfoView: View {
                                     .foregroundColor(.brightOrange)
                                     .bold()
                             }
-                        }.padding(.horizontal, 1)
+                        }
+                        .padding(.trailing, 12)
                         
                         Button (action: {
                             //actionn here
@@ -137,33 +148,44 @@ struct AlbumInfoView: View {
                                     .foregroundColor(.whiteFont)
                                     .bold()
                             }
-                        }.padding(.horizontal, 1)
+                        }
                         
-                    }.padding(.vertical, 0.5)
+                    }
+                    .padding(.vertical, 1)
+                    .padding(.leading, 10)
+
 
                 }
-                .padding()
-                .frame(width: 210)
-                Spacer()
+                .frame(width: 200, alignment: .leading)
+//                .background(.red)
+                .padding(.leading, 50)
+                 Spacer()
                 //album image
-                if let imageURL = album.images.first?.url, let url = URL(string: imageURL) {
-                    AsyncImage(url: url) { phase in
-                        switch phase {
-                        case .success(let image):
-                            image
-                                .resizable()
-                                .scaledToFit()
-                        default:
-                            EmptyView()
+                VStack {
+                    if let imageURL = album.images.first?.url, let url = URL(string: imageURL) {
+                        AsyncImage(url: url) { phase in
+                            switch phase {
+                            case .success(let image):
+                                image
+                                    .resizable()
+                                    .scaledToFit()
+                            default:
+                                EmptyView()
+                            }
                         }
+                        .frame(width: 170, height: 170)
+                        .cornerRadius(2)
+                        .padding(.trailing, 12)
+                        .shadow(color: .black, radius: 15)
+                    } else {
+                        EmptyView()
                     }
-                    .frame(width: 170, height: 170)
-                    .cornerRadius(2)
-                    .padding(1)
-                } else {
-                    EmptyView()
                 }
-            }.frame(width: 350)
+                .padding(.trailing, 50)
+
+            }
+            .frame(width: 393)
+//            .background(.blue)
         }
     }
 }

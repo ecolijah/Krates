@@ -110,6 +110,8 @@ class SpotifyAPIManager {
                 return
             }
             do {
+                print(String(data: data, encoding: .utf8) ?? "Invalid data")
+
                 let decodedArtist = try JSONDecoder().decode(ArtistObject.self, from: data)
                 print("Fetched artist for ID \(artistId) successfully!")
                 completion(decodedArtist, nil)
