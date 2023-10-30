@@ -2,6 +2,11 @@ import SwiftUI
 
 struct KrateRowCell: View {
     @Binding var menuShowing: Bool
+    var krate: Krate
+    @State private var krateAlbums: [Album] = []
+    var spotifyAPIManager = SpotifyAPIManager()
+    
+
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -16,14 +21,14 @@ struct KrateRowCell: View {
                             menuShowing.toggle()
                         }
                 ) {
-                    Text("feeling lost in your 20's")
+                    Text("\(krate.name)")
                         .foregroundColor(.whiteFont)
                         .font(.title3)
                         .fontWeight(.heavy)
                         .padding(.horizontal, 16)
                         .multilineTextAlignment(.leading)
                 }
-                
+                Spacer()
                 
                 NavigationLink(
                     destination: ProfileVisitingView()
@@ -36,16 +41,15 @@ struct KrateRowCell: View {
                         }
                 ) {
                     HStack {
-                        Text("dreadpirate")
-                            .padding(.horizontal, -12)
+                        Text("\(krate.author)")
                             .foregroundColor(.accentLightGray) // Replace with your custom color
                             .fontWeight(.heavy)
                             .font(.callout)
-                            .padding()
                         
                         Circle()
                             .frame(width: 40, height: 40)
                             .foregroundColor(.blue)
+                            .padding(.trailing, 8)
                     }
                 }
                 
@@ -53,20 +57,19 @@ struct KrateRowCell: View {
             }
             
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 4) {
-                    ForEach(0..<8) { index in
-                        Image("dummy")
-                            .resizable()
-                            .frame(width: 64, height: 64)
-                            .cornerRadius(2)
+                HStack(spacing: 8) {
+                    
+                    ForEach(krateAlbums) { album in
+                        smallImageAbstraction(album: album)
                     }
+                    
                 }
             }
             .padding(.leading, 16)
             .edgesIgnoringSafeArea(.all)
             
             NavigationLink(destination: KrateObjectView()) {
-                Text("this is a list of “coming of age” type albums but for  those in their mid 20s something not knowing where their lives going. feeling lost, no hope that  things will change, feeling so so many things.")
+                Text("\(krate.description)")
                     .foregroundColor(.accentLightGray) // Replace with your custom color
                     .padding(.vertical, 8)
                     .padding(.horizontal, 16)
@@ -81,15 +84,61 @@ struct KrateRowCell: View {
                 .padding(.horizontal, 16)
                 .cornerRadius(2)
         }
-        .padding(.vertical, 8)
+        .padding(.vertical, 2)
         .background(Color.background) // Replace with your custom color
         .edgesIgnoringSafeArea(.all)
+        .onAppear {
+            spotifyAPIManager.fetchAlbumsInKrate(krateAlbums: krate.albums) { albums, error in
+                if let albums = albums {
+                    self.krateAlbums = albums
+                } else {
+                    print("Error fetching recommended albums:", error?.localizedDescription ?? "Unknown error")
+                }
+            }
+        }
+    }
+}
+
+struct smallImageAbstraction: View {
+    var album: Album
+    var body: some View {
+        let imageURL = album.images[0].url
+        let url = URL(string: imageURL)
+        AsyncImage(url: url) { image in
+            image
+                .resizable()
+                .scaledToFill()
+                .frame(width: 60, height: 60)
+                .clipped()
+        }
+        placeholder: {
+            Rectangle().foregroundColor(.red).frame(width: 60, height: 60)
+        }
+        .background(Color.red)
+
+            
     }
 }
 
 struct KrateRowCell_Previews: PreviewProvider {
+
     static var previews: some View {
-        KrateRowCell(menuShowing: .constant(false))
+        
+        var krate1 = Krate(
+            id: UUID(),
+            name: "shoegazer",
+            author: "ecolijah",
+            dateCreated: Date(),
+            likes: 3,
+            description: "collection of my favorite shoegaze albums.",
+            albums: ["spotify:album:4CIaS88EQ6j26qOigblqSH",
+                     "spotify:album:4p73PcjJvWer7WDYXcGetn",
+                      "spotify:album:5YrOTxB5pmtK6uD4qcpAw5",
+                      "spotify:album:7EV6GsiM2nvt38n2FnnpEj",
+                      "spotify:album:2tAFOhqz3DxxVI2s5YNsrD",
+                      "spotify:album:0agALBMd2a8cnpbpukTg03"])
+        
+        KrateRowCell(menuShowing: .constant(false), krate: krate1)
     }
 }
 

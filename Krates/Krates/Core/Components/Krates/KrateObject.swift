@@ -8,14 +8,15 @@
 import Foundation
 
 struct Krate: Identifiable{
+    
     var id: UUID
     var name: String
     var author: String
     var dateCreated: Date
     var likes: Int
-    var comments: [krateComment]
+    var comments: [krateComment]?
     var description: String
-    var albums: [Album]
+    var albums: [String] //array of spotify uris
     
 }
 

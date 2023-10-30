@@ -38,6 +38,29 @@ class SpotifyAPIManager {
     }
 
     
+    
+    func fetchAlbumsInKrate(krateAlbums: [String], completion: @escaping ([Album]?, Error?) -> Void) {
+        print("Fetching recommended albums...")
+        var albums: [Album] = []
+        let group = DispatchGroup()
+        
+        for uri in krateAlbums {
+            group.enter()
+            fetchAlbum(for: uri) { album, error in
+                if let album = album {
+                    albums.append(album)
+                }
+                group.leave()
+            }
+        }
+        
+        group.notify(queue: .main) {
+            print("Completed fetching albums in krate!")
+            completion(albums, nil)
+        }
+    }
+    
+    
     func fetchNewReleases(completion: @escaping ([Album]?, Error?) -> Void) {
         print("Fetching recommended albums...")
         var albums: [Album] = []

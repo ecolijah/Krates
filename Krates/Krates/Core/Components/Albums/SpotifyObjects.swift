@@ -1,6 +1,6 @@
 import Foundation
 
-struct Album: Codable {
+struct Album: Codable, Identifiable {
     let albumType: String
     let totalTracks: Int
     let availableMarkets: [String]
