@@ -13,11 +13,6 @@ struct AlbumObjectView: View {
     @State var artist: ArtistObject?
     @Environment(\.presentationMode) var presentationMode
 
-
-    
-
-    
-    
     
     var body: some View {
         VStack {
@@ -54,7 +49,7 @@ struct AlbumObjectView: View {
 //                .frame(height: 280)
 //                .edgesIgnoringSafeArea(.all)
                 
-                AlbumInfoView(album: album)
+                AlbumInfoView(album: album, artist: artist)
                 HStack {
                     Button(action: {
                         // Code to go back
@@ -130,6 +125,9 @@ struct AlbumObjectView: View {
 
 struct AlbumInfoView: View {
     var album: Album
+    var artist: ArtistObject?
+    @Environment(\.presentationMode) var presentationMode
+
     
     var body: some View {
         VStack {
@@ -147,19 +145,24 @@ struct AlbumInfoView: View {
                         .lineSpacing(-12)
                         .padding(.leading, 10)
                         .padding(.bottom, 1)
+                    NavigationLink(
+                        destination: ArtistObjectView(artist: artist)
+                            .navigationBarBackButtonHidden(true)
+                            
 
-                    Text("\(album.artists[0].name) - \(String(album.releaseDate.split(separator: "-").first ?? ""))")
-                        .bold()
-                        .foregroundColor(.accentLightGray)
-                        .font(.system(size: 14))
-                        .lineLimit(2)
-                        .truncationMode(.tail)
-                        .padding(.bottom, 1)
-                        .padding(.leading, 10)
+                    ) {
+                        Text("\(album.artists[0].name) - \(String(album.releaseDate.split(separator: "-").first ?? ""))")
+                            .bold()
+                            .foregroundColor(.accentLightGray)
+                            .font(.system(size: 14))
+                            .lineLimit(2)
+                            .truncationMode(.tail)
+                            .padding(.bottom, 1)
+                            .padding(.leading, 10)
+                    }
+                    
 
-
-
-                    Text("\(album.totalTracks) songs - ")
+                    Text("\(album.totalTracks) songs ")
                         .bold()
                         .foregroundColor(.accentLightGray)
                         .font(.caption2)

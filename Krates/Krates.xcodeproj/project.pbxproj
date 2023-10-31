@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F71C22132AEB624700E0F475 /* SpotifyAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71C22122AEB624700E0F475 /* SpotifyAuthService.swift */; };
 		F71C22152AEB7EA600E0F475 /* SpotifyAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71C22142AEB7EA600E0F475 /* SpotifyAPIManager.swift */; };
+		F71C22172AF080CF00E0F475 /* ArtistObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71C22162AF080CF00E0F475 /* ArtistObjectView.swift */; };
 		F7BB86282AD13A9B004BD57D /* KrateRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB86272AD13A9B004BD57D /* KrateRowCell.swift */; };
 		F7BB862C2AD4BA06004BD57D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB862B2AD4BA06004BD57D /* HomeViewController.swift */; };
 		F7BB862E2AD4F164004BD57D /* KrateObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB862D2AD4F164004BD57D /* KrateObjectView.swift */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		F71C22122AEB624700E0F475 /* SpotifyAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAuthService.swift; sourceTree = "<group>"; };
 		F71C22142AEB7EA600E0F475 /* SpotifyAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAPIManager.swift; sourceTree = "<group>"; };
+		F71C22162AF080CF00E0F475 /* ArtistObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistObjectView.swift; sourceTree = "<group>"; };
 		F7BB86272AD13A9B004BD57D /* KrateRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KrateRowCell.swift; sourceTree = "<group>"; };
 		F7BB862B2AD4BA06004BD57D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F7BB862D2AD4F164004BD57D /* KrateObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KrateObjectView.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 		F7BFA8152ACE0A6800B729AD /* Artists */ = {
 			isa = PBXGroup;
 			children = (
+				F71C22162AF080CF00E0F475 /* ArtistObjectView.swift */,
 			);
 			path = Artists;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				F7BFA80F2ACE0A0F00B729AD /* SocialView.swift in Sources */,
 				F7BFA80B2ACE09F700B729AD /* HomeAlbumsView.swift in Sources */,
 				F7BFA82C2AD0056000B729AD /* HomeReviewsView.swift in Sources */,
+				F71C22172AF080CF00E0F475 /* ArtistObjectView.swift in Sources */,
 				F7BFA8112ACE0A1900B729AD /* ProfileView.swift in Sources */,
 				F7BFA82A2AD0054400B729AD /* HomeKratesView.swift in Sources */,
 				F7BFA81D2ACFBE4400B729AD /* MenuPicker.swift in Sources */,

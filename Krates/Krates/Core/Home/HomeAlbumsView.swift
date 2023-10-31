@@ -105,30 +105,15 @@ struct ScrollViewCell: View {
                 .navigationBarBackButtonHidden(true) // hide the default back button
                 .navigationBarItems(leading:
                                         EmptyView()
-//                    HStack {
-//                        // Custom back button
-//                        Button(action: {
-//                            // Code to go back
-//                            presentationMode.wrappedValue.dismiss()
-//                            print("back button pressed.")
-//                        }) {
-//                            ZStack {
-//                                Circle()
-//                                    .foregroundColor(.background.opacity(0.7))
-//                                Image(systemName: "arrow.left") // Replace with your custom icon
-//                                    .foregroundColor(.accentLightGray)
-//                            }
-//                            .frame(width: 40, height: 40)
-//                            
-//                        }
-//                    }
+
                 )
                 .onAppear {
+                    
                     menuShowing.toggle()
                 }
-                .onDisappear() {
-                    menuShowing.toggle()
-                }
+//                .onDisappear() {
+//                    menuShowing.toggle()
+//                }
             ) 
         {
             VStack(alignment: .leading) {

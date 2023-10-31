@@ -35,11 +35,12 @@ struct KrateRowCell: View {
                     destination: ProfileVisitingView()
                         .navigationBarBackButtonHidden(false)
                         .onAppear { // This will toggle menuShowing when KrateObjectView appears
-                            menuShowing.toggle()
+                            if menuShowing {
+                                menuShowing.toggle()
+                            }
+                            
                         }
-                        .onDisappear(){
-                            menuShowing.toggle()
-                        }
+                    
                 ) {
                     HStack {
                         Text("\(krate.author)")

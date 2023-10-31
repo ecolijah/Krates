@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProfileVisitingView: View {
+    
     var body: some View {
         VStack {
             HStack { Spacer() }
