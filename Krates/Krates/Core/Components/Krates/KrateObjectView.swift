@@ -13,7 +13,7 @@ struct KrateObjectView: View {
             print("back button pressed.")
         }) {
             ZStack {
-                Circle().foregroundColor(.background.opacity(0.5))
+                Circle().foregroundColor(.background.opacity(0.3))
                     .frame(width: 35)
                 Image(systemName: "arrowshape.backward.fill").foregroundColor(.accentLightGray)
             }
@@ -24,7 +24,7 @@ struct KrateObjectView: View {
         Button(action: {}) {
             ZStack {
                 Circle()
-                    .foregroundColor(.background.opacity(0.5))
+                    .foregroundColor(.background.opacity(0.3))
                     .frame(width: 35)
 
                 Image(systemName: "ellipsis")
@@ -116,14 +116,14 @@ struct GridAlbumView: View {
     
     // Define a grid layout with flexible columns
     let columns: [GridItem] = [
-        GridItem(.flexible(), spacing: 16),
-        GridItem(.flexible(), spacing: 16),
-        GridItem(.flexible(), spacing: 16)
+        GridItem(.flexible(), spacing: 12),
+        GridItem(.flexible(), spacing: 12),
+        GridItem(.flexible(), spacing: 12)
     ]
     
     var body: some View {
         ScrollView {
-            LazyVGrid(columns: columns, spacing: 16) {
+            LazyVGrid(columns: columns, spacing: 12) {
                 ForEach(krateAlbums, id: \.id) { album in
                     if let imageURL = album.images.first?.url, let url = URL(string: imageURL) {
                         NavigationLink(destination: AlbumObjectView(album: album)
@@ -137,7 +137,7 @@ struct GridAlbumView: View {
                                     Rectangle().foregroundColor(.gray) // Placeholder for loading or failure
                                 }
                             }
-                            .cornerRadius(8)
+                            .cornerRadius(3)
                         }
                     }
                 }

@@ -19,7 +19,7 @@ struct ArtistObjectView: View {
             print("back button pressed.")
         }) {
             ZStack {
-                Circle().foregroundColor(.background.opacity(0.5))
+                Circle().foregroundColor(.background.opacity(0.3))
                     .frame(width: 35)
                 Image(systemName: "arrowshape.backward.fill").foregroundColor(.accentLightGray)
             }
@@ -30,7 +30,7 @@ struct ArtistObjectView: View {
         Button(action: {}) {
             ZStack {
                 Circle()
-                    .foregroundColor(.background.opacity(0.5))
+                    .foregroundColor(.background.opacity(0.3))
                     .frame(width: 35)
 
                 Image(systemName: "ellipsis")

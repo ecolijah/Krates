@@ -58,7 +58,7 @@ struct AlbumObjectView: View {
                     }) {
                         ZStack {
                             Circle()
-                                .foregroundColor(.background.opacity(0.5))
+                                .foregroundColor(.background.opacity(0.3))
                             Image(systemName: "arrowshape.backward.fill") // Replace with your custom icon
                                 .foregroundColor(.accentLightGray)
                         }
@@ -73,7 +73,7 @@ struct AlbumObjectView: View {
                     }) {
                         ZStack {
                             Circle()
-                                .foregroundColor(.background.opacity(0.5))
+                                .foregroundColor(.background.opacity(0.3))
                             Image(systemName: "ellipsis") // Replace with your custom icon
                                 .resizable()
                                 .foregroundColor(.accentLightGray)
