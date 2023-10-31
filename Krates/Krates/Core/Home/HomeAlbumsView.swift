@@ -29,6 +29,11 @@ struct HomeAlbumsView: View {
                     }
                 }
                 .background(Color.background)
+                .onAppear {
+                    if !menuShowing {
+                        menuShowing = true
+                    }
+                }
             }.background(Color.background)
         }
         .onAppear {
@@ -103,18 +108,14 @@ struct ScrollViewCell: View {
         NavigationLink(
             destination: AlbumObjectView(album: album)
                 .navigationBarBackButtonHidden(true) // hide the default back button
-                .navigationBarItems(leading:
-                                        EmptyView()
-
-                )
                 .onAppear {
-                    
-                    menuShowing.toggle()
+                    if menuShowing {
+                        menuShowing.toggle()
+                    }
+
                 }
-//                .onDisappear() {
-//                    menuShowing.toggle()
-//                }
-            ) 
+                
+            )
         {
             VStack(alignment: .leading) {
                 // Display album image
