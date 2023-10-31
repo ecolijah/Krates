@@ -24,7 +24,7 @@ struct HomeKratesView: View {
     
     @Binding var menuShowing: Bool
     var body: some View {
-        NavigationView {
+        VStack {
             VStack(alignment: .leading) {
                 
                 ScrollView() {

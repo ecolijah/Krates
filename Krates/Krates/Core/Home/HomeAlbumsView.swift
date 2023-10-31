@@ -15,7 +15,7 @@ struct HomeAlbumsView: View {
     var spotifyAPIManager = SpotifyAPIManager()
     
     var body: some View {
-        NavigationView {
+        VStack {
             VStack {
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack(alignment: .leading) {

@@ -1,10 +1,17 @@
 import SwiftUI
+import Firebase
+
+
 
 @main
 struct KratesApp: App {
-    
+    //init a viewmodel instance, enviroenment so only init once
+    @StateObject var viewModel = AuthViewModel()
     // Initialize the SpotifyAuthService
     init() {
+        //Firebase app initialization
+        FirebaseApp.configure()
+        //Spotfiy APi Initialization, getting token
         SpotifyAuthService.shared.requestAccessToken { token, error in
             if let token = token {
                 print("Received Spotify token:", token)
@@ -14,9 +21,15 @@ struct KratesApp: App {
         }
     }
     
+
+
+    
     var body: some Scene {
         WindowGroup {
-            TabControllerView()
+            NavigationView {
+                ContentView()
+            }
+            .environmentObject(viewModel)
         }
     }
 }
