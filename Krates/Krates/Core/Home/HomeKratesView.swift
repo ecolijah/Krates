@@ -36,6 +36,11 @@ struct HomeKratesView: View {
                 }
             }
             .background(Color.background)
+            .onAppear {
+                if !menuShowing {
+                    menuShowing = true
+                }
+            }
         }
         
 

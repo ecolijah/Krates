@@ -11,6 +11,8 @@ struct AlbumObjectView: View {
     var album: Album
     var spotifyAPIManager = SpotifyAPIManager()
     @State var artist: ArtistObject?
+    @Environment(\.presentationMode) var presentationMode
+
 
     
 
@@ -20,6 +22,7 @@ struct AlbumObjectView: View {
     var body: some View {
         VStack {
             ZStack (alignment: .top){
+                
                 let imageURL = artist?.images[0].url ?? ""
                 let url = URL(string: imageURL)
                 //artist image
@@ -27,7 +30,8 @@ struct AlbumObjectView: View {
                     .frame(height: 280)
                     .cornerRadius(5)
                     .aspectRatio(contentMode: .fit)
-                    .edgesIgnoringSafeArea(.all)
+//                    .background(.blue)
+//                    .edgesIgnoringSafeArea(.all)
                     
                 
                 LinearGradient(
@@ -39,12 +43,60 @@ struct AlbumObjectView: View {
                     endPoint: .top
                 )
                 .frame(height: 280)
-                .edgesIgnoringSafeArea(.all)
+//                LinearGradient(
+//                    gradient: Gradient(stops: [
+//                        .init(color: Color.background.opacity(0.5), location: 0),
+//                        .init(color: Color.background.opacity(0.001), location: 0.05)
+//                    ]),
+//                    startPoint: .top,
+//                    endPoint: .bottom
+//                )
+//                .frame(height: 280)
+//                .edgesIgnoringSafeArea(.all)
                 
                 AlbumInfoView(album: album)
+                HStack {
+                    Button(action: {
+                        // Code to go back
+                        self.presentationMode.wrappedValue.dismiss()
+                        print("back button pressed.")
+                    }) {
+                        ZStack {
+                            Circle()
+                                .foregroundColor(.background.opacity(0.5))
+                            Image(systemName: "arrowshape.backward.fill") // Replace with your custom icon
+                                .foregroundColor(.accentLightGray)
+                        }
+                        .frame(width: 40, height: 40)
+                        .padding(.top, 8)
+                        .padding(.leading, 8)
+                    }
+                    Spacer()
+                    Button(action: {
+                        // Code to open album menu
+                        
+                    }) {
+                        ZStack {
+                            Circle()
+                                .foregroundColor(.background.opacity(0.5))
+                            Image(systemName: "ellipsis") // Replace with your custom icon
+                                .resizable()
+                                .foregroundColor(.accentLightGray)
+                                .frame(width: 30, height: 6)
+                                
+                        }
+                        .frame(width: 40, height: 40)
+                        .padding(.top, 8)
+                        .padding(.trailing, 8)
+                    }
+                    
+                }
+                .frame(width: 393)
+                
                 
             }
-            .frame(height: 340)
+            .frame(height: 340, alignment: .leading)
+//            .background(.red)
             
             Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu non odio euismod lacinia at quis risus sed. Hac habitasse platea dictumst vestibulum rhoncus. Pellentesque diam volutpat commodo sed egestas. Urna porttitor rhoncus dolor purus non enim praesent elementum. Proin fermentum leo vel orci. Ultrices sagittis orci a scelerisque. Viverra nam libero justo laoreet sit amet cursus sit. Amet nulla facilisi morbi tempus.")
                 .foregroundColor(.whiteFont)

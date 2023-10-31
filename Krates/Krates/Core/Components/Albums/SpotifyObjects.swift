@@ -137,7 +137,7 @@ struct ExternalIds: Codable {
 
 struct ArtistObject: Codable {
     let externalUrls: ExternalUrls?
-    let followers: Followers
+    let followers: Followers?
     let genres: [String]
     let href: String
     let id: String

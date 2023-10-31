@@ -17,6 +17,7 @@ struct Krate: Identifiable{
     var comments: [krateComment]?
     var description: String
     var albums: [String] //array of spotify uris
+    var headerImage: URL?
     
 }
 

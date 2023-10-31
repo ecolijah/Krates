@@ -14,24 +14,27 @@ struct HomeViewController: View {
         VStack(spacing: 0){
             //binding uodates in menu picker
             ZStack { //header
-                
-                LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.4), Color.background]), startPoint: .top, endPoint: .bottom)
-                    .ignoresSafeArea(.all, edges: .top)
-                
-                HStack(alignment: .center) {
-                    if menuShowing {
+
+                if menuShowing {
+                    LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.4), Color.background]), startPoint: .top, endPoint: .bottom)
+                        .ignoresSafeArea(.all, edges: .top)
+
+                    HStack(alignment: .center) {
                         MenuPicker(selectedHomeIndex: $selectedIndex)
                             .padding(.horizontal, 12)
                             .shadow(radius: 4, x: 0, y: 4)
+                        
+                        Spacer()
                     }
-                    
-                    Spacer()
+                    .padding(.bottom, 10)
                 }
-                .padding(.bottom, 10)
-                
+
             }
-            .frame(height: 50)
+            .frame(height: !menuShowing ? nil : 50)
             .background(Color.background)
+
+
+            
             
             //menu logic
             if selectedIndex == 0 {

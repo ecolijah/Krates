@@ -5,10 +5,13 @@ struct HomeAlbumsView: View {
     @State private var recommendedAlbums: [Album] = []
     @State private var popularAlbums: [Album] = []
     @State private var newReleaseAlbums: [Album] = []
+    @Environment(\.presentationMode) var presentationMode
+
+
+    
 
 
     var categories = ["Recommended", "Popular", "New releases"]
-    
     var spotifyAPIManager = SpotifyAPIManager()
     
     var body: some View {
@@ -64,6 +67,7 @@ struct HorizontalScrollView: View {
     var category: String
     var albums: [Album] = []
 
+
     var body: some View {
         VStack(alignment: .leading) {
             Text(category)
@@ -90,18 +94,43 @@ struct HorizontalScrollView: View {
 struct ScrollViewCell: View {
     @Binding var menuShowing: Bool
     var album: Album
+    @Environment(\.presentationMode) var presentationMode
+
+    
 
     var body: some View {
+        
         NavigationLink(
             destination: AlbumObjectView(album: album)
-                .navigationBarBackButtonHidden(false)
+                .navigationBarBackButtonHidden(true) // hide the default back button
+                .navigationBarItems(leading:
+                                        EmptyView()
+//                    HStack {
+//                        // Custom back button
+//                        Button(action: {
+//                            // Code to go back
+//                            presentationMode.wrappedValue.dismiss()
+//                            print("back button pressed.")
+//                        }) {
+//                            ZStack {
+//                                Circle()
+//                                    .foregroundColor(.background.opacity(0.7))
+//                                Image(systemName: "arrow.left") // Replace with your custom icon
+//                                    .foregroundColor(.accentLightGray)
+//                            }
+//                            .frame(width: 40, height: 40)
+//                            
+//                        }
+//                    }
+                )
                 .onAppear {
                     menuShowing.toggle()
                 }
                 .onDisappear() {
                     menuShowing.toggle()
                 }
-        ) {
+            ) 
+        {
             VStack(alignment: .leading) {
                 // Display album image
                 if let imageURL = album.images.first?.url, let url = URL(string: imageURL) {

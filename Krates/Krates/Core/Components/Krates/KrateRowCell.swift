@@ -12,14 +12,15 @@ struct KrateRowCell: View {
         VStack(alignment: .leading) {
             HStack(alignment: .center) {
                 NavigationLink(
-                    destination: KrateObjectView()
-                        .navigationBarBackButtonHidden(false)
+                    destination: KrateObjectView(krate: krate)
+                        .navigationBarBackButtonHidden(true)
                         .onAppear { // This will toggle menuShowing when KrateObjectView appears
-                            menuShowing.toggle()
+                            if menuShowing {
+                                menuShowing.toggle()
+                            }
+                            
                         }
-                        .onDisappear(){
-                            menuShowing.toggle()
-                        }
+
                 ) {
                     Text("\(krate.name)")
                         .foregroundColor(.whiteFont)
@@ -49,7 +50,7 @@ struct KrateRowCell: View {
                         Circle()
                             .frame(width: 40, height: 40)
                             .foregroundColor(.blue)
-                            .padding(.trailing, 8)
+                            .padding(.trailing, 10)
                     }
                 }
                 
@@ -68,7 +69,15 @@ struct KrateRowCell: View {
             .padding(.leading, 16)
             .edgesIgnoringSafeArea(.all)
             
-            NavigationLink(destination: KrateObjectView()) {
+            NavigationLink(destination: KrateObjectView(krate: krate)
+                .navigationBarBackButtonHidden(true)
+                .onAppear { // This will toggle menuShowing when KrateObjectView appears
+                    if menuShowing {
+                        menuShowing.toggle()
+                    }
+                    
+                }
+) {
                 Text("\(krate.description)")
                     .foregroundColor(.accentLightGray) // Replace with your custom color
                     .padding(.vertical, 8)
