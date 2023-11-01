@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @EnvironmentObject var viewModel: AuthViewModel
+    
     var body: some View {
         VStack(spacing: 0) {
             ProfileHeader()
@@ -73,14 +75,14 @@ struct ProfileHeader: View {
 }
 
 struct ProfileInfo: View {
+    @EnvironmentObject var viewModel: AuthViewModel
+    
     var body: some View {
         ZStack(alignment: .leading)  {
-            //image goes here
-            Rectangle()
-                .frame(height: 280)
-                .foregroundColor(Color.brightOrange)
+            // header image goes here
             Image("profilebackgroundtusks")
                 .frame(width: 340, height: 200)
+            
             LinearGradient(gradient: Gradient(colors: [Color.clear, Color.background]), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea(.all, edges: .top)
                 .frame(height: 280)
@@ -98,13 +100,13 @@ struct ProfileInfo: View {
                         .foregroundColor(Color.accentLightGray)
                     
                     VStack (alignment: .leading) {
-                        
+                        // following icon
                         Image("dummy")
                             .resizable()
                             .frame(width: 50, height: 50)
                             .padding(2)
-                        
-                        Text("saucy_goth")
+                        //user name
+                        Text("username")
                             .font(.title3)
                             .fontWeight(.heavy)
                             .foregroundColor(.whiteFont)

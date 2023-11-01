@@ -94,7 +94,7 @@ struct KrateObjectView: View {
                     .bold()
                     .font(.caption)
             }
-            GridAlbumView(krateAlbums: krateAlbums)
+            GridAlbumView(albums: krateAlbums)
             
             Spacer()
         }
@@ -112,7 +112,7 @@ struct KrateObjectView: View {
 }
 
 struct GridAlbumView: View {
-    var krateAlbums: [Album]
+    var albums: [Album]
     
     // Define a grid layout with flexible columns
     let columns: [GridItem] = [
@@ -124,7 +124,7 @@ struct GridAlbumView: View {
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns, spacing: 12) {
-                ForEach(krateAlbums, id: \.id) { album in
+                ForEach(albums, id: \.id) { album in
                     if let imageURL = album.images.first?.url, let url = URL(string: imageURL) {
                         NavigationLink(destination: AlbumObjectView(album: album)
                             .navigationBarBackButtonHidden(true)

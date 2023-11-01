@@ -10,7 +10,8 @@ import SwiftUI
 struct ArtistObjectView: View {
     var artist: ArtistObject?
     var spotifyAPIManager = SpotifyAPIManager()
-
+    @State private var artistAlbums: [Album] = []
+    @State private var album_uris: [String] = []
     @Environment(\.presentationMode) var presentationMode
 
     private var backButton: some View {
@@ -41,7 +42,8 @@ struct ArtistObjectView: View {
         }
     }
     var body: some View {
-        VStack {
+        VStack { //parent container
+            
             ZStack(alignment: .top) {
 //                Rectangle()
 //                    .frame(height: 280)
@@ -96,12 +98,41 @@ struct ArtistObjectView: View {
                     .font(.caption)
             }
             
+            GridAlbumView(albums: artistAlbums)
+            
             Spacer()
-            VStack {
-                Text("hello")
-            }
+            
         }
         .background(Color.background)
+        .onAppear {
+            guard let artistId = artist?.id else {
+                print("Artist is nil. Can't fetch albums.")
+                return
+            }
+            spotifyAPIManager.fetchAlbumsForArtist(withId: artistId) { uris, error in
+                if let uris = uris {
+                    // Handle the list of album URIs
+                    self.album_uris = uris
+                    print(uris)
+                    
+                    // Now that we have the URIs, fetch the albums
+                    spotifyAPIManager.fetchAlbumsInKrate(krateAlbums: self.album_uris) { albums, error in
+                        if let albums = albums {
+                            self.artistAlbums = albums
+                            print("DEBUG: number of albums we got: \(albums.count)")
+                        } else {
+                            print("Error fetching albums:", error?.localizedDescription ?? "Unknown error")
+                        }
+                    }
+
+                } else if let error = error {
+                    // Handle the error
+                    print("Error:", error.localizedDescription)
+                }
+            }
+        }
+
+
         
     }
     

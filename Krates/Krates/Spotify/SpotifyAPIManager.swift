@@ -36,11 +36,41 @@ class SpotifyAPIManager {
     struct SpotifyAlbumPage: Codable {
         let items: [Album]
     }
+    
+    func fetchAlbumsForArtist(withId artistId: String, completion: @escaping ([String]?, Error?) -> Void) {
+        print("Fetching albums for artist ID:", artistId)
+        makeRequest(endpoint: "artists/\(artistId)/albums") { data, error in
+            guard let data = data, error == nil else {
+                print("Error fetching albums for artist ID \(artistId):", error?.localizedDescription ?? "Unknown error")
+                completion(nil, error)
+                return
+            }
+            // Directly extract album URIs from the raw JSON
+            if let jsonObject = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+               let items = jsonObject["items"] as? [[String: Any]] {
+                let albumURIs = items.compactMap { item -> String? in
+                    if let albumType = item["album_type"] as? String, albumType == "album",
+                       let uri = item["uri"] as? String {
+                        return uri
+                    }
+                    return nil
+                }
+                print("Fetched albums for artist ID \(artistId) successfully!")
+                completion(albumURIs, nil)
+            } else {
+                print("Failed to parse albums JSON for artist ID \(artistId): Unexpected JSON structure")
+                completion(nil, NSError(domain: "com.yourapp", code: 9999, userInfo: [NSLocalizedDescriptionKey: "Unexpected JSON structure"]))
+            }
+        }
+    }
+
+
+
 
     
     
     func fetchAlbumsInKrate(krateAlbums: [String], completion: @escaping ([Album]?, Error?) -> Void) {
-        print("Fetching recommended albums...")
+        print("Fetching albums...")
         var albums: [Album] = []
         let group = DispatchGroup()
         
