@@ -45,6 +45,9 @@
 		F7544D9E2AF1A74F00D803CA /* RoundedShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7544D9D2AF1A74F00D803CA /* RoundedShape.swift */; };
 		F7544DA02AF1AD0100D803CA /* CustomInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7544D9F2AF1AD0100D803CA /* CustomInputField.swift */; };
 		F7544DA22AF1AEAC00D803CA /* AuthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7544DA12AF1AEAC00D803CA /* AuthHeaderView.swift */; };
+		F7544DA42AF2B74400D803CA /* ProfilePhotoSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7544DA32AF2B74400D803CA /* ProfilePhotoSelectorView.swift */; };
+		F7544DA72AF2BBE700D803CA /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7544DA62AF2BBE700D803CA /* ImagePicker.swift */; };
+		F7544DAA2AF2C50900D803CA /* imageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7544DA92AF2C50900D803CA /* imageUploader.swift */; };
 		F7BB86282AD13A9B004BD57D /* KrateRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB86272AD13A9B004BD57D /* KrateRowCell.swift */; };
 		F7BB862C2AD4BA06004BD57D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB862B2AD4BA06004BD57D /* HomeViewController.swift */; };
 		F7BB862E2AD4F164004BD57D /* KrateObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB862D2AD4F164004BD57D /* KrateObjectView.swift */; };
@@ -81,6 +84,9 @@
 		F7544D9D2AF1A74F00D803CA /* RoundedShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShape.swift; sourceTree = "<group>"; };
 		F7544D9F2AF1AD0100D803CA /* CustomInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputField.swift; sourceTree = "<group>"; };
 		F7544DA12AF1AEAC00D803CA /* AuthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHeaderView.swift; sourceTree = "<group>"; };
+		F7544DA32AF2B74400D803CA /* ProfilePhotoSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoSelectorView.swift; sourceTree = "<group>"; };
+		F7544DA62AF2BBE700D803CA /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		F7544DA92AF2C50900D803CA /* imageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageUploader.swift; sourceTree = "<group>"; };
 		F7BB86272AD13A9B004BD57D /* KrateRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KrateRowCell.swift; sourceTree = "<group>"; };
 		F7BB862B2AD4BA06004BD57D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F7BB862D2AD4F164004BD57D /* KrateObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KrateObjectView.swift; sourceTree = "<group>"; };
@@ -187,8 +193,25 @@
 				F7544D9D2AF1A74F00D803CA /* RoundedShape.swift */,
 				F7544D9F2AF1AD0100D803CA /* CustomInputField.swift */,
 				F7544DA12AF1AEAC00D803CA /* AuthHeaderView.swift */,
+				F7544DA32AF2B74400D803CA /* ProfilePhotoSelectorView.swift */,
 			);
 			path = views;
+			sourceTree = "<group>";
+		};
+		F7544DA52AF2BBD600D803CA /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				F7544DA62AF2BBE700D803CA /* ImagePicker.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		F7544DA82AF2C4E500D803CA /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				F7544DA92AF2C50900D803CA /* imageUploader.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		F7BFA7EA2ACE090C00B729AD = {
@@ -211,6 +234,8 @@
 		F7BFA7F52ACE090C00B729AD /* Krates */ = {
 			isa = PBXGroup;
 			children = (
+				F7544DA82AF2C4E500D803CA /* Service */,
+				F7544DA52AF2BBD600D803CA /* Utility */,
 				F7BFA8052ACE098B00B729AD /* Core */,
 				F71C22912AF1824900E0F475 /* Firebase */,
 				F71C22112AEB622E00E0F475 /* Spotify */,
@@ -446,6 +471,7 @@
 				F7544D9C2AF1A5ED00D803CA /* RegisterView.swift in Sources */,
 				F7544D962AF19CFF00D803CA /* ContentView.swift in Sources */,
 				F7BFA80B2ACE09F700B729AD /* HomeAlbumsView.swift in Sources */,
+				F7544DA72AF2BBE700D803CA /* ImagePicker.swift in Sources */,
 				F7544DA22AF1AEAC00D803CA /* AuthHeaderView.swift in Sources */,
 				F7BFA82C2AD0056000B729AD /* HomeReviewsView.swift in Sources */,
 				F71C22172AF080CF00E0F475 /* ArtistObjectView.swift in Sources */,
@@ -455,6 +481,7 @@
 				F7BB86302AD4F1D6004BD57D /* ProfileVisitingView.swift in Sources */,
 				F7BFA8232ACFE92700B729AD /* KrateObject.swift in Sources */,
 				F7BFA7F72ACE090C00B729AD /* KratesApp.swift in Sources */,
+				F7544DA42AF2B74400D803CA /* ProfilePhotoSelectorView.swift in Sources */,
 				F7BB86282AD13A9B004BD57D /* KrateRowCell.swift in Sources */,
 				F7544D9A2AF1A5D700D803CA /* LoginView.swift in Sources */,
 				F7544D932AF19BCD00D803CA /* AuthViewModel.swift in Sources */,
@@ -462,6 +489,7 @@
 				F7544DA02AF1AD0100D803CA /* CustomInputField.swift in Sources */,
 				F7BB862E2AD4F164004BD57D /* KrateObjectView.swift in Sources */,
 				F7BFA8262ACFEB9300B729AD /* ReviewObject.swift in Sources */,
+				F7544DAA2AF2C50900D803CA /* imageUploader.swift in Sources */,
 				F7BFA81F2ACFE69A00B729AD /* AlbumObjectView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

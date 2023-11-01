@@ -14,9 +14,20 @@ struct RegisterView: View {
     @State private var username = ""
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var viewModel: AuthViewModel
+    @State private var shouldShowFullScreen = false
 
     var body: some View {
         VStack { //parentview
+            
+            
+//            NavigationLink(
+//                destination: ProfilePhotoSelectorView(),
+//                isActive: $viewModel.didAuthenticateUser,
+//                label: {
+//                    EmptyView()
+//                })
+            
+
             AuthHeaderView(title1: "Get started.", title2: "Create your account")
             VStack (spacing: 40) {
                 CustomInputField(imageName: "envelope", placeHoldertext: "Email", text: $email)
@@ -60,7 +71,16 @@ struct RegisterView: View {
                 }
             }.padding(.bottom, 32)
             
-        }.ignoresSafeArea()
+        }
+        .ignoresSafeArea()
+        .fullScreenCover(isPresented: $shouldShowFullScreen) {
+            ProfilePhotoSelectorView()
+        }
+        .onChange(of: viewModel.didAuthenticateUser) { newValue in
+            if newValue {
+                self.shouldShowFullScreen = true
+            }
+        }
     }
 }
 
