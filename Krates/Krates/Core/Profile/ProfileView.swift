@@ -26,6 +26,7 @@ struct ProfileView: View {
 
 
 struct ProfileHeader: View {
+    @EnvironmentObject var viewModel: AuthViewModel
     var body: some View {
         VStack {
             
@@ -34,9 +35,14 @@ struct ProfileHeader: View {
                     .ignoresSafeArea(.all, edges: .top)
                 
                 HStack {
-                    Rectangle()
-                        .frame(width: 30, height: 30)
-                        .foregroundColor(.clear)
+                    
+                    Button { //temporary logout button
+                        viewModel.signOut()
+                    } label: {
+                        Rectangle()
+                            .frame(width: 30, height: 30)
+                            .foregroundColor(.red)
+                    }
                     Spacer()
                     
                     Text("Profile")
