@@ -240,7 +240,7 @@ struct ProfileHeader: View {
                 
                 NavigationLink {
                     //code
-                    createKrateView()
+                    CreateKrateView()
                         .navigationBarBackButtonHidden(true)
                 } label: {
                     Image(systemName: "plus")
