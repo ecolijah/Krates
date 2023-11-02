@@ -17,10 +17,12 @@ struct SearchView: View {
         VStack (spacing: 0) { // parent container
             
             SearchFilterView(selectedFilter: $selectedFilter)
+            SearchBar(text: $searchViewModel.searchText)
+                .padding(.vertical)
             ScrollView {
                 LazyVStack (spacing: 0) {
                     if selectedFilter == .users {
-                        ForEach(searchViewModel.users, id: \.self) { user in
+                        ForEach(searchViewModel.searchableUsers, id: \.self) { user in
                             NavigationLink {
     //                            AlbumObjectView()
                                 ProfileVisitingView(user: user)

@@ -7,8 +7,23 @@
 
 import Foundation
 class SearchViewModel: ObservableObject {
+    
     @Published var users = [User]()
     let service = UserService()
+    @Published var searchText = ""
+    
+    var searchableUsers: [User] {
+        if searchText.isEmpty {
+            return users
+        } else {
+            let lowercasedQuery = searchText.lowercased()
+            
+            return users.filter({
+                $0.username.contains(lowercasedQuery) ||
+                $0.fullname.lowercased().contains(lowercasedQuery)
+            })
+        }
+    }
     
     init() {
         fetchUsers()

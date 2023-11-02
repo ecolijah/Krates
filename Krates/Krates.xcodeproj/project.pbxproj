@@ -57,6 +57,7 @@
 		F7544DBF2AF389E900D803CA /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7544DBE2AF389E900D803CA /* SearchViewModel.swift */; };
 		F7544DC12AF38C8700D803CA /* ProfileRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7544DC02AF38C8700D803CA /* ProfileRowView.swift */; };
 		F7544DC32AF38D5600D803CA /* SearchFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7544DC22AF38D5600D803CA /* SearchFilterViewModel.swift */; };
+		F754546D2AF41CE3000BDBAC /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F754546C2AF41CE3000BDBAC /* SearchBar.swift */; };
 		F7BB86282AD13A9B004BD57D /* KrateRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB86272AD13A9B004BD57D /* KrateRowCell.swift */; };
 		F7BB862C2AD4BA06004BD57D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB862B2AD4BA06004BD57D /* HomeViewController.swift */; };
 		F7BB862E2AD4F164004BD57D /* KrateObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB862D2AD4F164004BD57D /* KrateObjectView.swift */; };
@@ -104,6 +105,7 @@
 		F7544DBE2AF389E900D803CA /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		F7544DC02AF38C8700D803CA /* ProfileRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRowView.swift; sourceTree = "<group>"; };
 		F7544DC22AF38D5600D803CA /* SearchFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterViewModel.swift; sourceTree = "<group>"; };
+		F754546C2AF41CE3000BDBAC /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		F7BB86272AD13A9B004BD57D /* KrateRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KrateRowCell.swift; sourceTree = "<group>"; };
 		F7BB862B2AD4BA06004BD57D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F7BB862D2AD4F164004BD57D /* KrateObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KrateObjectView.swift; sourceTree = "<group>"; };
@@ -250,6 +252,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		F754546B2AF41CD2000BDBAC /* ReusableComponents */ = {
+			isa = PBXGroup;
+			children = (
+				F754546C2AF41CE3000BDBAC /* SearchBar.swift */,
+			);
+			path = ReusableComponents;
+			sourceTree = "<group>";
+		};
 		F7BFA7EA2ACE090C00B729AD = {
 			isa = PBXGroup;
 			children = (
@@ -348,6 +358,7 @@
 		F7BFA8122ACE0A2E00B729AD /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				F754546B2AF41CD2000BDBAC /* ReusableComponents */,
 				F7BFA8242ACFEB6A00B729AD /* Reviews */,
 				F7BFA8152ACE0A6800B729AD /* Artists */,
 				F7BFA8142ACE0A5F00B729AD /* Krates */,
@@ -537,6 +548,7 @@
 				F7544D932AF19BCD00D803CA /* AuthViewModel.swift in Sources */,
 				F7BFA8212ACFE86900B729AD /* SpotifyObjects.swift in Sources */,
 				F7544DA02AF1AD0100D803CA /* CustomInputField.swift in Sources */,
+				F754546D2AF41CE3000BDBAC /* SearchBar.swift in Sources */,
 				F7BB862E2AD4F164004BD57D /* KrateObjectView.swift in Sources */,
 				F7544DC12AF38C8700D803CA /* ProfileRowView.swift in Sources */,
 				F7544DB72AF353F100D803CA /* GridAlbumView.swift in Sources */,
