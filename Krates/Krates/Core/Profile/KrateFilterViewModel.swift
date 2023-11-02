@@ -10,13 +10,13 @@ import Foundation
 enum KrateFilterViewModel: Int, CaseIterable {
     case krates
     case likes
-    case reviews
+//    case reviews
     
     var title: String {
         switch self{
         case.krates: return "Krates"
         case.likes: return "Likes"
-        case.reviews: return "Reviews"
+//        case.reviews: return "Reviews"
             
         }
     }

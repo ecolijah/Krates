@@ -53,9 +53,9 @@ struct ProfileView: View {
                 GridAlbumView(albums: likedAlbums)
                     .padding(.bottom, 50)
             }
-            if selectedFilter == .reviews {
-                
-            }
+//            if selectedFilter == .reviews {
+//                
+//            }
             
             
         }
@@ -212,17 +212,20 @@ struct ProfileHeader: View {
     var body: some View {
         VStack {
             
-            HStack {
+            HStack (alignment:.center) {
                 
-                Button { //temporary logout button
-                    viewModel.signOut()
-                } label: {
-                    Rectangle()
-                        .frame(width: 30, height: 30)
-                        .foregroundColor(.red)
-                        .shadow(color: Color.black.opacity(0.8), radius: 20, x: 0, y: 0)
-                        .cornerRadius(10)
-                }
+//                Button { //temporary logout button
+//                    viewModel.signOut()
+//                } label: {
+//                    Rectangle()
+//                        .frame(width: 30, height: 30)
+//                        .foregroundColor(.red)
+//                        .shadow(color: Color.black.opacity(0.8), radius: 20, x: 0, y: 0)
+//                        .cornerRadius(10)
+//                }
+                Rectangle()
+                    .frame(width: 30, height: 30)
+                    .foregroundColor(.clear).padding(.leading, 16)
                 
                 Spacer()
                 
@@ -233,22 +236,33 @@ struct ProfileHeader: View {
                     .shadow(color: Color.black.opacity(0.8), radius: 20, x: 0, y: 0)
                 
                 Spacer()
-                
-                // Filter settings
-                Button(action: {
-                    // Filter button action
-                }) {
+                Menu {
+                    Button("LogOut", action: logOut)
+                    Button("Done", action: dismissMenu)
+                } label: {
                     Image("icons8-three-dots-50")
                         .resizable()
                         .frame(width: 30, height: 30)
                         .foregroundColor(.accentLightGray) // Modify as per your color scheme
                         .shadow(color: Color.black.opacity(0.8), radius: 20, x: 0, y: 0)
+                        .padding(.trailing, 16)
+                        .offset(y: -5)
                 }
+                
             }
-            .padding(.horizontal)
             
         }
         .background(Color.clear)
+    }
+    
+    func logOut() {
+        viewModel.signOut()
+        print("DEBUG: logging out from profile view.")
+        
+    }
+    
+    func dismissMenu() {
+        print("DEBUG: dismissing menu.")
     }
 }
 
