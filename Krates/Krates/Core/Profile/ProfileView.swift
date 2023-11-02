@@ -138,7 +138,7 @@ struct ProfileInfoTwo: View {
                             .padding(.vertical, 2)
                     }
                     
-                }.padding(.leading)                            .shadow(radius: 4)
+                }.padding(.leading).shadow(radius: 4)
 
                 
             }.offset(x: 16, y: 80)

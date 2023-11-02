@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import Kingfisher
+import Firebase
 
 struct AlbumObjectView: View {
     var album: Album
     var spotifyAPIManager = SpotifyAPIManager()
     @State var artist: ArtistObject?
+    @EnvironmentObject var viewModel: AuthViewModel
     @Environment(\.presentationMode) var presentationMode
 
     
@@ -19,14 +22,11 @@ struct AlbumObjectView: View {
             ZStack (alignment: .top){
                 
                 let imageURL = artist?.images[0].url ?? ""
-                let url = URL(string: imageURL)
                 //artist image
-                AsyncImage(url: url)
+                KFImage(URL(string: imageURL))
                     .frame(height: 280)
                     .cornerRadius(5)
                     .aspectRatio(contentMode: .fit)
-//                    .background(.blue)
-//                    .edgesIgnoringSafeArea(.all)
                     
                 
                 LinearGradient(
@@ -38,16 +38,6 @@ struct AlbumObjectView: View {
                     endPoint: .top
                 )
                 .frame(height: 280)
-//                LinearGradient(
-//                    gradient: Gradient(stops: [
-//                        .init(color: Color.background.opacity(0.5), location: 0),
-//                        .init(color: Color.background.opacity(0.001), location: 0.05)
-//                    ]),
-//                    startPoint: .top,
-//                    endPoint: .bottom
-//                )
-//                .frame(height: 280)
-//                .edgesIgnoringSafeArea(.all)
                 
                 AlbumInfoView(album: album, artist: artist)
                 HStack {
@@ -67,10 +57,13 @@ struct AlbumObjectView: View {
                         .padding(.leading, 8)
                     }
                     Spacer()
-                    Button(action: {
-                        // Code to open album menu
-                        
-                    }) {
+                    Menu {
+                        //code
+                        Button("Add to favorites ♥", action: handleOption1)
+                        Button("Add to 'to listen'", action: handleOption2)
+                        Button("Add to krate", action: handleOption3)
+                        Button("Done", action: handleOption4)
+                    } label: {
                         ZStack {
                             Circle()
                                 .foregroundColor(.background.opacity(0.3))
@@ -119,6 +112,64 @@ struct AlbumObjectView: View {
 
         }
 
+    }
+    
+    func handleOption1() {
+        guard let currentUser = viewModel.currentUser else {
+            print("DEBUG: Current user is nil.")
+            return
+        }
+        
+        let album_uri = self.album.uri
+        
+        // Ensure we have a valid user ID before proceeding
+         guard let uid = currentUser.id else {
+             print("DEBUG: User ID is nil.")
+             return
+         }
+        
+        // Fetch the current likedAlbums from the database first
+        Firestore.firestore().collection("users")
+            .document(uid)
+            .getDocument { (document, error) in
+                if let document = document, document.exists {
+                    // Try to decode the user data to get the current likedAlbums
+                    let user = try? document.data(as: User.self)
+                    
+                    // Append the new album_uri to the existing likedAlbums
+                    var updatedLikedAlbums = user?.likedAlbums ?? []
+                    if !updatedLikedAlbums.contains(album_uri) {
+                        updatedLikedAlbums.append(album_uri)
+                    }
+                    
+                    // Now update the database with the new list
+                    Firestore.firestore().collection("users")
+                        .document(uid)
+                        .updateData(["likedAlbums": updatedLikedAlbums]) { error in
+                            if let error = error {
+                                print("DEBUG: Failed to update liked albums: \(error.localizedDescription)")
+                            } else {
+                                print("DEBUG: Successfully updated liked albums.")
+                                // Update the local user model
+                                self.viewModel.currentUser?.likedAlbums = updatedLikedAlbums
+                            }
+                        }
+                } else {
+                    print("Document does not exist")
+                }
+            }
+    }
+
+
+
+    func handleOption2() {
+        print("DEBUG: Handling option 2")
+    }
+    func handleOption3() {
+        print("DEBUG: Handling option 3")
+    }
+    func handleOption4() {
+        print("DEBUG: Handling option 4")
     }
     
 }

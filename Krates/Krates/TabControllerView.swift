@@ -14,45 +14,48 @@ struct TabControllerView: View {
     let tabBarText = ["Home", "Search", "Social", "Profile"]
     
     var body: some View {
-        
-        VStack(spacing: 0) {
-
-            ZStack {
-                
-                HomeViewController().opacity(selectedIndex == 0 ? 1 : 0)
-                SearchView().opacity(selectedIndex == 1 ? 1 : 0)
-                SocialView().opacity(selectedIndex == 2 ? 1 : 0)
-                ProfileView().opacity(selectedIndex == 3 ? 1 : 0)
+        ZStack(alignment: .bottom) { // Align the tab bar to the bottom
+            // Content view that changes based on the selected index
+            Group {
+                switch selectedIndex {
+                case 0:
+                    HomeViewController()
+                case 1:
+                    SearchView()
+                case 2:
+                    SocialView()
+                case 3:
+                    ProfileView()
+                default:
+                    HomeViewController()
+                }
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity) // Make content view full screen
             
-            // Custom Tab Bar
-            ZStack() {
-//                LinearGradient(gradient: Gradient(colors: [Color.accentDarkGray.opacity(1), Color.black.opacity(1)]), startPoint: .top, endPoint: .bottom)
-//                    .ignoresSafeArea(.all, edges: .bottom)
-                
-                HStack() {
-                    
-                    ForEach(0..<4) { index in
-                        Button(action: {
-                            selectedIndex = index
-                        }) {
-                            CustomTabButton(imageName: tabBarImageNames[index],
-                                            selectedImageName: selectedTabBarImageNames[index],
-                                            text: tabBarText[index],
-                                            isSelected: selectedIndex == index)
-                        }
-                        .frame(maxWidth: .infinity)
-                    }
-                }.background(Color.accentDarkGray)
-                
-            }
-            .frame(height: 30)
-            
-            
+            // Custom Tab Bar as an overlay
+            customTabBar()
         }
     }
-}
 
+    @ViewBuilder
+    private func customTabBar() -> some View {
+        HStack {
+            ForEach(0..<4) { index in
+                Button(action: {
+                    selectedIndex = index
+                }) {
+                    CustomTabButton(imageName: tabBarImageNames[index],
+                                    selectedImageName: selectedTabBarImageNames[index],
+                                    text: tabBarText[index],
+                                    isSelected: selectedIndex == index)
+                }
+                .frame(maxWidth: .infinity)
+            }
+        }
+        .background(Color.accentDarkGray) // Your custom color
+        .frame(height: 50) // Adjust to your custom tab bar height
+    }
+}
 
 struct CustomTabButton: View {
     var imageName: String
@@ -74,8 +77,6 @@ struct CustomTabButton: View {
         .padding(.vertical, 8)
     }
 }
-
-
 
 #Preview {
     TabControllerView()
