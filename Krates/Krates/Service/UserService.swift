@@ -3,7 +3,7 @@ import FirebaseFirestoreSwift
 
 struct UserService {
     
-    func fetchUser(withUid uid: String) {
+    func fetchUser(withUid uid: String, completion: @escaping(User) -> Void ) {
         Firestore.firestore().collection("users")
             .document(uid)
             .getDocument { snapshot, error in
@@ -27,6 +27,7 @@ struct UserService {
                     var user = try Firestore.Decoder().decode(User.self, from: data)
                     user.id = snapshot.documentID
                     print("DEBUG: User name is: \(user.username)")
+                    completion(user)
                 } catch {
                     print("DEBUG: Decoding error:", error)
                 }

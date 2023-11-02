@@ -85,54 +85,57 @@ struct KrateFilterView: View {
 
 struct ProfileInfoTwo: View {
     @EnvironmentObject var viewModel: AuthViewModel
+    
     var body: some View {
-        HStack(alignment:.center) {//picture and user info
-            Circle()
-                .frame(width: 112, height: 112)
-                .shadow(color: Color.black.opacity(0.8), radius: 10, x: 0, y: 0)
-                .foregroundColor(.accentLightGray)
-            VStack(alignment: .leading, spacing: 2)  { //user info
-                //user name
-                Text("username")
-                    .font(.title3)
-                    .fontWeight(.heavy)
-                    .foregroundColor(.whiteFont)
-                    .padding(2)
+        if let user = viewModel.currentUser {
+            HStack(alignment:.center) {//picture and user info
+                Circle()
+                    .frame(width: 112, height: 112)
+                    .shadow(color: Color.black.opacity(0.8), radius: 10, x: 0, y: 0)
+                    .foregroundColor(.accentLightGray)
+                VStack(alignment: .leading, spacing: 2)  { //user info
+                    //user name
+                    Text(user.username)
+                        .font(.title3)
+                        .fontWeight(.heavy)
+                        .foregroundColor(.whiteFont)
+                        .padding(2)
+                    
+                    HStack { //stats
+                        Text("20 lists")
+                            .font(.caption)
+                            .fontWeight(.heavy)
+                            .foregroundColor(.accentLightGray)
+                            .padding(2)
+
+
+                        Text("1.4k albums")
+                            .fontWeight(.heavy)
+                            .font(.caption)
+                            .foregroundColor(.accentLightGray)
+                            .padding(2)
+
+                    }
+                    
+                    HStack { //following row
+                        Text("100 followers")
+                            .font(.caption)
+                            .fontWeight(.heavy)
+                            .foregroundColor(.accentLightGray)
+                            .padding(2)
+
+                        Text("200 following")
+                            .font(.caption)
+                            .fontWeight(.heavy)
+                            .foregroundColor(.accentLightGray)
+                            .padding(2)
+                    }
+                    
+                }.padding(.leading)                            .shadow(radius: 4)
+
                 
-                HStack { //stats
-                    Text("20 lists")
-                        .font(.caption)
-                        .fontWeight(.heavy)
-                        .foregroundColor(.accentLightGray)
-                        .padding(2)
-
-
-                    Text("1.4k albums")
-                        .fontWeight(.heavy)
-                        .font(.caption)
-                        .foregroundColor(.accentLightGray)
-                        .padding(2)
-
-                }
-                
-                HStack { //following row
-                    Text("100 followers")
-                        .font(.caption)
-                        .fontWeight(.heavy)
-                        .foregroundColor(.accentLightGray)
-                        .padding(2)
-
-                    Text("200 following")
-                        .font(.caption)
-                        .fontWeight(.heavy)
-                        .foregroundColor(.accentLightGray)
-                        .padding(2)
-                }
-                
-            }.padding(.leading)                            .shadow(radius: 4)
-
-            
-        }.offset(x: 16, y: 80)
+            }.offset(x: 16, y: 80)
+        }
     }
 }
 
