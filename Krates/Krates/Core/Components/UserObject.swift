@@ -12,13 +12,16 @@ import FirebaseFirestoreSwift
 struct User: Identifiable, Decodable {
     
     //documentid in datbase
-    @DocumentID  var id: String?
+    var id: String?
     
     //required after registration
-    var username: String
+    var email: String
     var fullname: String
     var profileImageUrl: String
-    var email: String
+    var username: String
+    
+    
+    
     
      //optional
     var bio: String?

@@ -84,6 +84,7 @@ struct KrateFilterView: View {
 }
 
 struct ProfileInfoTwo: View {
+    @EnvironmentObject var viewModel: AuthViewModel
     var body: some View {
         HStack(alignment:.center) {//picture and user info
             Circle()

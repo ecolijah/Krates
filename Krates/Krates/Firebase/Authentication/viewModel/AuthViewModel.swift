@@ -17,7 +17,7 @@ class AuthViewModel: ObservableObject {
     
     init() {
         self.userSession = Auth.auth().currentUser
-        print("user session uid: \(self.userSession?.uid)")
+        print("DEBUG: user session uid: \(self.userSession?.uid)")
         self.fetchUser()
         
 
@@ -53,10 +53,8 @@ class AuthViewModel: ObservableObject {
             
             //upload user data to firestore database
             let data = ["email": email,
-                        "password": password.lowercased(),
                         "fullname": fullname,
-                        "username": username,
-                        "uid": user.uid]
+                        "username": username]
             
             //upload data to users collection
             Firestore.firestore().collection("users")
@@ -81,7 +79,7 @@ class AuthViewModel: ObservableObject {
         ImageUploader.uploadImage(image: image) { profileImageUrl in
             Firestore.firestore().collection("users")
                 .document(uid)
-                .updateData(["profileImageUrl:": profileImageUrl]) { _ in
+                .updateData(["profileImageUrl": profileImageUrl]) { _ in
                     self.userSession = self.tempUserSession
                 }
             
