@@ -7,21 +7,29 @@
 
 import Foundation
 import SwiftUI
+import FirebaseFirestoreSwift
 
-struct User: Identifiable {
+struct User: Identifiable, Decodable {
     
-    var id: UUID
+    //documentid in datbase
+    @DocumentID  var id: String?
+    
+    //required after registration
     var username: String
-    var bio: String
-    var profilePic: Image
-    var header: Image
+    var fullname: String
+    var profileImageUrl: String
+    var email: String
     
-    var followers: [User]
-    var following: [User]
+     //optional
+    var bio: String?
+    var headerImageUrl: String?
     
-    var createdLists: [Krate]
-    var likedAlbums: [Album]
-    var reviews: [Review]
-    var likedReviews: [Review]
-    var likedLists: [Krate]
+    var followers: [String]?
+    var following: [String]?
+    
+    var createdLists: [String]?
+    var likedAlbums: [String]?
+    var reviews: [String]?
+    var likedReviews: [String]?
+    var likedLists: [String]?
 }

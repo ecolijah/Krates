@@ -48,6 +48,8 @@
 		F7544DA42AF2B74400D803CA /* ProfilePhotoSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7544DA32AF2B74400D803CA /* ProfilePhotoSelectorView.swift */; };
 		F7544DA72AF2BBE700D803CA /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7544DA62AF2BBE700D803CA /* ImagePicker.swift */; };
 		F7544DAA2AF2C50900D803CA /* imageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7544DA92AF2C50900D803CA /* imageUploader.swift */; };
+		F7544DAC2AF2EEEA00D803CA /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7544DAB2AF2EEEA00D803CA /* UserService.swift */; };
+		F7544DB02AF3025700D803CA /* KrateFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7544DAF2AF3025700D803CA /* KrateFilterViewModel.swift */; };
 		F7BB86282AD13A9B004BD57D /* KrateRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB86272AD13A9B004BD57D /* KrateRowCell.swift */; };
 		F7BB862C2AD4BA06004BD57D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB862B2AD4BA06004BD57D /* HomeViewController.swift */; };
 		F7BB862E2AD4F164004BD57D /* KrateObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB862D2AD4F164004BD57D /* KrateObjectView.swift */; };
@@ -87,6 +89,8 @@
 		F7544DA32AF2B74400D803CA /* ProfilePhotoSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoSelectorView.swift; sourceTree = "<group>"; };
 		F7544DA62AF2BBE700D803CA /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		F7544DA92AF2C50900D803CA /* imageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageUploader.swift; sourceTree = "<group>"; };
+		F7544DAB2AF2EEEA00D803CA /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		F7544DAF2AF3025700D803CA /* KrateFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KrateFilterViewModel.swift; sourceTree = "<group>"; };
 		F7BB86272AD13A9B004BD57D /* KrateRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KrateRowCell.swift; sourceTree = "<group>"; };
 		F7BB862B2AD4BA06004BD57D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F7BB862D2AD4F164004BD57D /* KrateObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KrateObjectView.swift; sourceTree = "<group>"; };
@@ -210,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				F7544DA92AF2C50900D803CA /* imageUploader.swift */,
+				F7544DAB2AF2EEEA00D803CA /* UserService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -301,6 +306,7 @@
 			children = (
 				F7BFA8102ACE0A1900B729AD /* ProfileView.swift */,
 				F7BB862F2AD4F1D6004BD57D /* ProfileVisitingView.swift */,
+				F7544DAF2AF3025700D803CA /* KrateFilterViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -464,6 +470,7 @@
 				F71C22152AEB7EA600E0F475 /* SpotifyAPIManager.swift in Sources */,
 				F7BFA81B2ACFB26100B729AD /* Colors.swift in Sources */,
 				F7BFA80D2ACE0A0500B729AD /* SearchView.swift in Sources */,
+				F7544DAC2AF2EEEA00D803CA /* UserService.swift in Sources */,
 				F7BB862C2AD4BA06004BD57D /* HomeViewController.swift in Sources */,
 				F7544D9E2AF1A74F00D803CA /* RoundedShape.swift in Sources */,
 				F7BFA8282ACFECAC00B729AD /* UserObject.swift in Sources */,
@@ -476,6 +483,7 @@
 				F7BFA82C2AD0056000B729AD /* HomeReviewsView.swift in Sources */,
 				F71C22172AF080CF00E0F475 /* ArtistObjectView.swift in Sources */,
 				F7BFA8112ACE0A1900B729AD /* ProfileView.swift in Sources */,
+				F7544DB02AF3025700D803CA /* KrateFilterViewModel.swift in Sources */,
 				F7BFA82A2AD0054400B729AD /* HomeKratesView.swift in Sources */,
 				F7BFA81D2ACFBE4400B729AD /* MenuPicker.swift in Sources */,
 				F7BB86302AD4F1D6004BD57D /* ProfileVisitingView.swift in Sources */,

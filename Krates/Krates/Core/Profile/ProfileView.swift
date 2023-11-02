@@ -7,21 +7,166 @@
 
 import SwiftUI
 
+//testing krate
+var krate1 = Krate(
+    id: UUID(),
+    name: "shoegazer",
+    author: "ecolijah",
+    dateCreated: Date(),
+    likes: 3,
+    description: "collection of my favorite shoegaze albums.",
+    albums: ["spotify:album:4CIaS88EQ6j26qOigblqSH",
+             "spotify:album:4p73PcjJvWer7WDYXcGetn",
+              "spotify:album:5YrOTxB5pmtK6uD4qcpAw5",
+              "spotify:album:7EV6GsiM2nvt38n2FnnpEj",
+              "spotify:album:2tAFOhqz3DxxVI2s5YNsrD",
+              "spotify:album:0agALBMd2a8cnpbpukTg03"])
+
 struct ProfileView: View {
-    @EnvironmentObject var viewModel: AuthViewModel
+    @State private var selectedFilter: KrateFilterViewModel = .krates
+
     
     var body: some View {
-        VStack(spacing: 0) {
-            ProfileHeader()
+        
+        VStack(alignment: .leading) { //parent container
+
+            ProfileHeaderTwo()
+            
+            KrateFilterView(selectedFilter: $selectedFilter).offset(y: 8)
+            
             ScrollView {
-                VStack(spacing: 0) {
-                    ProfileInfo()
-                    Rectangle()
-                        .foregroundColor(Color.background)
-                        .frame(height: 800)
+                LazyVStack {
+                    ForEach(0...9, id: \.self) {_ in
+                        KrateRowCell(menuShowing: .constant(false), krate: krate1)
+                    }
                 }
             }
-            .ignoresSafeArea(.all)
+            .padding(.bottom, 30)
+            
+        }
+        .background(Color.background)
+    }
+}
+
+struct KrateFilterView: View {
+    @Namespace var animation
+    @Binding var selectedFilter: KrateFilterViewModel
+    var body: some View {
+        HStack {
+            ForEach(KrateFilterViewModel.allCases, id: \.rawValue) { item in
+                VStack {
+                    Text(item.title)
+                        .fontWeight(selectedFilter == item ? .semibold : .regular)
+                        .font(.subheadline)
+                        .foregroundColor(selectedFilter == item ? .whiteFont : .accentLightGray)
+                    if selectedFilter == item {
+                        Capsule()
+                            .foregroundColor(.brightOrange)
+                            .frame(height: 3)
+                            .matchedGeometryEffect(id: "filter", in: animation)
+                    } else {
+                        Capsule()
+                            .foregroundColor(.clear)
+                            .frame(height: 3)
+                    }
+                }
+                .onTapGesture {
+                    withAnimation(.easeInOut) {
+                        self.selectedFilter = item
+                    }
+                }
+            }
+        }
+        .padding(.top, 15)
+        .overlay(Divider().offset(x: 0, y: 29))
+        .background(Color.background)
+    }
+}
+
+struct ProfileInfoTwo: View {
+    var body: some View {
+        HStack(alignment:.center) {//picture and user info
+            Circle()
+                .frame(width: 112, height: 112)
+                .shadow(color: Color.black.opacity(0.8), radius: 10, x: 0, y: 0)
+                .foregroundColor(.accentLightGray)
+            VStack(alignment: .leading, spacing: 2)  { //user info
+                //user name
+                Text("username")
+                    .font(.title3)
+                    .fontWeight(.heavy)
+                    .foregroundColor(.whiteFont)
+                    .padding(2)
+                
+                HStack { //stats
+                    Text("20 lists")
+                        .font(.caption)
+                        .fontWeight(.heavy)
+                        .foregroundColor(.accentLightGray)
+                        .padding(2)
+
+
+                    Text("1.4k albums")
+                        .fontWeight(.heavy)
+                        .font(.caption)
+                        .foregroundColor(.accentLightGray)
+                        .padding(2)
+
+                }
+                
+                HStack { //following row
+                    Text("100 followers")
+                        .font(.caption)
+                        .fontWeight(.heavy)
+                        .foregroundColor(.accentLightGray)
+                        .padding(2)
+
+                    Text("200 following")
+                        .font(.caption)
+                        .fontWeight(.heavy)
+                        .foregroundColor(.accentLightGray)
+                        .padding(2)
+                }
+                
+            }.padding(.leading)                            .shadow(radius: 4)
+
+            
+        }.offset(x: 16, y: 80)
+    }
+}
+
+struct ProfileHeaderTwo: View {
+    var body: some View {
+        VStack {
+            ZStack( alignment: .leading) {
+                
+                Color(.systemBrown)
+                    .ignoresSafeArea()
+                
+                Image("profilebackgroundtusks")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .ignoresSafeArea()
+                    .frame(height: 240)
+                    .offset(y: -30)
+                
+                LinearGradient(
+                    gradient: Gradient(stops: [
+                        .init(color: Color.background.opacity(1), location: 0.05),
+                        .init(color: Color.background.opacity(0.0001), location: 0.4)
+                    ]),
+                    startPoint: .bottom,
+                    endPoint: .top
+                ).offset(y: 16)
+                
+                ProfileInfoTwo()
+
+                ProfileHeader().offset(y: -130)
+                
+            }
+            .frame(height: 280).background(.red)
+            
+            
         }
     }
 }
@@ -32,130 +177,46 @@ struct ProfileHeader: View {
     var body: some View {
         VStack {
             
-            ZStack {
-                LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.7), Color.background]), startPoint: .top, endPoint: .bottom)
-                    .ignoresSafeArea(.all, edges: .top)
+            HStack {
                 
-                HStack {
-                    
-                    Button { //temporary logout button
-                        viewModel.signOut()
-                    } label: {
-                        Rectangle()
-                            .frame(width: 30, height: 30)
-                            .foregroundColor(.red)
-                    }
-                    Spacer()
-                    
-                    Text("Profile")
-                        .font(.title3)
-                        .fontWeight(.heavy)
-                        .foregroundColor(.whiteFont) // Modify as per your color scheme
-                        .shadow(color: Color.black.opacity(0.8), radius: 20, x: 10, y: 10)
-                    
-                    Spacer()
-                    
-                    // Filter settings
-                    Button(action: {
-                        // Filter button action
-                    }) {
-                        Image("icons8-three-dots-50")
-                            .resizable()
-                            .frame(width: 30, height: 30)
-                            .foregroundColor(.accentLightGray) // Modify as per your color scheme
-                    }
+                Button { //temporary logout button
+                    viewModel.signOut()
+                } label: {
+                    Rectangle()
+                        .frame(width: 30, height: 30)
+                        .foregroundColor(.red)
+                        .shadow(color: Color.black.opacity(0.8), radius: 20, x: 0, y: 0)
+                        .cornerRadius(10)
                 }
-                .padding(.horizontal)
-            }
-            .frame(height: 50)
-            
-        }
-        .background(Color.background)
-    }
-}
-
-struct ProfileInfo: View {
-    @EnvironmentObject var viewModel: AuthViewModel
-    
-    var body: some View {
-        ZStack(alignment: .leading)  {
-            // header image goes here
-            Image("profilebackgroundtusks")
-                .frame(width: 340, height: 200)
-            
-            LinearGradient(gradient: Gradient(colors: [Color.clear, Color.background]), startPoint: .top, endPoint: .bottom)
-                .ignoresSafeArea(.all, edges: .top)
-                .frame(height: 280)
-            
-            VStack {
                 
                 Spacer()
                 
-                HStack(alignment: .center) {
-                    
-                    Circle()
-                        .frame(width: 140)
-                        .padding()
-                        .shadow(radius: 10)
-                        .foregroundColor(Color.accentLightGray)
-                    
-                    VStack (alignment: .leading) {
-                        // following icon
-                        Image("dummy")
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                            .padding(2)
-                        //user name
-                        Text("username")
-                            .font(.title3)
-                            .fontWeight(.heavy)
-                            .foregroundColor(.whiteFont)
-                            .padding(2)
-                            .shadow(radius: 4)
-
-                        
-                        HStack() {
-                            Text("20 lists")
-                                .font(.caption)
-                                .fontWeight(.heavy)
-                                .foregroundColor(.accentLightGray)
-                                .padding(2)
-
-
-                            Text("1.4k albums")
-                                .fontWeight(.heavy)
-                                .font(.caption)
-                                .foregroundColor(.accentLightGray)
-                                .padding(2)
-
-                        }
-                        
-                        HStack {
-                            Text("100 followers")
-                                .font(.caption)
-                                .fontWeight(.heavy)
-                                .foregroundColor(.accentLightGray)
-                                .padding(2)
-
-                            Text("200 following")
-                                .font(.caption)
-                                .fontWeight(.heavy)
-                                .foregroundColor(.accentLightGray)
-                                .padding(2)
-                        }
-                        
-                        
-                    }
-                    
+                Text("Profile")
+                    .font(.title3)
+                    .fontWeight(.heavy)
+                    .foregroundColor(.whiteFont) // Modify as per your color scheme
+                    .shadow(color: Color.black.opacity(0.8), radius: 20, x: 0, y: 0)
+                
+                Spacer()
+                
+                // Filter settings
+                Button(action: {
+                    // Filter button action
+                }) {
+                    Image("icons8-three-dots-50")
+                        .resizable()
+                        .frame(width: 30, height: 30)
+                        .foregroundColor(.accentLightGray) // Modify as per your color scheme
+                        .shadow(color: Color.black.opacity(0.8), radius: 20, x: 0, y: 0)
                 }
-                
             }
-            .frame(height: 280)
+            .padding(.horizontal)
             
-                
         }
+        .background(Color.clear)
     }
 }
+
 #Preview {
     ProfileView()
 }
