@@ -19,6 +19,10 @@ struct User: Identifiable, Decodable {
     var fullname: String
     var profileImageUrl: String
     var username: String
+    var numLists: Int
+    var numLikedAlbums: Int
+    var followersCount: Int
+    var followingCount: Int
     
     
     
@@ -29,8 +33,10 @@ struct User: Identifiable, Decodable {
     
     var followers: [String]?
     var following: [String]?
+
     
     var createdLists: [String]?
+
     var likedAlbums: [String]?
     var reviews: [String]?
     var likedReviews: [String]?

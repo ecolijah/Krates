@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 //testing krate
 var krate1 = Krate(
@@ -41,7 +42,7 @@ struct ProfileView: View {
                     }
                 }
             }
-            .padding(.bottom, 30)
+            .padding(.bottom, 20)
             
         }
         .background(Color.background)
@@ -88,11 +89,17 @@ struct ProfileInfoTwo: View {
     
     var body: some View {
         if let user = viewModel.currentUser {
-            HStack(alignment:.center) {//picture and user info
-                Circle()
-                    .frame(width: 112, height: 112)
+            HStack(alignment: .bottom) {//picture and user info
+                KFImage(URL(string: user.profileImageUrl))
+                    .resizable()
+                    .scaledToFill()
+                    .clipShape(.circle)
                     .shadow(color: Color.black.opacity(0.8), radius: 10, x: 0, y: 0)
-                    .foregroundColor(.accentLightGray)
+                    .frame(width: 112, height: 112)
+//                Circle()
+//                    .frame(width: 112, height: 112)
+//                    .shadow(color: Color.black.opacity(0.8), radius: 10, x: 0, y: 0)
+//                    .foregroundColor(.accentLightGray)
                 VStack(alignment: .leading, spacing: 2)  { //user info
                     //user name
                     Text(user.username)
@@ -102,33 +109,33 @@ struct ProfileInfoTwo: View {
                         .padding(2)
                     
                     HStack { //stats
-                        Text("20 lists")
+                        Text("\(user.numLists) Lists    • ")
                             .font(.caption)
                             .fontWeight(.heavy)
                             .foregroundColor(.accentLightGray)
-                            .padding(2)
+                            .padding(.vertical, 2)
 
 
-                        Text("1.4k albums")
+                        Text(" \(user.numLikedAlbums) Albums")
                             .fontWeight(.heavy)
                             .font(.caption)
                             .foregroundColor(.accentLightGray)
-                            .padding(2)
+                            .padding(.vertical, 2)
 
                     }
                     
                     HStack { //following row
-                        Text("100 followers")
+                        Text("\(user.followersCount) Followers    • ")
                             .font(.caption)
                             .fontWeight(.heavy)
                             .foregroundColor(.accentLightGray)
-                            .padding(2)
+                            .padding(.vertical, 2)
 
-                        Text("200 following")
+                        Text(" \(user.followingCount) Following")
                             .font(.caption)
                             .fontWeight(.heavy)
                             .foregroundColor(.accentLightGray)
-                            .padding(2)
+                            .padding(.vertical, 2)
                     }
                     
                 }.padding(.leading)                            .shadow(radius: 4)
@@ -156,8 +163,8 @@ struct ProfileHeaderTwo: View {
                 
                 LinearGradient(
                     gradient: Gradient(stops: [
-                        .init(color: Color.background.opacity(1), location: 0.05),
-                        .init(color: Color.background.opacity(0.0001), location: 0.4)
+                        .init(color: Color.background.opacity(1), location: 0.2),
+                        .init(color: Color.background.opacity(0.0001), location: 0.8)
                     ]),
                     startPoint: .bottom,
                     endPoint: .top

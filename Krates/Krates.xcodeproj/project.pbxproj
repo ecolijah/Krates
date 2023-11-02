@@ -50,6 +50,7 @@
 		F7544DAA2AF2C50900D803CA /* imageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7544DA92AF2C50900D803CA /* imageUploader.swift */; };
 		F7544DAC2AF2EEEA00D803CA /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7544DAB2AF2EEEA00D803CA /* UserService.swift */; };
 		F7544DB02AF3025700D803CA /* KrateFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7544DAF2AF3025700D803CA /* KrateFilterViewModel.swift */; };
+		F7544DB32AF32C0400D803CA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F7544DB22AF32C0400D803CA /* Kingfisher */; };
 		F7BB86282AD13A9B004BD57D /* KrateRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB86272AD13A9B004BD57D /* KrateRowCell.swift */; };
 		F7BB862C2AD4BA06004BD57D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB862B2AD4BA06004BD57D /* HomeViewController.swift */; };
 		F7BB862E2AD4F164004BD57D /* KrateObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB862D2AD4F164004BD57D /* KrateObjectView.swift */; };
@@ -138,6 +139,7 @@
 				F7544D7F2AF18E5B00D803CA /* FirebaseInAppMessaging-Beta in Frameworks */,
 				F7544D712AF18E5B00D803CA /* FirebaseDatabaseSwift in Frameworks */,
 				F7544D7B2AF18E5B00D803CA /* FirebaseFunctions in Frameworks */,
+				F7544DB32AF32C0400D803CA /* Kingfisher in Frameworks */,
 				F7544D912AF18E5B00D803CA /* FirebaseStorageCombine-Community in Frameworks */,
 				F7544D8B2AF18E5B00D803CA /* FirebaseRemoteConfig in Frameworks */,
 				F7544D672AF18E5B00D803CA /* FirebaseAppDistribution-Beta in Frameworks */,
@@ -405,6 +407,7 @@
 				F7544D8C2AF18E5B00D803CA /* FirebaseRemoteConfigSwift */,
 				F7544D8E2AF18E5B00D803CA /* FirebaseStorage */,
 				F7544D902AF18E5B00D803CA /* FirebaseStorageCombine-Community */,
+				F7544DB22AF32C0400D803CA /* Kingfisher */,
 			);
 			productName = Krates;
 			productReference = F7BFA7F32ACE090C00B729AD /* Krates.app */;
@@ -436,6 +439,7 @@
 			mainGroup = F7BFA7EA2ACE090C00B729AD;
 			packageReferences = (
 				F7544D5B2AF18E5B00D803CA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				F7544DB12AF32C0400D803CA /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = F7BFA7F42ACE090C00B729AD /* Products */;
 			projectDirPath = "";
@@ -723,6 +727,14 @@
 				minimumVersion = 10.17.0;
 			};
 		};
+		F7544DB12AF32C0400D803CA /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.10.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -860,6 +872,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F7544D5B2AF18E5B00D803CA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		F7544DB22AF32C0400D803CA /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F7544DB12AF32C0400D803CA /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -57,7 +57,11 @@ class AuthViewModel: ObservableObject {
             //upload user data to firestore database
             let data = ["email": email,
                         "fullname": fullname,
-                        "username": username]
+                        "username": username,
+                        "followersCount": 0,
+                        "followingCount": 0,
+                        "numLists": 0,
+                        "numLikedAlbums": 0]
             
             //upload data to users collection
             Firestore.firestore().collection("users")
@@ -67,6 +71,7 @@ class AuthViewModel: ObservableObject {
                     self.didAuthenticateUser = true
                     print("DEBUG: didAuthenticateUser: \(self.didAuthenticateUser)")
                 }
+            
             
         }
     }
@@ -84,6 +89,7 @@ class AuthViewModel: ObservableObject {
                 .document(uid)
                 .updateData(["profileImageUrl": profileImageUrl]) { _ in
                     self.userSession = self.tempUserSession
+                    self.fetchUser()
                 }
             
         }
