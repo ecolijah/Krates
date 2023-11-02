@@ -25,7 +25,11 @@ var krate1 = Krate(
 
 struct ProfileView: View {
     @State private var selectedFilter: KrateFilterViewModel = .krates
+    @State private var likedAlbums: [Album] = []
+    var spotifyAPIManager = SpotifyAPIManager()
 
+
+    @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
         
@@ -35,17 +39,37 @@ struct ProfileView: View {
             
             KrateFilterView(selectedFilter: $selectedFilter).offset(y: 8)
             
-            ScrollView {
-                LazyVStack {
-                    ForEach(0...9, id: \.self) {_ in
-                        KrateRowCell(menuShowing: .constant(false), krate: krate1)
+            if selectedFilter == .krates {
+                ScrollView {
+                    LazyVStack {
+                        ForEach(0...9, id: \.self) {_ in
+                            KrateRowCell(menuShowing: .constant(false), krate: krate1)
+                        }
                     }
                 }
+                .padding(.bottom, 50)
             }
-            .padding(.bottom, 20)
+            if selectedFilter == .likes {
+                GridAlbumView(albums: likedAlbums)
+                    .padding(.bottom, 50)
+            }
+            if selectedFilter == .reviews {
+                
+            }
+            
             
         }
         .background(Color.background)
+        .onAppear {
+            guard let x = viewModel.currentUser?.likedAlbums else { return }
+            spotifyAPIManager.fetchAlbumsInKrate(krateAlbums: x) { albums, error in
+                if let albums = albums {
+                    self.likedAlbums = albums
+                } else {
+                    print("Error fetching recommended albums:", error?.localizedDescription ?? "Unknown error")
+                }
+            }
+        }
     }
 }
 

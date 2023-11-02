@@ -57,11 +57,12 @@ class AuthViewModel: ObservableObject {
             //upload user data to firestore database
             let data = ["email": email,
                         "fullname": fullname,
-                        "username": username,
+                        "username": username.lowercased(),
                         "followersCount": 0,
                         "followingCount": 0,
                         "numLists": 0,
-                        "numLikedAlbums": 0]
+                        "numLikedAlbums": 0,
+                        "numToListenAlbums": 0]
             
             //upload data to users collection
             Firestore.firestore().collection("users")

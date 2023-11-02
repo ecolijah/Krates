@@ -23,11 +23,12 @@ struct User: Identifiable, Decodable {
     var numLikedAlbums: Int
     var followersCount: Int
     var followingCount: Int
+    var numToListenAlbums: Int
     
     
     
     
-     //optional
+    //optional
     var bio: String?
     var headerImageUrl: String?
     
@@ -38,6 +39,7 @@ struct User: Identifiable, Decodable {
     var createdLists: [String]?
 
     var likedAlbums: [String]?
+    var toListenAlbums: [String]?
     var reviews: [String]?
     var likedReviews: [String]?
     var likedLists: [String]?

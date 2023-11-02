@@ -59,7 +59,7 @@ struct AlbumObjectView: View {
                     Spacer()
                     Menu {
                         //code
-                        Button("Add to favorites ♥", action: handleOption1)
+                        Button("Add to favorites ♥", action: addAlbumToLikedAlbums)
                         Button("Add to 'to listen'", action: handleOption2)
                         Button("Add to krate", action: handleOption3)
                         Button("Done", action: handleOption4)
@@ -114,7 +114,7 @@ struct AlbumObjectView: View {
 
     }
     
-    func handleOption1() {
+    func addAlbumToLikedAlbums() {
         guard let currentUser = viewModel.currentUser else {
             print("DEBUG: Current user is nil.")
             return
@@ -133,25 +133,32 @@ struct AlbumObjectView: View {
             .document(uid)
             .getDocument { (document, error) in
                 if let document = document, document.exists {
-                    // Try to decode the user data to get the current likedAlbums
+                    // Try to decode the user data to get the current likedAlbums and numLikedAlbums
                     let user = try? document.data(as: User.self)
                     
                     // Append the new album_uri to the existing likedAlbums
                     var updatedLikedAlbums = user?.likedAlbums ?? []
+                    var numLikedAlbums = user?.numLikedAlbums ?? 0
+                    
                     if !updatedLikedAlbums.contains(album_uri) {
                         updatedLikedAlbums.append(album_uri)
+                        numLikedAlbums += 1  // Increment numLikedAlbums
                     }
                     
-                    // Now update the database with the new list
+                    // Now update the database with the new list and incremented numLikedAlbums
                     Firestore.firestore().collection("users")
                         .document(uid)
-                        .updateData(["likedAlbums": updatedLikedAlbums]) { error in
+                        .updateData([
+                            "likedAlbums": updatedLikedAlbums,
+                            "numLikedAlbums": numLikedAlbums
+                        ]) { error in
                             if let error = error {
-                                print("DEBUG: Failed to update liked albums: \(error.localizedDescription)")
+                                print("DEBUG: Failed to update liked albums and count: \(error.localizedDescription)")
                             } else {
-                                print("DEBUG: Successfully updated liked albums.")
+                                print("DEBUG: Successfully updated liked albums and count.")
                                 // Update the local user model
                                 self.viewModel.currentUser?.likedAlbums = updatedLikedAlbums
+                                self.viewModel.currentUser?.numLikedAlbums = numLikedAlbums
                             }
                         }
                 } else {
