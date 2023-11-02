@@ -6,28 +6,28 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ProfileRowView: View {
+    let user: User
     var body: some View {
         
         VStack (alignment: .leading) { // parent container
             HStack { // profile info
-//                KFImage(URL(string: album.images[0].url))
-//                    .resizable()
-//                    .frame(width: 85, height: 85)
-                Image("dummy")
+                KFImage(URL(string: user.profileImageUrl))
                     .resizable()
-                    .frame(width: 65, height: 65)
+                    .frame(width: 85, height: 85)
                     .clipShape(Circle())
+               
                 
                 VStack (alignment: .leading)  {
                     
-                    Text("username")
+                    Text(user.username)
                         .font(.title3)
                         .fontWeight(.heavy)
                         .foregroundColor(Color.white)
                     
-                    Text("full name")
+                    Text(user.fullname)
                         .font(.callout)
                         .foregroundColor(Color.accentLightGray)
                 }
@@ -45,6 +45,6 @@ struct ProfileRowView: View {
 
 }
 
-#Preview {
-    ProfileRowView()
-}
+//#Preview {
+//    ProfileRowView()
+//}

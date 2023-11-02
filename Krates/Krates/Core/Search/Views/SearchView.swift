@@ -14,22 +14,39 @@ struct SearchView: View {
     @State private var selectedFilter: SearchFilterViewModel = .users
     var body: some View {
         
-        VStack { // parent container
+        VStack (spacing: 0) { // parent container
             
-            
+            SearchFilterView(selectedFilter: $selectedFilter)
             ScrollView {
                 LazyVStack (spacing: 0) {
-                    ForEach(0...10, id: \.self) { album in
-                        NavigationLink {
-//                            AlbumObjectView()
-                            Text("Album object view but test")
-                        } label: {
-                            AlbumRowView()
+                    if selectedFilter == .users {
+                        ForEach(searchViewModel.users, id: \.self) { user in
+                            NavigationLink {
+    //                            AlbumObjectView()
+                                ProfileVisitingView(user: user)
+                                    .navigationBarBackButtonHidden(true)
+//                                Text("Album object view but test")
+                            } label: {
+                                ProfileRowView(user: user)
+                            }
                         }
                     }
+                    
+                    if selectedFilter == .albums {
+                        ForEach(0...10, id: \.self) { album in
+                            NavigationLink {
+    //                            AlbumObjectView()
+                                Text("Album object view but test")
+                            } label: {
+                                AlbumRowView()
+                            }
+                        }
+                    }
+                    
                 }
             }
         }
+        .background(Color.background)
     }
 }
 
@@ -38,7 +55,7 @@ struct SearchFilterView: View {
     @Binding var selectedFilter: SearchFilterViewModel
     var body: some View {
         HStack {
-            ForEach(KrateFilterViewModel.allCases, id: \.rawValue) { item in
+            ForEach(SearchFilterViewModel.allCases, id: \.rawValue) { item in
                 VStack {
                     Text(item.title)
                         .fontWeight(selectedFilter == item ? .semibold : .regular)

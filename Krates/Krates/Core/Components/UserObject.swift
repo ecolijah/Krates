@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import FirebaseFirestoreSwift
 
-struct User: Identifiable, Decodable {
+struct User: Identifiable, Decodable, Hashable {
     
     //documentid in datbase
     var id: String?

@@ -32,7 +32,7 @@ struct KrateRowCell: View {
                 Spacer()
                 
                 NavigationLink(
-                    destination: ProfileVisitingView()
+                    destination: /*ProfileVisitingView()*/ EmptyView()
                         .navigationBarBackButtonHidden(false)
                         .onAppear { // This will toggle menuShowing when KrateObjectView appears
                             if menuShowing {
