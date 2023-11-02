@@ -225,7 +225,7 @@ struct ProfileHeader: View {
 //                }
                 Rectangle()
                     .frame(width: 30, height: 30)
-                    .foregroundColor(.clear).padding(.leading, 16)
+                    .foregroundColor(.clear).padding(.horizontal, 16)
                 
                 Spacer()
                 
@@ -233,9 +233,25 @@ struct ProfileHeader: View {
                     .font(.title3)
                     .fontWeight(.heavy)
                     .foregroundColor(.whiteFont) // Modify as per your color scheme
-                    .shadow(color: Color.black.opacity(0.8), radius: 20, x: 0, y: 0)
+                    .shadow(color: Color.black.opacity(0.9), radius: 10, x: 0, y: 0)
+                    .offset(x: 16)
                 
                 Spacer()
+                
+                NavigationLink {
+                    //code
+                    createKrateView()
+                        .navigationBarBackButtonHidden(true)
+                } label: {
+                    Image(systemName: "plus")
+                        .resizable()
+                        .frame(width: 24, height: 24)
+                        .foregroundColor(Color.accentLightGray)
+                        .padding(.trailing)
+                        .shadow(color: Color.black.opacity(0.9), radius: 10, x: 0, y: 0)
+
+                }
+                
                 Menu {
                     Button("LogOut", action: logOut)
                     Button("Done", action: dismissMenu)
@@ -244,7 +260,7 @@ struct ProfileHeader: View {
                         .resizable()
                         .frame(width: 30, height: 30)
                         .foregroundColor(.accentLightGray) // Modify as per your color scheme
-                        .shadow(color: Color.black.opacity(0.8), radius: 20, x: 0, y: 0)
+                        .shadow(color: Color.black.opacity(0.9), radius: 10, x: 0, y: 0)
                         .padding(.trailing, 16)
                         .offset(y: -5)
                 }

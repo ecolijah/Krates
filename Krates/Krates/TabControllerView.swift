@@ -20,6 +20,7 @@ struct TabControllerView: View {
                 switch selectedIndex {
                 case 0:
                     HomeViewController()
+                        .padding(.bottom, 50)
                 case 1:
                     SearchView()
                 case 2:

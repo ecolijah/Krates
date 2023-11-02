@@ -9,7 +9,7 @@ struct MenuPicker: View {
     var body: some View {
         VStack {
             ZStack(alignment: .leading) { // Alignment set to leading
-                ForEach(0..<3) { index in
+                ForEach(0..<2) { index in
                     Button(action: {
                         withAnimation {
                             selectedHomeIndex = index

@@ -33,4 +33,19 @@ struct UserService {
                 }
             }
     }
+    
+    func fetchUsers(completion: @escaping([User]) -> Void) {
+        var users = [User]()
+        Firestore.firestore().collection("users")
+            .getDocuments { snapshot, _ in
+                guard let documents =  snapshot?.documents else { return }
+                
+                documents.forEach { document in
+                    guard let user = try? document.data(as: User.self) else { return }
+                    users.append(user)
+                }
+                
+                completion(users)
+            }
+    }
 }
