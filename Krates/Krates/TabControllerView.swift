@@ -23,10 +23,13 @@ struct TabControllerView: View {
                         .padding(.bottom, 50)
                 case 1:
                     SearchView()
+                        .padding(.bottom, 50)
                 case 2:
                     SocialView()
+                        .padding(.bottom, 50)
                 case 3:
                     ProfileView()
+                        .padding(.bottom, 50)
                 default:
                     HomeViewController()
                 }
@@ -70,10 +73,23 @@ struct CustomTabButton: View {
                 .resizable()
                 .frame(width: 30, height: 30)
                 .foregroundColor(isSelected ? Color.orange : Color.gray)
+                .shadow(
+                    color: isSelected ? Color.brightOrange.opacity(0.7) : Color.clear,
+                    radius: 3,
+                    x: 0,
+                    y: 0
+                )
             Text(text)
                 .font(.caption2)
                 .foregroundColor(isSelected ? Color.brightOrange : Color.accentLightGray)
                 .bold()
+                .shadow(
+                    color: isSelected ? Color.brightOrange.opacity(0.7) : Color.clear,
+                    radius: 3,
+                    x: 0,
+                    y: 0
+                )
+            
         }
         .padding(.vertical, 8)
     }

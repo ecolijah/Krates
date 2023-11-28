@@ -10,12 +10,13 @@ import Foundation
 enum SearchFilterViewModel: Int, CaseIterable {
     case users
     case albums
-//    case krates
+    case krates
     
     var title: String {
         switch self{
         case.users: return "Users"
         case.albums: return "Albums"
+        case.krates: return "Krates"
 //        case.reviews: return "Reviews"
             
         }

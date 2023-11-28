@@ -45,6 +45,18 @@ struct SearchView: View {
                         }
                     }
                     
+                    if selectedFilter == .krates {
+                        ForEach(0...10, id: \.self) { krate in
+                            NavigationLink {
+    //                            AlbumObjectView()
+                                Text("krate object view but test")
+                            } label: {
+                                KrateRowCell(menuShowing: .constant(false),krate: krate1 )
+                                
+                            }
+                        }
+                    }
+                    
                 }
             }
         }

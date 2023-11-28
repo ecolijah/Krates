@@ -134,13 +134,13 @@ struct KrateRowCell_Previews: PreviewProvider {
 
     static var previews: some View {
         
-        var krate1 = Krate(
+        let krate1 = Krate(
             id: UUID(),
-            name: "shoegazer",
+            name: "kratename",
             author: "ecolijah",
             dateCreated: Date(),
             likes: 3,
-            description: "collection of my favorite shoegaze albums.",
+            description: "collection of albums.",
             albums: ["spotify:album:4CIaS88EQ6j26qOigblqSH",
                      "spotify:album:4p73PcjJvWer7WDYXcGetn",
                       "spotify:album:5YrOTxB5pmtK6uD4qcpAw5",

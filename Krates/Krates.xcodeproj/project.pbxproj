@@ -260,6 +260,7 @@
 		F754546B2AF41CD2000BDBAC /* ReusableComponents */ = {
 			isa = PBXGroup;
 			children = (
+				F7BFA81C2ACFBE4400B729AD /* MenuPicker.swift */,
 				F754546C2AF41CE3000BDBAC /* SearchBar.swift */,
 			);
 			path = ReusableComponents;
@@ -386,7 +387,6 @@
 				F7BFA8142ACE0A5F00B729AD /* Krates */,
 				F7BFA8132ACE0A5000B729AD /* Albums */,
 				F7BFA81A2ACFB26100B729AD /* Colors.swift */,
-				F7BFA81C2ACFBE4400B729AD /* MenuPicker.swift */,
 				F7BFA8272ACFECAC00B729AD /* UserObject.swift */,
 			);
 			path = Components;

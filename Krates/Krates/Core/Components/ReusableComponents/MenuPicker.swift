@@ -16,36 +16,38 @@ struct MenuPicker: View {
                             isExpanded.toggle()
                         }
                     }) {
+                        
                         Text(buttonTitles[index])
-                            .fontWeight(.heavy)
-                            .font(.title3)
+                            .fontWeight(selectedHomeIndex == index ? .heavy : .bold)
+                            .font(.system(size: 18))
+                            .shadow(
+                                color: selectedHomeIndex == index ? Color.brightOrange.opacity(0.7) : Color.clear,
+                                radius: 3,
+                                x: 0,
+                                y: 0
+                            )
+
+                            
+
                     }
-                    .frame(width: 120, height: 40)
+                    .frame(width: 100, height: 34)
                     .background(selectedHomeIndex == index ? Color.accentDarkGray : Color.accentDarkGray)
                     .foregroundColor(selectedHomeIndex == index ? Color.brightOrange : Color.accentLightGray)
                     .cornerRadius(20)
                     .shadow(
-                        color: isExpanded ? Color.black.opacity(0.4) : Color.black.opacity(0.4),
+                        color: isExpanded ? Color.black.opacity(0.4) : Color.black.opacity(0.2),
                         radius: isExpanded ? 3 : 2,
                         x: isExpanded ? 10 : 0,
                         y: isExpanded ? 3 : 2
                     )
                     .zIndex(selectedHomeIndex == index ? 1 : 0)
                     // Adjust the offset to ensure expansion is always to the right
-                    .offset(x: isExpanded ? CGFloat(index) * 125 : 0)
+                    .offset(x: isExpanded ? CGFloat(index) * 115 : 0)
                 }
             }
             .background(.clear)
-            // Conditionally displaying the related view
-//            if selectedHomeIndex == 0 {
-//                HomeAlbumsView()
-//            } else if selectedHomeIndex == 1 {
-//                HomeKratesView()
-//            } else if selectedHomeIndex == 2 {
-//                HomeReviewsView()
-//            }
 
-        }
+        }.padding(.vertical)
     }
 }
 
