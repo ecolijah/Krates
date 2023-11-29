@@ -178,6 +178,7 @@
 		F71C22112AEB622E00E0F475 /* Spotify */ = {
 			isa = PBXGroup;
 			children = (
+				F7BFA8202ACFE86900B729AD /* SpotifyObjects.swift */,
 				F71C22122AEB624700E0F475 /* SpotifyAuthService.swift */,
 				F71C22142AEB7EA600E0F475 /* SpotifyAPIManager.swift */,
 			);
@@ -396,7 +397,6 @@
 			isa = PBXGroup;
 			children = (
 				F7BFA81E2ACFE69A00B729AD /* AlbumObjectView.swift */,
-				F7BFA8202ACFE86900B729AD /* SpotifyObjects.swift */,
 				F7544DBC2AF380B100D803CA /* AlbumRowView.swift */,
 			);
 			path = Albums;

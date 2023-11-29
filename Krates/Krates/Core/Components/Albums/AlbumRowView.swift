@@ -9,16 +9,16 @@ import SwiftUI
 import Kingfisher
 
 struct AlbumRowView: View {
-//    var album: Album
+    var album: Album
     var body: some View {
         VStack (alignment: .leading) { // parent container
             HStack { // album info
-//                KFImage(URL(string: album.images[0].url))
-//                    .resizable()
-//                    .frame(width: 85, height: 85)
-                Image("dummy")
+                KFImage(URL(string: album.images[0].url))
                     .resizable()
-                    .frame(width: 65, height: 65)
+                    .frame(width: 85, height: 85)
+//                Image("dummy")
+//                    .resizable()
+//                    .frame(width: 65, height: 65)
                 
                 VStack (alignment: .leading)  {
 //                    Text(album.name)
@@ -28,12 +28,12 @@ struct AlbumRowView: View {
 //                    Text(album.artists[0].name)
 //                        .font(.callout)
                     
-                    Text("album name")
+                    Text("\(album.name)")
                         .font(.title3)
                         .fontWeight(.heavy)
                         .foregroundColor(Color.white)
                     
-                    Text("artist name")
+                    Text("\(album.artists[0].name)")
                         .font(.callout)
                         .foregroundColor(Color.accentLightGray)
                 }
@@ -50,6 +50,6 @@ struct AlbumRowView: View {
     }
 }
 
-#Preview {
-    AlbumRowView()
-}
+//#Preview {
+//    AlbumRowView()
+//}

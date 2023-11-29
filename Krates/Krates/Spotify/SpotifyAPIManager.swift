@@ -29,13 +29,7 @@ class SpotifyAPIManager {
     
     
     //these 2 are trivial and used for decoding json easier
-    struct SpotifyAlbumsResponse: Codable {
-        let albums: SpotifyAlbumPage
-    }
 
-    struct SpotifyAlbumPage: Codable {
-        let items: [Album]
-    }
     
     func fetchAlbumsForArtist(withId artistId: String, completion: @escaping ([String]?, Error?) -> Void) {
         print("Fetching albums for artist ID:", artistId)
@@ -174,6 +168,36 @@ class SpotifyAPIManager {
             }
         }
     }
+    
+    func searchAlbums(query: String, completion: @escaping ([Album]?, Error?) -> Void) {
+        print("Searching for albums with query:", query)
+        let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        let endpoint = "search?q=\(encodedQuery)&type=album&limit=10" // Limit to the top 10 results
+
+        makeRequest(endpoint: endpoint) { data, error in
+            guard let data = data, error == nil else {
+                print("Error searching for albums with query \(query):", error?.localizedDescription ?? "Unknown error")
+                completion(nil, error)
+                return
+            }
+
+            do {
+                // prints album json for testing
+                print("DEBUG: got data")
+                print(String(data: data, encoding: .utf8) ?? "Invalid data")
+                let decodedResponse = try JSONDecoder().decode(SpotifyAlbumsResponse.self, from: data)
+                let albums = decodedResponse.albums?.items
+                print("Found \(albums?.count) albums with query \(query)")
+                completion(albums, nil)
+            } catch {
+                print("DEBUG:not got data")
+
+                print("Failed to parse search results for query \(query):", error)
+                completion(nil, error)
+            }
+        }
+    }
+
 
     
     

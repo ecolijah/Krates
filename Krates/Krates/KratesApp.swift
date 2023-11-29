@@ -7,6 +7,7 @@ import Firebase
 struct KratesApp: App {
     //init a viewmodel instance, enviroenment so only init once
     @StateObject var viewModel = AuthViewModel()
+    
     // Initialize the SpotifyAuthService
     init() {
         //Firebase app initialization

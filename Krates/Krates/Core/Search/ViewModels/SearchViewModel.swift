@@ -11,6 +11,10 @@ class SearchViewModel: ObservableObject {
     @Published var users = [User]()
     let service = UserService()
     @Published var searchText = ""
+    var spotifyAPIManager = SpotifyAPIManager()
+
+    
+
     
     var searchableUsers: [User] {
         if searchText.isEmpty {

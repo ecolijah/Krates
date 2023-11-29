@@ -12,6 +12,8 @@ struct SearchView: View {
     @State private var albumsInSearch: [Album] = []
     @ObservedObject var searchViewModel = SearchViewModel()
     @State private var selectedFilter: SearchFilterViewModel = .users
+    var spotifyAPIManager = SpotifyAPIManager()
+
     var body: some View {
         
         VStack (spacing: 0) { // parent container
@@ -19,6 +21,9 @@ struct SearchView: View {
             SearchFilterView(selectedFilter: $selectedFilter)
             SearchBar(text: $searchViewModel.searchText)
                 .padding(.vertical)
+                .onSubmit { // This closure is called when the user presses Enter
+                    searchAlbums()
+                }
             ScrollView {
                 LazyVStack (spacing: 0) {
                     if selectedFilter == .users {
@@ -35,15 +40,13 @@ struct SearchView: View {
                     }
                     
                     if selectedFilter == .albums {
-                        ForEach(0...10, id: \.self) { album in
-                            NavigationLink {
-    //                            AlbumObjectView()
-                                Text("Album object view but test")
-                            } label: {
-                                AlbumRowView()
+                        ForEach(albumsInSearch, id: \.id) { album in
+                            NavigationLink(destination: AlbumObjectView(album: album)) {
+                                AlbumRowView(album: album)
                             }
                         }
                     }
+
                     
                     if selectedFilter == .krates {
                         ForEach(0...10, id: \.self) { krate in
@@ -60,8 +63,29 @@ struct SearchView: View {
                 }
             }
         }
+        .onChange(of: selectedFilter) { newFilter in
+                    if newFilter == .albums {
+                        // Call the search function to fetch albums
+                        print("DEBUG: searching albums on change of search tab.")
+                        searchAlbums()
+                    }
+                }
+                .background(Color.background)
         .background(Color.background)
     }
+    // Function to fetch albums and update the albumsInSearch array
+        func searchAlbums() {
+            // Call your search function here and populate albumsInSearch
+            // Example:
+            spotifyAPIManager.searchAlbums(query: searchViewModel.searchText) { albums, error in
+                if let albums = albums {
+                    self.albumsInSearch = albums
+                } else if let error = error {
+                    // Handle the error
+                    print("Error searching for albums: \(error.localizedDescription)")
+                }
+            }
+        }
 }
 
 struct SearchFilterView: View {

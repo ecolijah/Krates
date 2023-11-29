@@ -1,5 +1,13 @@
 import Foundation
 
+struct SpotifyAlbumsResponse: Codable {
+    let albums: SpotifyAlbumPage?
+}
+
+struct SpotifyAlbumPage: Codable {
+    let items: [Album]?
+}
+
 struct Album: Codable, Identifiable {
     let albumType: String
     let totalTracks: Int
@@ -16,11 +24,11 @@ struct Album: Codable, Identifiable {
     let uri: String
     let artists: [Artist]
     let tracks: TrackCollection?
-    let copyrights: [Copyright]
-    let externalIds: ExternalIds
-    let genres: [String]
-    let label: String
-    let popularity: Int
+    let copyrights: [Copyright]?
+    let externalIds: ExternalIds?
+    let genres: [String]?
+    let label: String?
+    let popularity: Int?
     
     enum CodingKeys: String, CodingKey {
         case albumType = "album_type"
