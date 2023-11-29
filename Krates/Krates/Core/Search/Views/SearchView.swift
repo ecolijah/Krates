@@ -29,10 +29,8 @@ struct SearchView: View {
                     if selectedFilter == .users {
                         ForEach(searchViewModel.searchableUsers, id: \.self) { user in
                             NavigationLink {
-    //                            AlbumObjectView()
                                 ProfileVisitingView(user: user)
                                     .navigationBarBackButtonHidden(true)
-//                                Text("Album object view but test")
                             } label: {
                                 ProfileRowView(user: user)
                             }
@@ -41,7 +39,10 @@ struct SearchView: View {
                     
                     if selectedFilter == .albums {
                         ForEach(albumsInSearch, id: \.id) { album in
-                            NavigationLink(destination: AlbumObjectView(album: album)) {
+                            NavigationLink{
+                                AlbumObjectView(album: album)
+                                    .navigationBarBackButtonHidden(true)
+                            } label: {
                                 AlbumRowView(album: album)
                             }
                         }
