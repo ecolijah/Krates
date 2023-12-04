@@ -60,6 +60,7 @@
 		F754546D2AF41CE3000BDBAC /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F754546C2AF41CE3000BDBAC /* SearchBar.swift */; };
 		F754546F2AF42282000BDBAC /* KrateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F754546E2AF42282000BDBAC /* KrateService.swift */; };
 		F75454722AF42570000BDBAC /* UploadKrateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75454712AF42570000BDBAC /* UploadKrateViewModel.swift */; };
+		F754551B2B191565000BDBAC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F754551A2B191565000BDBAC /* Launch Screen.storyboard */; };
 		F7BB86282AD13A9B004BD57D /* KrateRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB86272AD13A9B004BD57D /* KrateRowCell.swift */; };
 		F7BB862C2AD4BA06004BD57D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB862B2AD4BA06004BD57D /* HomeViewController.swift */; };
 		F7BB862E2AD4F164004BD57D /* KrateObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB862D2AD4F164004BD57D /* KrateObjectView.swift */; };
@@ -110,6 +111,7 @@
 		F754546C2AF41CE3000BDBAC /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		F754546E2AF42282000BDBAC /* KrateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KrateService.swift; sourceTree = "<group>"; };
 		F75454712AF42570000BDBAC /* UploadKrateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadKrateViewModel.swift; sourceTree = "<group>"; };
+		F754551A2B191565000BDBAC /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		F7BB86272AD13A9B004BD57D /* KrateRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KrateRowCell.swift; sourceTree = "<group>"; };
 		F7BB862B2AD4BA06004BD57D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F7BB862D2AD4F164004BD57D /* KrateObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KrateObjectView.swift; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 				F7BFA7FA2ACE090E00B729AD /* Assets.xcassets */,
 				F7BFA7FC2ACE090E00B729AD /* Krates.entitlements */,
 				F7BFA7FD2ACE090E00B729AD /* Preview Content */,
+				F754551A2B191565000BDBAC /* Launch Screen.storyboard */,
 			);
 			path = Krates;
 			sourceTree = "<group>";
@@ -524,6 +527,7 @@
 			files = (
 				F7BFA7FF2ACE090E00B729AD /* Preview Assets.xcassets in Resources */,
 				F7BFA7FB2ACE090E00B729AD /* Assets.xcassets in Resources */,
+				F754551B2B191565000BDBAC /* Launch Screen.storyboard in Resources */,
 				F7544D5A2AF189FA00D803CA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -704,6 +708,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Krates/Krates.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -716,6 +721,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -740,6 +746,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Krates/Krates.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -752,6 +759,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

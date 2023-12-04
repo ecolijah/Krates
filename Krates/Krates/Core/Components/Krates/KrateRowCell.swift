@@ -49,7 +49,7 @@ struct KrateRowCell: View {
                             .font(.callout)
                         
                         Circle()
-                            .frame(width: 40, height: 40)
+                            .frame(width: 32, height: 32)
                             .foregroundColor(.blue)
                             .padding(.trailing, 10)
                     }

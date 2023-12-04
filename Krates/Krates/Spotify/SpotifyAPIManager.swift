@@ -6,12 +6,12 @@ class SpotifyAPIManager {
     private let authService = SpotifyAuthService.shared
     
     //main home view album lists
-    private let newReleasesList = ["spotify:album:4CIaS88EQ6j26qOigblqSH",
-                                   "spotify:album:4CIaS88EQ6j26qOigblqSH",
-                                   "spotify:album:4CIaS88EQ6j26qOigblqSH",
-                                   "spotify:album:4CIaS88EQ6j26qOigblqSH",
-                                   "spotify:album:4CIaS88EQ6j26qOigblqSH",
-                                   "spotify:album:4CIaS88EQ6j26qOigblqSH"]
+    private let newReleasesList = ["spotify:album:2pOEFqvfxp5uUQ8vQEmVA0",
+                                   "spotify:album:2QZMOZaXCN7GQjr3qKWAwA",
+                                   "spotify:album:7CHNUgkepqsMm9tYnwtVDt",
+                                   "spotify:album:33Ek6daAL3oXyQIV1uoItD",
+                                   "spotify:album:6LrhvefGM7zcJpIdMC9otz",
+                                   "spotify:album:3bKp9TUgbHGhfRBsTQTAxS"]
     
     private let popularList = ["spotify:album:4FftCsAcXXD1nFO9RFUNFO",
                                "spotify:album:4czdORdCWP9umpbhFXK2fW",

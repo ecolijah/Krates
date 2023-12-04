@@ -59,9 +59,11 @@ struct AlbumObjectView: View {
                     Spacer()
                     Menu {
                         //code
-                        Button("Add to favorites ♥", action: addAlbumToLikedAlbums)
-                        Button("Add to 'to listen'", action: handleOption2)
-                        Button("Add to krate", action: handleOption3)
+                        Button("Add To Favorites ♥", action: addAlbumToLikedAlbums)
+                        Button("Add To 'To Listen'", action: handleOption2)
+                        Button("Add To Krate", action: handleOption3)
+                        Button("Go To Spotify", action: handleOption4)
+
                         Button("Done", action: handleOption4)
                     } label: {
                         ZStack {
@@ -86,7 +88,7 @@ struct AlbumObjectView: View {
             .frame(height: 340, alignment: .leading)
 //            .background(.red)
             
-            Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu non odio euismod lacinia at quis risus sed. Hac habitasse platea dictumst vestibulum rhoncus. Pellentesque diam volutpat commodo sed egestas. Urna porttitor rhoncus dolor purus non enim praesent elementum. Proin fermentum leo vel orci. Ultrices sagittis orci a scelerisque. Viverra nam libero justo laoreet sit amet cursus sit. Amet nulla facilisi morbi tempus.")
+            Text("The Life Aquatic Studio Sessions Featuring Seu Jorge is an album by Brazilian musician Seu Jorge. It is a collection of David Bowie songs (plus one original, 'Team Zissou') Jorge recorded in Portuguese for the soundtrack to the film The Life Aquatic with Steve Zissou.Five of the covers were featured on the original soundtrack of the film (but were rerecorded for this album), while seven were released on this album for the first time. The translation to Portuguese is not exact; Seu Jorge maintains the melodies and styles, but often varies the lyrics. ")
                 .foregroundColor(.whiteFont)
                 .padding(.horizontal, 10)
                 .padding(.vertical, 6)

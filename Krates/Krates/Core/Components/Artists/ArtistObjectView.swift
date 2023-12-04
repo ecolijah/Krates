@@ -90,7 +90,7 @@ struct ArtistObjectView: View {
             }
             .frame(width: 393, height: 280, alignment: .leading)
             VStack {
-                Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu non odio euismod lacinia at quis risus sed. Hac habitasse platea dictumst vestibulum rhoncus.")
+                Text("Jorge Mário da Silva, more commonly known by his stage name Seu Jorge; born June 8, 1970; Portuguese pronunciation: [ˈsew ˈʒɔʁʒi]), is a Brazilian musical artist, songwriter, and actor. He is considered by many a renewer of Brazilian pop samba. Seu Jorge cites samba schools and American soul singer Stevie Wonder as major musical influences.[2] Jorge is also known for his film roles as Mané Galinha in the 2002 film City of God and as Pelé dos Santos in the 2004 film The Life Aquatic with Steve Zissou. His musical work has received praise from many of his fellow musicians including Beck and David Bowie.")
                     .foregroundColor(.whiteFont)
                     .padding(.horizontal, 10)
                     .padding(.vertical, 2)

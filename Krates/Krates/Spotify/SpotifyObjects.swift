@@ -9,7 +9,7 @@ struct SpotifyAlbumPage: Codable {
 }
 
 struct Album: Codable, Identifiable {
-    let albumType: String
+    let albumType: String?
     let totalTracks: Int
     let availableMarkets: [String]
     let externalUrls: ExternalUrls

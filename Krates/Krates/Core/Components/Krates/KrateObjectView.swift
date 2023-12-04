@@ -41,8 +41,12 @@ struct KrateObjectView: View {
             ZStack(alignment: .top) {
                 Rectangle()
                     .frame(height: 280)
-                    .foregroundColor(.blue)
+                    .foregroundColor(.gray)
                     .cornerRadius(5)
+                Image("Bjork_Post")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: 160)
                 LinearGradient(
                     gradient: Gradient(stops: [
                         .init(color: Color.background.opacity(1), location: 0.05),
@@ -86,14 +90,15 @@ struct KrateObjectView: View {
                 
             }
             .frame(height: 280, alignment: .leading)
-            VStack {
-                Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu non odio euismod lacinia at quis risus sed. Hac habitasse platea dictumst vestibulum rhoncus.")
+            VStack (alignment: .leading) {
+                Text("\(krate.description)")
                     .foregroundColor(.whiteFont)
                     .padding(.horizontal, 10)
                     .padding(.vertical, 2)
                     .bold()
                     .font(.caption)
             }
+            .offset(x: -50)
             GridAlbumView(albums: krateAlbums)
             
             Spacer()

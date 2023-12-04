@@ -26,10 +26,10 @@ struct TabControllerView: View {
                         .padding(.bottom, 50)
                 case 2:
                     SocialView()
-                        .padding(.bottom, 50)
+                        .padding(.bottom, 55)
                 case 3:
                     ProfileView()
-                        .padding(.bottom, 50)
+                        
                 default:
                     HomeViewController()
                 }
